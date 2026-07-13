@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Twin Cities happy hour finder — 5pmmsp.com",
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "seed:sql": "node scripts/seed.js"
