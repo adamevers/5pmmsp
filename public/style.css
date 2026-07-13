@@ -1,0 +1,120 @@
+/* 5PM MSP — "Bottle Cap" design system.
+   Incandescent sign-craft after the Grain Belt sign: warm bulb light on
+   river-night blue; content on cream enamel cards. */
+:root{
+  --night:#101B2D; --night-2:#182642;
+  --filament:#FFB84D; --cap-red:#C8322B;
+  --enamel:#F4E9D8; --brew-green:#2E6B4F;
+  --ink:#26221C; --dim:#8FA0BC;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--night);color:var(--enamel);font:400 16px/1.55 Archivo,sans-serif;
+     background-image:radial-gradient(ellipse 120% 60% at 50% -10%, #1E3050 0%, var(--night) 60%);}
+.wrap{max-width:520px;margin:0 auto;padding:0 18px 40px}
+a{color:inherit}
+
+/* ── the sign ── */
+header{padding:30px 0 8px;text-align:center}
+header .home{text-decoration:none;display:block}
+.cap{display:inline-flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;
+     background:var(--cap-red);color:var(--enamel);margin-bottom:10px;
+     box-shadow:0 0 30px rgba(200,50,43,.55), inset 0 0 0 4px rgba(244,233,216,.9);}
+.cap span{font:800 13px/1 "Big Shoulders Display";transform:rotate(-45deg);border:2px solid var(--enamel);
+     padding:8px 6px;letter-spacing:.02em}
+.cap span i{display:block;transform:rotate(45deg);font-style:normal}
+.wordmark{font:800 clamp(48px,14vw,72px)/0.92 "Big Shoulders Display";letter-spacing:.015em;color:var(--filament)}
+.wordmark .l{opacity:.18;animation:bulb 6s infinite}
+.wordmark .l:nth-child(1){animation-delay:.0s}.wordmark .l:nth-child(2){animation-delay:.35s}
+.wordmark .l:nth-child(3){animation-delay:.7s}.wordmark .l:nth-child(4){animation-delay:1.05s}
+.wordmark .l:nth-child(5){animation-delay:1.6s}.wordmark .l:nth-child(6){animation-delay:1.95s}
+.wordmark .l:nth-child(7){animation-delay:2.3s}
+@keyframes bulb{0%{opacity:.18;text-shadow:none}
+  8%,80%{opacity:1;text-shadow:0 0 18px rgba(255,184,77,.85),0 2px 0 rgba(0,0,0,.35)}
+  96%,100%{opacity:.18;text-shadow:none}}
+@media (prefers-reduced-motion: reduce){.wordmark .l{animation:none;opacity:1;text-shadow:0 0 18px rgba(255,184,77,.6)}}
+header .tag{font:500 12px/1.4 "IBM Plex Mono";color:var(--dim);letter-spacing:.13em;text-transform:uppercase;margin-top:8px}
+header .tag b{color:var(--enamel);font-weight:500}
+
+/* ── actions / buttons ── */
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 8px}
+.btn{font:800 19px/1 "Big Shoulders Display";letter-spacing:.06em;text-transform:uppercase;text-align:center;
+     padding:15px 10px;border-radius:8px;text-decoration:none;cursor:pointer;border:0;color:var(--enamel);display:block}
+.btn.primary{background:var(--cap-red);box-shadow:0 0 22px rgba(200,50,43,.4)}
+.btn.ghost{background:transparent;box-shadow:inset 0 0 0 2px #2A3A5E}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--filament);outline-offset:2px}
+.hint{font:400 12px/1.5 "IBM Plex Mono";color:var(--dim);text-align:center;margin-bottom:20px}
+
+/* ── section labels ── */
+.rail-label{display:flex;align-items:baseline;gap:10px;margin:24px 0 12px}
+.rail-label h2{font:800 26px/1 "Big Shoulders Display";letter-spacing:.06em;color:var(--enamel)}
+.rail-label .live{width:9px;height:9px;border-radius:50%;background:var(--filament);
+     box-shadow:0 0 10px var(--filament);align-self:center}
+.rail-label small{font:400 12px "IBM Plex Mono";color:var(--dim);margin-left:auto}
+
+/* ── enamel cards ── */
+.card{background:var(--enamel);color:var(--ink);border-radius:10px;padding:15px 16px 12px;margin-bottom:14px;
+      border:3px solid #B8AD98;box-shadow:0 6px 0 rgba(0,0,0,.35)}
+.card.active{border-color:var(--cap-red)}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font:800 23px/1.05 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase}
+.card h3 a{text-decoration:none}
+.card .dist{font:500 12px "IBM Plex Mono";color:var(--cap-red);white-space:nowrap}
+.deal{font:500 14px/1.5 "IBM Plex Mono";margin:8px 0 0;padding:7px 10px;background:rgba(200,50,43,.07);
+      border-left:3px solid var(--cap-red);border-radius:0 6px 6px 0}
+.deal .win{color:#7A6F5D;font-size:12px}
+.meta{display:flex;gap:7px;flex-wrap:wrap;font:600 11px/1 Archivo;letter-spacing:.05em;text-transform:uppercase;
+      align-items:center;margin-top:10px}
+.chip{padding:5px 9px;border-radius:99px;background:rgba(38,34,28,.08);color:#5C544A}
+.chip.verified{background:var(--brew-green);color:var(--enamel)}
+.chip.verified::before{content:"◆ "}
+.now{font:500 12px "IBM Plex Mono";color:var(--brew-green);margin-left:auto;text-transform:none}
+.next{font:500 12px "IBM Plex Mono";color:#7A6F5D;margin-left:auto;text-transform:none}
+
+/* ── hood browse ── */
+.hoods{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.hood{font:600 13px/1 Archivo;padding:9px 13px;border-radius:99px;text-decoration:none;
+      background:var(--night-2);color:var(--enamel);box-shadow:inset 0 0 0 1px #2A3A5E}
+.hood small{color:var(--dim)}
+
+/* ── filters ── */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.filters button{font:600 12px/1 Archivo;letter-spacing:.04em;padding:8px 12px;border-radius:99px;cursor:pointer;
+      border:0;background:var(--night-2);color:var(--enamel);box-shadow:inset 0 0 0 1px #2A3A5E}
+.filters button[aria-pressed="true"]{background:var(--filament);color:var(--ink)}
+
+/* ── bar detail ── */
+.bar-head h2{font:800 34px/1 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase;margin:14px 0 4px}
+.crumb{font:500 12px "IBM Plex Mono";color:var(--dim)}
+.crumb a{color:var(--dim)}
+.bar-links{display:flex;gap:10px;margin:14px 0}
+.bar-links a{font:600 13px Archivo;color:var(--filament)}
+
+/* ── forms ── */
+form.panel{background:var(--enamel);color:var(--ink);border-radius:10px;padding:16px;border:3px solid #B8AD98;margin:14px 0}
+form.panel label{display:block;font:600 13px Archivo;margin:10px 0 4px}
+form.panel input,form.panel textarea,form.panel select{width:100%;padding:10px;border:2px solid #B8AD98;border-radius:6px;
+      font:400 15px Archivo;background:#fff;color:var(--ink)}
+form.panel button{margin-top:14px;font:800 17px "Big Shoulders Display";letter-spacing:.05em;text-transform:uppercase;
+      background:var(--cap-red);color:var(--enamel);border:0;border-radius:8px;padding:12px 20px;cursor:pointer}
+.ok-note{background:var(--brew-green);color:var(--enamel);border-radius:8px;padding:12px 14px;font:500 14px Archivo;margin:14px 0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+/* ── footer ── */
+footer{margin-top:36px;border-top:1px solid #24334F;padding-top:20px}
+.foot-nav{text-align:center;font:600 14px Archivo;margin-bottom:16px}
+.foot-nav a{color:var(--filament);text-decoration:none}
+.news label{display:block;font:500 12px "IBM Plex Mono";color:var(--dim);margin-bottom:6px;text-align:center}
+.news-row{display:flex;gap:8px}
+.news-row input[type=email]{flex:1;padding:10px;border-radius:8px;border:1px solid #2A3A5E;background:var(--night-2);
+      color:var(--enamel);font:400 14px Archivo}
+.news-row button{font:800 15px "Big Shoulders Display";letter-spacing:.05em;text-transform:uppercase;
+      background:var(--filament);color:var(--ink);border:0;border-radius:8px;padding:0 16px;cursor:pointer}
+.fine{font:400 11.5px/1.7 "IBM Plex Mono";color:var(--dim);text-align:center;margin-top:16px}
+
+/* ── map ── */
+#map{height:70vh;border-radius:10px;border:3px solid #B8AD98}
+
+/* ── empty state ── */
+.empty{background:var(--night-2);border-radius:10px;padding:18px;font:400 14px/1.6 Archivo;color:var(--enamel);
+      box-shadow:inset 0 0 0 1px #2A3A5E;margin-bottom:14px}
+.empty b{color:var(--filament)}

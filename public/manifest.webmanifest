@@ -1,0 +1,12 @@
+{
+  "name": "5PM MSP — Twin Cities happy hours",
+  "short_name": "5PM MSP",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101B2D",
+  "theme_color": "#101B2D",
+  "description": "Happy hours across Minneapolis + St Paul, lit up nightly.",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
