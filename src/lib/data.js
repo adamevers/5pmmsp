@@ -11,6 +11,13 @@ export const HOODS = {
 
 export const hoodName = slug => HOODS[slug] || slug;
 
+export const CATEGORIES = {
+  'cocktail-bar': 'Cocktail Bar', 'bar-restaurant': 'Bar & Restaurant',
+  'dive-bar': 'Dive Bar', lounge: 'Lounge',
+};
+export const categoryName = slug => CATEGORIES[slug] || '';
+export const priceLabel = n => (n >= 1 && n <= 4 ? '$'.repeat(n) : '');
+
 /** All bars with their HH windows attached. One query each, joined in JS. */
 export async function allBarsWithHH(db) {
   const [bars, hhs] = await Promise.all([

@@ -9,6 +9,7 @@ export async function barsJson({ env }) {
       id: b.id, slug: b.slug, name: b.name, hood: b.neighborhood, city: b.city,
       lat: b.lat, lng: b.lng,
       patio: b.patio, rooftop: b.rooftop, skyway: b.skyway, verified: b.verified,
+      price: b.price, category: b.category, seating: b.seating, food: b.food,
       hh: b.hh.map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min, deals: h.deals })),
     })),
   };

@@ -1,6 +1,6 @@
 // SSR building blocks: escape, page layout, bar card.
 import { isActive, minutesLeft, nextStart, fmtWindow, fmtDows } from './time.js';
-import { hoodName, CITIES } from './data.js';
+import { hoodName, CITIES, categoryName, priceLabel } from './data.js';
 
 export const esc = s => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -51,7 +51,7 @@ ${body}
 <footer>
   <nav class="foot-nav">
     <a href="/minneapolis">Minneapolis</a> · <a href="/st-paul">St Paul</a> ·
-    <a href="/map">Map</a> · <a href="/submit">Add a bar</a>
+    <a href="/submit">Add a bar</a>
   </nav>
   <form class="news" method="post" action="/api/subscribe">
     <label for="nl-email">New deals + new bars, occasionally:</label>
@@ -93,6 +93,26 @@ export function statusText(bar, now) {
  * `link`  → whole card navigates to the bar page (stretched-link).
  * `dist`  → reserve a distance slot for near-me.
  */
+/** ◆ Verified chip + a little ⓘ that reveals the last-verified date, or "unverified". */
+export function trustChip(bar) {
+  if (!bar.verified) return '<span class="chip">unverified</span>';
+  const d = esc(bar.last_verified || '');
+  return `<span class="chip verified">Verified</span>` +
+    `<button class="info" data-info="Last verified ${d}" aria-label="Last verified ${d}" title="Last verified ${d}">${icon('info')}</button>`;
+}
+
+/** Heart/favorite toggle (client-persisted). */
+export const favBtn = bar =>
+  `<button class="fav" data-fav="${esc(bar.slug)}" aria-label="Save ${esc(bar.name)}" aria-pressed="false">${icon('heart')}</button>`;
+
+/** Category · price attribute chips. */
+export function attrChips(bar) {
+  const cat = categoryName(bar.category);
+  const price = priceLabel(bar.price);
+  return (cat ? `<span class="chip cat">${esc(cat)}</span>` : '') +
+    (price ? `<span class="chip price">${price}</span>` : '');
+}
+
 export function barCard(bar, now, { showHood = true, dist = true, link = true } = {}) {
   const active = bar.hh.some(h => isActive(h, now));
   const flags = [
@@ -100,9 +120,6 @@ export function barCard(bar, now, { showHood = true, dist = true, link = true } 
     bar.rooftop ? '<span class="chip">rooftop</span>' : '',
     bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
   ].join('');
-  const trust = bar.verified
-    ? `<span class="chip verified">Verified ${esc(bar.last_verified || '')}</span>`
-    : '<span class="chip">unverified</span>';
   const st = statusText(bar, now);
   const title = link
     ? `<a class="card-link" href="/bar/${esc(bar.slug)}">${esc(bar.name)}</a>`
@@ -112,9 +129,9 @@ export function barCard(bar, now, { showHood = true, dist = true, link = true } 
   const windows = bar.hh.map(h =>
     `<p class="deal">${esc(h.deals)} <span class="win">· ${fmtDows(h.dow_mask)} ${fmtWindow(h)}</span></p>`).join('');
   return `<article class="card${active ? ' active' : ''}${link ? ' card--link' : ''}" data-lat="${bar.lat}" data-lng="${bar.lng}" data-slug="${esc(bar.slug)}" data-hh="${hhData}">
-  <div class="top"><h3>${title}</h3>${dist ? '<span class="dist" data-dist hidden></span>' : ''}</div>
+  <div class="top"><h3>${title}</h3><div class="top-right">${dist ? '<span class="dist" data-dist hidden></span>' : ''}${favBtn(bar)}</div></div>
   ${windows}
-  <div class="meta">${trust}${showHood ? `<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>` : ''}${flags}<span class="${st.cls}" data-status>${st.text}</span></div>
+  <div class="meta">${trustChip(bar)}${attrChips(bar)}${showHood ? `<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>` : ''}${flags}<span class="${st.cls}" data-status>${st.text}</span></div>
 </article>`;
 }
 
@@ -126,6 +143,9 @@ const ICONS = {
   globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/>',
   pin: '<path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
   flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+  heart: '<path d="M12 20s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 5c-2.5 4.5-9.5 9-9.5 9z"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>',
+  share: '<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8 15.8 6.4M8.2 13.2l7.6 4.4"/>',
 };
 export const icon = name =>
   `<svg class="ico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ''}</svg>`;

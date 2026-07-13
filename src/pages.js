@@ -1,5 +1,5 @@
 // SSR pages: home, neighborhood, city, bar detail, submit, map, 404.
-import { layout, barCard, esc, cityName, icon, statusText } from './lib/html.js';
+import { layout, barCard, esc, cityName, icon, statusText, trustChip, attrChips, favBtn } from './lib/html.js';
 import { allBarsWithHH, barBySlug, hoodCounts, hoodName, CITIES, HOODS } from './lib/data.js';
 import { nowInChicago, isActive, nextStart, fmtWindow, fmtDows } from './lib/time.js';
 
@@ -17,9 +17,24 @@ const clock = now => {
 };
 
 const FILTERS = `<div class="filters" data-filters hidden>
-  <button aria-pressed="false" data-f="patio">☀ patio</button>
-  <button aria-pressed="false" data-f="rooftop">rooftop</button>
-  <button aria-pressed="false" data-f="verified">◆ verified</button>
+  <span class="fgroup">
+    <button aria-pressed="false" data-f="price" data-v="1">$</button>
+    <button aria-pressed="false" data-f="price" data-v="2">$$</button>
+    <button aria-pressed="false" data-f="price" data-v="3">$$$</button>
+    <button aria-pressed="false" data-f="price" data-v="4">$$$$</button>
+  </span>
+  <span class="fgroup">
+    <button aria-pressed="false" data-f="category" data-v="cocktail-bar">Cocktail</button>
+    <button aria-pressed="false" data-f="category" data-v="bar-restaurant">Bar &amp; Rest.</button>
+    <button aria-pressed="false" data-f="category" data-v="dive-bar">Dive</button>
+    <button aria-pressed="false" data-f="category" data-v="lounge">Lounge</button>
+  </span>
+  <span class="fgroup">
+    <button aria-pressed="false" data-f="patio">☀ Patio</button>
+    <button aria-pressed="false" data-f="rooftop">Rooftop</button>
+    <button aria-pressed="false" data-f="verified">◆ Verified</button>
+    <button aria-pressed="false" data-f="saved">♥ Saved</button>
+  </span>
 </div>`;
 
 export async function home({ env, url }) {
@@ -50,8 +65,7 @@ export async function home({ env, url }) {
 ${subscribed ? '<div class="ok-note">You\'re on the list. New deals + new bars, occasionally — never spam.</div>' : ''}
 <div class="actions">
   <button class="btn primary" data-nearme hidden>◉ Near me</button>
-  <a class="btn primary" data-nearme-fallback href="#hoods">Browse hoods</a>
-  <a class="btn ghost" href="/map">Map</a>
+  <a class="btn primary" data-nearme-fallback href="#hoods">Browse neighborhoods</a>
 </div>
 <p class="hint">location stays on your phone — we never see it</p>
 ${FILTERS}
@@ -121,29 +135,42 @@ export async function barPage({ env, params, url }) {
     bar.rooftop ? '<span class="chip">rooftop</span>' : '',
     bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
   ].join('');
-  const trust = bar.verified
-    ? `<span class="chip verified">Verified ${esc(bar.last_verified || '')}</span>`
-    : '<span class="chip">unverified</span>';
   const hhData = esc(JSON.stringify(bar.hh.map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
   const schedule = bar.hh.map(h =>
     `<p class="deal">${esc(h.deals)} <span class="win">· ${fmtDows(h.dow_mask)} ${fmtWindow(h)}</span></p>`).join('');
+  const about = [
+    bar.food ? `<div><span>Food</span> ${esc(bar.food)}</div>` : '',
+    bar.seating ? `<div><span>Seating</span> ${esc(bar.seating)}</div>` : '',
+  ].join('');
+  const w0 = bar.hh[0];
+  const shareText = `Happy hour at ${bar.name}${w0 ? ` — ${fmtDows(w0.dow_mask)} ${fmtWindow(w0)}` : ''} · via 5PM MSP\nhttps://5pmmsp.com/bar/${bar.slug}`;
+  const dirQ = encodeURIComponent(`${bar.name}, ${cityName(bar.city)} MN`);
   return html(layout({
     title: `${bar.name} happy hour — ${hoodName(bar.neighborhood)} — 5PM MSP`,
     desc: `${bar.name} happy hour times and deals in ${hoodName(bar.neighborhood)}, ${cityName(bar.city)}.`,
     path: `/bar/${bar.slug}`,
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
-<div class="bar-head"><h2>${esc(bar.name)}</h2></div>
-<div class="meta bar-meta" data-hh="${hhData}">${trust}<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>${flags}<span class="${st.cls}" data-status>${st.text}</span></div>
+<div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}<button type="button" class="act" data-open-share aria-label="Share">${icon('share')}</button></div></div>
+<div class="meta bar-meta" data-hh="${hhData}">${trustChip(bar)}${attrChips(bar)}<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>${flags}<span class="${st.cls}" data-status>${st.text}</span></div>
 <div class="rail-label"><h2>Happy hour</h2><small data-clock></small></div>
 ${schedule || '<div class="empty">No happy hour windows on file yet — know one? Report it below.</div>'}
+${about ? `<dl class="about">${about}</dl>` : ''}
 <div class="bar-links">
   ${bar.website ? `<a href="${esc(bar.website)}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
-  <a href="https://www.openstreetmap.org/?mlat=${bar.lat}&mlon=${bar.lng}#map=18/${bar.lat}/${bar.lng}" target="_blank" rel="noopener noreferrer">${icon('pin')} Directions</a>
-  <button type="button" data-open-report>${icon('flag')} Report</button>
+  <a class="dir" data-lat="${bar.lat}" data-lng="${bar.lng}" data-q="${dirQ}" href="https://www.google.com/maps/search/?api=1&query=${dirQ}" target="_blank" rel="noopener noreferrer">${icon('pin')} Directions</a>
+  <button type="button" class="icon-only" data-open-report aria-label="Report a change" title="Report a change">${icon('flag')}</button>
 </div>
 ${bar.notes ? `<p class="hint" style="text-align:left">${esc(bar.notes)}</p>` : ''}
 ${ok === 'report' ? '<div class="ok-note">Got it — thanks. We review every report before changing a listing.</div>' : ''}
+<dialog id="share-dialog" class="modal">
+  <div class="panel">
+    <div class="modal-head"><h3>Share ${esc(bar.name)}</h3><button type="button" class="modal-x" data-close-share aria-label="Close">✕</button></div>
+    <p class="modal-sub">Copy this into a text — friends get the deal and a link.</p>
+    <textarea id="share-text" rows="3" readonly>${esc(shareText)}</textarea>
+    <button type="button" data-copy-share data-native>Copy</button>
+  </div>
+</dialog>
 <dialog id="report-dialog" class="modal">
   <form class="panel" method="post" action="/api/report">
     <div class="modal-head"><h3>Report a change</h3><button type="button" class="modal-x" data-close-report aria-label="Close">✕</button></div>
@@ -191,25 +218,6 @@ ${ok ? '<div class="ok-note">Thanks — it\'s in the review queue. Verified list
   <button type="submit">Submit</button>
 </form>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>`,
-  }));
-}
-
-export async function mapPage({ env }) {
-  return html(layout({
-    title: 'Map — 5PM MSP',
-    desc: 'Every Twin Cities happy hour we track, on one map.',
-    path: '/map',
-    includeAppJs: false,
-    body: `
-<p class="crumb"><a href="/">home</a></p>
-<div class="rail-label"><h2>The map</h2></div>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
-<div id="map"></div>
-<p class="hint">tap a pin for tonight's window</p>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-<script src="/map.js" defer></script>`,
   }));
 }
 

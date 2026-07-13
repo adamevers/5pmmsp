@@ -77,10 +77,28 @@ header .tag b{color:var(--enamel);font-weight:500}
 .hood small{color:var(--dim)}
 
 /* ── filters ── */
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.filters{display:flex;gap:8px 10px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+.fgroup{display:inline-flex;gap:6px;flex-wrap:wrap;padding-right:10px;border-right:1px solid #24334F}
+.fgroup:last-child{border-right:0;padding-right:0}
 .filters button{font:600 12px/1 Archivo;letter-spacing:.04em;padding:8px 12px;border-radius:99px;cursor:pointer;
       border:0;background:var(--night-2);color:var(--enamel);box-shadow:inset 0 0 0 1px #2A3A5E}
 .filters button[aria-pressed="true"]{background:var(--filament);color:var(--ink)}
+
+/* attribute chips */
+.chip.cat{background:rgba(46,107,79,.18);color:#8FD6B0}
+.chip.price{background:rgba(255,184,77,.16);color:var(--filament);font-weight:700;letter-spacing:.05em}
+
+/* favorite heart + share/info controls (raised above the card stretched-link) */
+.top-right{display:flex;align-items:center;gap:8px;position:relative;z-index:2}
+.fav,.act{background:none;border:0;cursor:pointer;padding:4px;color:var(--dim);line-height:0;border-radius:8px}
+.fav .ico,.act .ico{color:inherit}
+.fav[aria-pressed="true"]{color:var(--cap-red)}
+.fav[aria-pressed="true"] .ico{fill:var(--cap-red);stroke:var(--cap-red)}
+.info{background:none;border:0;cursor:pointer;padding:2px;color:var(--brew-green);line-height:0;position:relative;z-index:2}
+.info .ico{color:inherit;width:15px;height:15px}
+.info-pop{display:none;font:500 11px "IBM Plex Mono";color:var(--ink);background:var(--enamel);
+      box-shadow:0 2px 8px rgba(0,0,0,.3);border-radius:6px;padding:5px 8px;margin-left:6px}
+.info-pop.show{display:inline-block}
 
 /* whole-card tap target (stretched link) */
 .card--link{position:relative;cursor:pointer}
@@ -90,9 +108,17 @@ header .tag b{color:var(--enamel);font-weight:500}
 .card--link .meta,.card--link .deal{position:relative;z-index:0}
 
 /* ── bar detail ── */
-.bar-head h2{font:800 34px/1 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase;margin:14px 0 4px}
+.bar-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:14px 0 4px}
+.bar-head h2{font:800 34px/1 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase}
+.bar-actions{display:flex;gap:6px;flex:none;padding-top:4px}
+.bar-actions .fav,.bar-actions .act{color:var(--enamel)}
+.bar-actions .fav[aria-pressed="true"]{color:var(--cap-red)}
 .bar-meta{margin:8px 0 4px}
 .bar-meta .now,.bar-meta .next{color:var(--filament)}
+.about{display:grid;gap:8px;margin:14px 0;padding:14px 16px;background:var(--night-2);border-radius:10px;
+      box-shadow:inset 0 0 0 1px #2A3A5E;font:400 14px Archivo}
+.about div{display:flex;gap:8px}
+.about span{color:var(--dim);font-weight:600;min-width:72px;text-transform:uppercase;font-size:11px;letter-spacing:.06em;padding-top:2px}
 .crumb{font:500 12px "IBM Plex Mono";color:var(--dim)}
 .crumb a{color:var(--dim)}
 /* three equal segments on one line: Website · Directions · Report */
@@ -101,6 +127,7 @@ header .tag b{color:var(--enamel);font-weight:500}
   gap:7px;font:600 13px Archivo;color:var(--enamel);text-decoration:none;padding:11px 8px;border-radius:8px;
   background:var(--night-2);box-shadow:inset 0 0 0 1px #2A3A5E;cursor:pointer;border:0;white-space:nowrap}
 .bar-links a:hover,.bar-links button:hover{box-shadow:inset 0 0 0 1px var(--filament)}
+.bar-links button.icon-only{flex:0 0 auto;width:48px;padding:11px 0}
 .ico{flex:none;color:var(--filament)}
 
 /* report modal */
@@ -114,11 +141,11 @@ header .tag b{color:var(--enamel);font-weight:500}
 .modal-sub{font:400 13px/1.5 Archivo;color:#5C544A;margin:6px 0 4px}
 
 /* ── forms ── */
-form.panel{background:var(--enamel);color:var(--ink);border-radius:10px;padding:16px;border:3px solid #B8AD98;margin:14px 0}
-form.panel label{display:block;font:600 13px Archivo;margin:10px 0 4px}
-form.panel input,form.panel textarea,form.panel select{width:100%;padding:10px;border:2px solid #B8AD98;border-radius:6px;
+.panel{background:var(--enamel);color:var(--ink);border-radius:10px;padding:16px;border:3px solid #B8AD98;margin:14px 0}
+.panel label{display:block;font:600 13px Archivo;margin:10px 0 4px}
+.panel input,.panel textarea,.panel select{width:100%;padding:10px;border:2px solid #B8AD98;border-radius:6px;
       font:400 15px Archivo;background:#fff;color:var(--ink)}
-form.panel button{margin-top:14px;font:800 17px "Big Shoulders Display";letter-spacing:.05em;text-transform:uppercase;
+.panel button{margin-top:14px;font:800 17px "Big Shoulders Display";letter-spacing:.05em;text-transform:uppercase;
       background:var(--cap-red);color:var(--enamel);border:0;border-radius:8px;padding:12px 20px;cursor:pointer}
 .ok-note{background:var(--brew-green);color:var(--enamel);border-radius:8px;padding:12px 14px;font:500 14px Archivo;margin:14px 0}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
