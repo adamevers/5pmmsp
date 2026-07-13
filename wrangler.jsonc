@@ -1,0 +1,16 @@
+{
+  "name": "5pmmsp",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-06-01",
+  "assets": { "directory": "public", "binding": "ASSETS" },
+  "routes": [{ "pattern": "5pmmsp.com", "custom_domain": true }],
+  "d1_databases": [
+    { "binding": "DB", "database_name": "5pmmsp", "database_id": "PLACEHOLDER_SET_AFTER_CREATE" }
+  ],
+  "vars": {
+    // Cloudflare Turnstile universal TEST sitekey (always passes).
+    // Swap for a real widget sitekey before launch traffic; secret is
+    // TURNSTILE_SECRET via `wrangler secret put`.
+    "TURNSTILE_SITEKEY": "1x00000000000000000000AA"
+  }
+}
