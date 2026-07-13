@@ -12,9 +12,8 @@
     { "binding": "DB", "database_name": "5pmmsp", "database_id": "9a5bc94e-058a-40c3-a098-5c74857c9f32" }
   ],
   "vars": {
-    // Cloudflare Turnstile universal TEST sitekey (always passes).
-    // Swap for a real widget sitekey before launch traffic; secret is
-    // TURNSTILE_SECRET via `wrangler secret put`.
-    "TURNSTILE_SITEKEY": "1x00000000000000000000AA"
+    // Real Turnstile widget for 5pmmsp (managed mode). Sitekey is public.
+    // Secret is TURNSTILE_SECRET, set via `wrangler secret put` (not in repo).
+    "TURNSTILE_SITEKEY": "0x4AAAAAAD1SoqBx0sKTX4y8"
   }
 }
