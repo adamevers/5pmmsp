@@ -3,9 +3,13 @@
   "main": "src/worker.js",
   "compatibility_date": "2026-06-01",
   "assets": { "directory": "public", "binding": "ASSETS" },
-  "routes": [{ "pattern": "5pmmsp.com", "custom_domain": true }],
+  // Custom domain attach needs a token with Zone→Workers Routes edit; the
+  // current token 403s there. Re-enable and redeploy once the token has it
+  // (or attach 5pmmsp.com to the worker in the dash), then flip workers_dev off.
+  // "routes": [{ "pattern": "5pmmsp.com", "custom_domain": true }],
+  "workers_dev": true,
   "d1_databases": [
-    { "binding": "DB", "database_name": "5pmmsp", "database_id": "PLACEHOLDER_SET_AFTER_CREATE" }
+    { "binding": "DB", "database_name": "5pmmsp", "database_id": "9a5bc94e-058a-40c3-a098-5c74857c9f32" }
   ],
   "vars": {
     // Cloudflare Turnstile universal TEST sitekey (always passes).
