@@ -1,5 +1,5 @@
 // SSR pages: home, neighborhood, city, bar detail, submit, map, 404.
-import { layout, barCard, esc, cityName } from './lib/html.js';
+import { layout, barCard, esc, cityName, icon } from './lib/html.js';
 import { allBarsWithHH, barBySlug, hoodCounts, hoodName, CITIES, HOODS } from './lib/data.js';
 import { nowInChicago, isActive, nextStart, fmtWindow, fmtDows } from './lib/time.js';
 
@@ -124,24 +124,30 @@ export async function barPage({ env, params, url }) {
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
 <div class="bar-head"><h2>${esc(bar.name)}</h2></div>
-${barCard(bar, now, { showHood: true, dist: false }).replace(/<h3>.*?<\/h3>/, '')}
+${barCard(bar, now, { showHood: true, dist: false, link: false }).replace(/<h3>.*?<\/h3>/, '')}
 <div class="rail-label"><h2>The schedule</h2></div>
 ${schedule || '<div class="empty">No happy hour windows on file yet — know one? Report it below.</div>'}
 <div class="bar-links">
-  ${bar.website ? `<a href="${esc(bar.website)}" rel="noopener">website ↗</a>` : ''}
-  <a href="https://www.openstreetmap.org/?mlat=${bar.lat}&mlon=${bar.lng}#map=18/${bar.lat}/${bar.lng}" rel="noopener">map ↗</a>
+  ${bar.website ? `<a href="${esc(bar.website)}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
+  <a href="https://www.openstreetmap.org/?mlat=${bar.lat}&mlon=${bar.lng}#map=18/${bar.lat}/${bar.lng}" target="_blank" rel="noopener noreferrer">${icon('pin')} Map &amp; directions</a>
 </div>
 ${bar.notes ? `<p class="hint" style="text-align:left">${esc(bar.notes)}</p>` : ''}
 ${ok === 'report' ? '<div class="ok-note">Got it — thanks. We review every report before changing a listing.</div>' : ''}
-<div class="rail-label"><h2>Something wrong?</h2></div>
-<form class="panel" method="post" action="/api/report">
-  <input type="hidden" name="bar_id" value="${bar.id}">
-  <input type="text" name="website2" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-  <label for="rep">What changed? (times, deals, closed, patio…)</label>
-  <textarea id="rep" name="detail" rows="3" required></textarea>
-  <div class="cf-turnstile" data-sitekey="${esc(env.TURNSTILE_SITEKEY)}"></div>
-  <button type="submit">Send report</button>
-</form>
+<div class="report-cta">
+  <button type="button" class="btn ghost" data-open-report>${icon('flag')} Something wrong?</button>
+</div>
+<dialog id="report-dialog" class="modal">
+  <form class="panel" method="post" action="/api/report">
+    <div class="modal-head"><h3>Report a change</h3><button type="button" class="modal-x" data-close-report aria-label="Close">✕</button></div>
+    <p class="modal-sub">Times off? Deal changed? Place closed? Tell us — every report gets reviewed before we touch a listing.</p>
+    <input type="hidden" name="bar_id" value="${bar.id}">
+    <input type="text" name="website2" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label for="rep">What changed?</label>
+    <textarea id="rep" name="detail" rows="3" required placeholder="e.g. happy hour is now 4–6, not 3–6"></textarea>
+    <div class="cf-turnstile" data-sitekey="${esc(env.TURNSTILE_SITEKEY)}"></div>
+    <button type="submit">Send report</button>
+  </form>
+</dialog>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>`,
     jsonld: {
       '@context': 'https://schema.org', '@type': 'BarOrPub', name: bar.name,
