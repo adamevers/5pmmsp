@@ -3,3 +3,7 @@ node_modules/
 .dev.vars
 seed/seed.sql
 *.log
+
+.fonts/
+scripts/.fonts/
+scripts/_dbg.png

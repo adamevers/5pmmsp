@@ -53,7 +53,7 @@
     document.querySelectorAll('[data-clock]').forEach(el => { el.textContent = label; });
   }
   function updateStatuses(now) {
-    document.querySelectorAll('.card[data-hh]').forEach(card => {
+    document.querySelectorAll('[data-hh]').forEach(card => {
       let hh; try { hh = JSON.parse(card.dataset.hh); } catch { return; }
       const el = card.querySelector('[data-status]');
       if (!el) return;

@@ -1,5 +1,5 @@
 // SSR pages: home, neighborhood, city, bar detail, submit, map, 404.
-import { layout, barCard, esc, cityName, icon } from './lib/html.js';
+import { layout, barCard, esc, cityName, icon, statusText } from './lib/html.js';
 import { allBarsWithHH, barBySlug, hoodCounts, hoodName, CITIES, HOODS } from './lib/data.js';
 import { nowInChicago, isActive, nextStart, fmtWindow, fmtDows } from './lib/time.js';
 
@@ -115,6 +115,16 @@ export async function barPage({ env, params, url }) {
   if (!bar) return null;
   const now = nowInChicago();
   const ok = url.searchParams.get('ok');
+  const st = statusText(bar, now);
+  const flags = [
+    bar.patio ? '<span class="chip">☀ patio</span>' : '',
+    bar.rooftop ? '<span class="chip">rooftop</span>' : '',
+    bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
+  ].join('');
+  const trust = bar.verified
+    ? `<span class="chip verified">Verified ${esc(bar.last_verified || '')}</span>`
+    : '<span class="chip">unverified</span>';
+  const hhData = esc(JSON.stringify(bar.hh.map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
   const schedule = bar.hh.map(h =>
     `<p class="deal">${esc(h.deals)} <span class="win">· ${fmtDows(h.dow_mask)} ${fmtWindow(h)}</span></p>`).join('');
   return html(layout({
@@ -124,8 +134,8 @@ export async function barPage({ env, params, url }) {
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
 <div class="bar-head"><h2>${esc(bar.name)}</h2></div>
-${barCard(bar, now, { showHood: true, dist: false, link: false }).replace(/<h3>.*?<\/h3>/, '')}
-<div class="rail-label"><h2>The schedule</h2></div>
+<div class="meta bar-meta" data-hh="${hhData}">${trust}<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>${flags}<span class="${st.cls}" data-status>${st.text}</span></div>
+<div class="rail-label"><h2>Happy hour</h2><small data-clock></small></div>
 ${schedule || '<div class="empty">No happy hour windows on file yet — know one? Report it below.</div>'}
 <div class="bar-links">
   ${bar.website ? `<a href="${esc(bar.website)}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}

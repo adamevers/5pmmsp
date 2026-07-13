@@ -22,6 +22,11 @@ export function layout({ title, desc, path = '/', body, jsonld = null, includeAp
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="https://5pmmsp.com${esc(path)}">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://5pmmsp.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://5pmmsp.com/og.png">
 <meta name="theme-color" content="#101B2D">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">

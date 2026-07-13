@@ -91,6 +91,8 @@ header .tag b{color:var(--enamel);font-weight:500}
 
 /* ── bar detail ── */
 .bar-head h2{font:800 34px/1 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase;margin:14px 0 4px}
+.bar-meta{margin:8px 0 4px}
+.bar-meta .now,.bar-meta .next{color:var(--filament)}
 .crumb{font:500 12px "IBM Plex Mono";color:var(--dim)}
 .crumb a{color:var(--dim)}
 /* three equal segments on one line: Website · Directions · Report */
