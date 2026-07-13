@@ -129,13 +129,11 @@ ${barCard(bar, now, { showHood: true, dist: false, link: false }).replace(/<h3>.
 ${schedule || '<div class="empty">No happy hour windows on file yet — know one? Report it below.</div>'}
 <div class="bar-links">
   ${bar.website ? `<a href="${esc(bar.website)}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
-  <a href="https://www.openstreetmap.org/?mlat=${bar.lat}&mlon=${bar.lng}#map=18/${bar.lat}/${bar.lng}" target="_blank" rel="noopener noreferrer">${icon('pin')} Map &amp; directions</a>
+  <a href="https://www.openstreetmap.org/?mlat=${bar.lat}&mlon=${bar.lng}#map=18/${bar.lat}/${bar.lng}" target="_blank" rel="noopener noreferrer">${icon('pin')} Directions</a>
+  <button type="button" data-open-report>${icon('flag')} Report</button>
 </div>
 ${bar.notes ? `<p class="hint" style="text-align:left">${esc(bar.notes)}</p>` : ''}
 ${ok === 'report' ? '<div class="ok-note">Got it — thanks. We review every report before changing a listing.</div>' : ''}
-<div class="report-cta">
-  <button type="button" class="btn ghost" data-open-report>${icon('flag')} Something wrong?</button>
-</div>
 <dialog id="report-dialog" class="modal">
   <form class="panel" method="post" action="/api/report">
     <div class="modal-head"><h3>Report a change</h3><button type="button" class="modal-x" data-close-report aria-label="Close">✕</button></div>
