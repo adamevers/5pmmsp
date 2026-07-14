@@ -158,6 +158,23 @@
 
     { "slug": "merlins-rest-pub", "name": "Merlin's Rest Pub", "city": "minneapolis", "neighborhood": "longfellow", "lat": 44.9489, "lng": -93.2138, "website": "https://www.merlinsrest.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "British pub, Bar snacks", "verified": 0, "hh": [
       { "dow_mask": 31, "start_min": 960, "end_min": 1080, "deals": "Happy hour pricing on drinks" }
-    ], "notes": "HH Mon-Fri 4-6pm confirmed on official specials page (merlinsrest.com); deal specifics not published. Minnesota's most comprehensive single malt scotch & Irish whiskey list. Est. 2007. 3601 E Lake St." }
+    ], "notes": "HH Mon-Fri 4-6pm confirmed on official specials page (merlinsrest.com); deal specifics not published. Minnesota's most comprehensive single malt scotch & Irish whiskey list. Est. 2007. 3601 E Lake St." },
+
+    { "slug": "longfellow-grill", "name": "Longfellow Grill", "city": "minneapolis", "neighborhood": "longfellow", "lat": 44.9403, "lng": -93.2110, "website": "https://www.longfellowgrill.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Burgers, Brunch", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 127, "start_min": 840, "end_min": 1080, "deals": "$7 rail cocktails & select wines, $5 Freehouse taps; $3.99–6.99 apps, $9.99 Bang Bang salmon rolls (bar & patio only)" },
+      { "dow_mask": 31, "start_min": 480, "end_min": 600, "deals": "Morning HH: $4 Freehouse taps, $6 mimosas, $7 bloody marys" }
+    ], "notes": "Blue Plate riverfront spot. Afternoon HH daily 2–6 PM + morning HH Mon–Fri 8–10 AM. Dine-in, bar & patio only. 2990 W River Pkwy." },
+
+    { "slug": "blue-door-pub-longfellow", "name": "Blue Door Pub (Longfellow)", "city": "minneapolis", "neighborhood": "longfellow", "lat": 44.9245, "lng": -93.2213, "website": "https://thebdp.com", "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "Burgers, Juicy Blucys, Bar food", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 15, "start_min": 960, "end_min": 1020, "deals": "$2 off most taps & all wines; half-off fries, tots, fried pickles, fried green beans & totchos" },
+      { "dow_mask": 16, "start_min": 840, "end_min": 1020, "deals": "$2 off most taps & all wines; half-off fried sides & totchos" },
+      { "dow_mask": 73, "start_min": 1200, "end_min": 1260, "deals": "Late HH: $2 off most taps & all wines; half-off fried sides" },
+      { "dow_mask": 6, "start_min": 1200, "end_min": 1320, "deals": "Late HH: $2 off most taps & all wines; half-off fried sides" },
+      { "dow_mask": 48, "start_min": 1260, "end_min": 1320, "deals": "Late HH: $2 off most taps & all wines; half-off fried sides" }
+    ], "notes": "Windows confirmed on official site (thebdp.com): Mon–Thu 4–5 + evenings, Fri 2–5 + 9–10, Sat 9–10, Sun 8–9. Home of the Juicy Blucy. 3448 42nd Ave S." },
+
+    { "slug": "town-hall-brewery", "name": "Town Hall Brewery", "city": "minneapolis", "neighborhood": "west-bank", "lat": 44.9686, "lng": -93.2456, "website": "https://www.townhallbrewery.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Burgers, Pub food", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 31, "start_min": 840, "end_min": 1020, "deals": "Happy hour pricing on craft beer & drinks (specifics not published on site)" }
+    ], "notes": "HH days+times Mon–Fri 2–5 PM confirmed on official site (townhallbrewery.com); deal specifics not published. Seven Corners brewpub since 1997. 1430 Washington Ave S." }
   ]
 }

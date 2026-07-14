@@ -6,10 +6,22 @@ export const esc = s => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;');
 
+/** Append attribution UTM params to an outbound bar link. */
+export function withUtm(url, campaign = 'bar_listing') {
+  if (!url) return url;
+  try {
+    const u = new URL(url);
+    u.searchParams.set('utm_source', '5pmmsp.com');
+    u.searchParams.set('utm_medium', 'referral');
+    u.searchParams.set('utm_campaign', campaign);
+    return u.toString();
+  } catch { return url; }
+}
+
 const WORDMARK = '5PM MSP'.split('').map(c =>
   `<span class="l">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
 
-export function layout({ title, desc, path = '/', body, jsonld = null, includeAppJs = true }) {
+export function layout({ title, desc, path = '/', body, jsonld = null, includeAppJs = true, wide = false }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -37,7 +49,7 @@ export function layout({ title, desc, path = '/', body, jsonld = null, includeAp
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
 </head>
 <body>
-<div class="wrap">
+<div class="wrap${wide ? ' wrap--wide' : ''}">
 <header>
   <a class="home" href="/" aria-label="5PM MSP home">
     <div class="cap"><span><i>5PM</i></span></div>
@@ -128,9 +140,10 @@ export function barCard(bar, now, { showHood = true, dist = true, link = true } 
     : esc(bar.name);
   // Compact window data so the client can re-derive active/next + countdown live.
   const hhData = esc(JSON.stringify(bar.hh.map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
+  const hoursData = esc(JSON.stringify((bar.hours || []).map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
   const windows = bar.hh.map(h =>
     `<p class="deal">${esc(h.deals)} <span class="win">· ${fmtDows(h.dow_mask)} ${fmtWindow(h)}</span></p>`).join('');
-  return `<article class="card${active ? ' active' : ''}${link ? ' card--link' : ''}" data-lat="${bar.lat}" data-lng="${bar.lng}" data-slug="${esc(bar.slug)}" data-hh="${hhData}">
+  return `<article class="card${active ? ' active' : ''}${link ? ' card--link' : ''}" data-lat="${bar.lat}" data-lng="${bar.lng}" data-slug="${esc(bar.slug)}" data-hh="${hhData}" data-hours="${hoursData}">
   <div class="top"><h3>${title}</h3><div class="top-right">${dist ? '<span class="dist" data-dist hidden></span>' : ''}${favBtn(bar)}</div></div>
   ${windows}
   <div class="meta">${trustChip(bar)}${attrChips(bar)}${showHood ? `<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>` : ''}${flags}<span class="${st.cls}" data-status>${st.text}</span></div>

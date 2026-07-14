@@ -129,6 +129,12 @@
   // ---------- filters ----------
   const filters = document.querySelector('[data-filters]');
   let meta = {}; // slug -> bar
+  // Are any windows (from a card's data-hh / data-hours JSON) active right now?
+  const windowsActive = json => {
+    let w; try { w = JSON.parse(json || '[]'); } catch { return false; }
+    const n = chicagoNow();
+    return w.some(h => isActive(h, n));
+  };
   function applyFilters() {
     if (!filters || !container) return;
     const active = [...filters.querySelectorAll('[aria-pressed="true"]')];
@@ -139,6 +145,8 @@
       let show = true;
       for (const [f, vals] of Object.entries(groups)) {
         if (f === 'saved') { if (!favs.has(c.dataset.slug)) show = false; }
+        else if (f === 'happyhournow') { if (!windowsActive(c.dataset.hh)) show = false; }
+        else if (f === 'opennow') { if (!windowsActive(c.dataset.hours)) show = false; }
         else if (vals[0] === undefined) { if (!m || !m[f]) show = false; }      // boolean flag
         else if (!m || !vals.includes(String(m[f]))) show = false;              // value match
       }
@@ -194,16 +202,15 @@
     setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1800);
   });
 
-  // ---------- hours toggle (bar detail page) ----------
-  const hhToggle = document.querySelector('[data-hh-toggle]');
-  if (hhToggle) {
-    hhToggle.addEventListener('click', () => {
-      const expanded = hhToggle.getAttribute('aria-expanded') === 'true';
-      hhToggle.setAttribute('aria-expanded', String(!expanded));
-      const sched = document.getElementById('hh-sched');
-      if (sched) sched.hidden = expanded;
+  // ---------- collapsible hours toggle (bar detail page) ----------
+  document.querySelectorAll('[data-hh-toggle]').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      const target = document.getElementById(toggle.getAttribute('aria-controls'));
+      if (target) target.hidden = expanded;
     });
-  }
+  });
 
   // ---------- platform-aware directions (iOS → Apple Maps) ----------
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||

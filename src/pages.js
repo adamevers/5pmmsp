@@ -1,5 +1,5 @@
 // SSR pages: home, neighborhood, city, bar detail, submit, map, 404.
-import { layout, barCard, esc, cityName, icon, statusText, trustChip, attrChips, favBtn } from './lib/html.js';
+import { layout, barCard, esc, cityName, icon, trustChip, attrChips, favBtn, withUtm } from './lib/html.js';
 import { allBarsWithHH, barBySlug, hoodCounts, hoodName, CITIES, HOODS } from './lib/data.js';
 import { nowInChicago, isActive, nextStart, fmtWindow, fmtDows } from './lib/time.js';
 
@@ -17,6 +17,10 @@ const clock = now => {
 };
 
 const FILTERS = `<div class="filters" data-filters hidden>
+  <span class="fgroup">
+    <button aria-pressed="false" data-f="happyhournow">● Happy Hour Now</button>
+    <button aria-pressed="false" data-f="opennow">Open Now</button>
+  </span>
   <span class="fgroup">
     <button aria-pressed="false" data-f="price" data-v="1">$</button>
     <button aria-pressed="false" data-f="price" data-v="2">$$</button>
@@ -41,26 +45,24 @@ export async function home({ env, url }) {
   const subscribed = url.searchParams.get('subscribed');
   const now = nowInChicago();
   const bars = await allBarsWithHH(env.DB);
-  const activeBars = bars.filter(b => b.hh.some(h => isActive(h, now)));
   const hoods = await hoodCounts(env.DB);
 
-  let rail;
-  if (activeBars.length) {
-    rail = activeBars.map(b => barCard(b, now)).join('');
-  } else {
-    const upcoming = bars
-      .map(b => ({ b, n: nextStart(b.hh, now) })).filter(x => x.n)
-      .sort((a, z) => a.n.inMinutes - z.n.inMinutes).slice(0, 6);
-    const soonest = upcoming[0];
-    rail = `<div class="empty">Nothing's pouring right this minute. <b>Next up${
-      soonest && soonest.n.inMinutes < 1440 ? ` at ${fmtWindow(soonest.n.hh).split('–')[0]}` : ''
-    }:</b></div>` + upcoming.map(x => barCard(x.b, now)).join('');
-  }
+  // Show ALL bars — happy-hour-active first, then soonest upcoming, then the rest.
+  const ranked = bars
+    .map(b => ({ b, active: b.hh.some(h => isActive(h, now)), n: nextStart(b.hh, now) }))
+    .sort((a, z) =>
+      (Number(z.active) - Number(a.active)) ||
+      ((a.n ? a.n.inMinutes : Infinity) - (z.n ? z.n.inMinutes : Infinity)) ||
+      a.b.name.localeCompare(z.b.name));
+  const rail = ranked.length
+    ? ranked.map(x => barCard(x.b, now)).join('')
+    : '<div class="empty">No bars on file yet.</div>';
 
   return html(layout({
     title: '5PM MSP — Twin Cities happy hour finder',
     desc: `Happy hours across Minneapolis + St Paul — ${bars.length} bars, filterable by neighborhood, time, and what's pouring right now.`,
     path: '/',
+    wide: true,
     body: `
 ${subscribed ? '<div class="ok-note">You\'re on the list. New deals + new bars, occasionally — never spam.</div>' : ''}
 <div class="actions">
@@ -69,7 +71,7 @@ ${subscribed ? '<div class="ok-note">You\'re on the list. New deals + new bars, 
 </div>
 <p class="hint">location stays on your phone — we never see it</p>
 ${FILTERS}
-<div class="rail-label"><span class="live"></span><h2>Lit right now</h2><small data-clock>${clock(now)}</small></div>
+<div class="rail-label"><span class="live"></span><h2>Open right now</h2><small data-clock>${clock(now)}</small></div>
 <div data-cards>${rail}</div>
 <div class="rail-label" id="hoods"><h2>By neighborhood</h2></div>
 ${hoodChips(hoods)}
@@ -96,6 +98,7 @@ export async function hoodPage({ env, params }) {
     title: `${name} happy hours — 5PM MSP`,
     desc: `Every happy hour we track in ${name}, ${city} — ${bars.length} bars with times and deals.`,
     path: `/${params.hood}`,
+    wide: true,
     body: `
 <p class="crumb"><a href="/">home</a> / ${esc(city)}</p>
 <div class="rail-label"><h2>${esc(name)}</h2><small data-clock>${clock(now)}</small></div>
@@ -115,6 +118,7 @@ export async function cityPage({ env, params }) {
     title: `${cityName(city)} happy hours — 5PM MSP`,
     desc: `Happy hours across ${cityName(city)} — ${bars.length} bars by neighborhood, time, and deal.`,
     path: `/${city}`,
+    wide: true,
     body: `
 <p class="crumb"><a href="/">home</a></p>
 <div class="rail-label"><h2>${esc(cityName(city))}</h2><small data-clock>${clock(now)}</small></div>
@@ -129,29 +133,41 @@ export async function barPage({ env, params, url }) {
   if (!bar) return null;
   const now = nowInChicago();
   const ok = url.searchParams.get('ok');
-  const st = statusText(bar, now);
   const flags = [
     bar.patio ? '<span class="chip">☀ patio</span>' : '',
     bar.rooftop ? '<span class="chip">rooftop</span>' : '',
     bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
   ].join('');
-  const hhData = esc(JSON.stringify(bar.hh.map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
-  const hhOpen = bar.hh.some(h => isActive(h, now));
-  const statusSpan = hhOpen
-    ? `<span class="now" data-status>${st.text}</span>`
-    : `<span class="hh-closed" data-status>Closed</span>`;
-  const hhRows = bar.hh.length
+
+  // ── Happy Hr row: a green pill per window + the deal beneath it ──
+  const infoBtn = bar.verified && bar.last_verified
+    ? `<button class="info" data-info="Last verified ${esc(bar.last_verified)}" aria-label="Last verified ${esc(bar.last_verified)}" title="Last verified ${esc(bar.last_verified)}">${icon('info')}</button>`
+    : '';
+  const hhItems = bar.hh.length
     ? bar.hh.map(h =>
-        `<div class="hh-srow"><span class="hh-days">${fmtDows(h.dow_mask)}</span><span class="hh-time">${fmtWindow(h)}</span>${h.deals ? `<p class="hh-deal">${esc(h.deals)}</p>` : ''}</div>`
+        `<div class="hh-item"><span class="hh-pill${isActive(h, now) ? ' on' : ''}">${fmtDows(h.dow_mask)}: ${fmtWindow(h)}</span>${h.deals ? `<p class="hh-deal">${esc(h.deals)}</p>` : ''}</div>`
       ).join('')
-    : '<p class="hh-empty">No windows on file yet — know one? Report it below.</p>';
-  const hhBlock = `<div class="hh-block" data-hh="${hhData}">
-  <button class="hh-toggle-row" data-hh-toggle aria-expanded="true" aria-controls="hh-sched">
-    <span class="hh-label">Happy hour</span>
-    ${statusSpan}
-    <span class="hh-arrow" aria-hidden="true">▲</span>
-  </button>
-  <div class="hh-sched" id="hh-sched">${hhRows}</div>
+    : '<p class="hh-none">No happy hour on file yet — know one? Report it below.</p>';
+
+  // ── Hours row (venue open/closed): only when regular hours are on file ──
+  const hasHours = bar.hours && bar.hours.length;
+  const openNow = hasHours && bar.hours.some(h => isActive(h, now));
+  const hoursSection = hasHours ? `
+  <div class="hrow hrow--div">
+    <span class="hrow-k">Hours</span>
+    <button class="hrow-toggle" data-hh-toggle aria-expanded="false" aria-controls="reg-hours">
+      <span class="${openNow ? 'is-open' : 'is-closed'}">${openNow ? 'Open' : 'Closed'}</span>
+      <span class="hh-arrow" aria-hidden="true">▲</span>
+    </button>
+  </div>
+  <div class="reg-hours" id="reg-hours" hidden>${bar.hours.map(h =>
+    `<div class="hh-srow"><span class="hh-days">${fmtDows(h.dow_mask)}</span><span class="hh-time">${fmtWindow(h)}</span></div>`).join('')}</div>` : '';
+
+  const hoursPanel = `<div class="hours-panel">
+  <div class="hrow">
+    <span class="hrow-k">Happy Hr</span>
+    <div class="hrow-v">${hhItems}${infoBtn}</div>
+  </div>${hoursSection}
 </div>`;
   const about = [
     bar.food ? `<div><span>Food</span> ${esc(bar.food)}</div>` : '',
@@ -168,10 +184,10 @@ export async function barPage({ env, params, url }) {
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
 <div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}<button type="button" class="act" data-open-share aria-label="Share">${icon('share')}</button></div></div>
 <div class="meta bar-meta">${trustChip(bar)}${attrChips(bar)}<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>${flags}</div>
-${hhBlock}
+${hoursPanel}
 ${about ? `<dl class="about">${about}</dl>` : ''}
 <div class="bar-links">
-  ${bar.website ? `<a href="${esc(bar.website)}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
+  ${bar.website ? `<a href="${esc(withUtm(bar.website))}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
   <a class="dir" data-lat="${bar.lat}" data-lng="${bar.lng}" data-q="${dirQ}" href="https://www.google.com/maps/search/?api=1&query=${dirQ}" target="_blank" rel="noopener noreferrer">${icon('pin')} Directions</a>
   <button type="button" class="icon-only" data-open-report aria-label="Report a change" title="Report a change">${icon('flag')}</button>
 </div>
