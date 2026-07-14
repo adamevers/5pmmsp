@@ -8,9 +8,13 @@ export const HOODS = {
   dinkytown: 'Dinkytown', 'cathedral-hill': 'Cathedral Hill',
   'grand-avenue': 'Grand Avenue', lowertown: 'Lowertown', 'west-7th': 'West 7th',
   'mac-groveland': 'Mac-Groveland', 'west-side': 'West Side', 'payne-phalen': 'Payne-Phalen',
+  longfellow: 'Longfellow', como: 'Como',
 };
 
 export const hoodName = slug => HOODS[slug] || slug;
+
+/** Regular-hours JSON column → array of {dow_mask, start_min, end_min}. */
+const parseHours = s => { try { return s ? JSON.parse(s) : []; } catch { return []; } };
 
 export const CATEGORIES = {
   'cocktail-bar': 'Cocktail Bar', 'bar-restaurant': 'Bar & Restaurant',
@@ -30,7 +34,7 @@ export async function allBarsWithHH(db) {
     if (!byBar.has(hh.bar_id)) byBar.set(hh.bar_id, []);
     byBar.get(hh.bar_id).push(hh);
   }
-  return bars.results.map(b => ({ ...b, hh: byBar.get(b.id) || [] }));
+  return bars.results.map(b => ({ ...b, hh: byBar.get(b.id) || [], hours: parseHours(b.hours) }));
 }
 
 export async function barBySlug(db, slug) {
@@ -38,7 +42,7 @@ export async function barBySlug(db, slug) {
   if (!bar) return null;
   const hh = await db.prepare('SELECT * FROM happy_hours WHERE bar_id = ? ORDER BY start_min')
     .bind(bar.id).all();
-  return { ...bar, hh: hh.results };
+  return { ...bar, hh: hh.results, hours: parseHours(bar.hours) };
 }
 
 /** [{slug, name, city, count}] for hoods that actually have bars. */

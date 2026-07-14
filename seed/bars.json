@@ -127,6 +127,37 @@
 
     { "slug": "shamrocks-st-paul", "name": "Shamrocks Bar & Grill", "city": "st-paul", "neighborhood": "west-7th", "lat": 44.9382, "lng": -93.1117, "website": "https://crshamrocks.com", "patio": 1, "price": 1, "category": "bar-restaurant", "seating": "Booths, Bar stools, Tables", "food": "American, Irish pub, Bar food", "verified": 0, "hh": [
       { "dow_mask": 31, "start_min": 900, "end_min": 1080, "deals": "2-for-1 domestic taps, $3.75 bottles, $3.25 rail drinks" }
-    ], "notes": "HH details per Visit Saint Paul; official site (crshamrocks.com) displays image-only menus. 995 W 7th St." }
+    ], "notes": "HH details per Visit Saint Paul; official site (crshamrocks.com) displays image-only menus. 995 W 7th St." },
+
+    { "slug": "schooner-tavern", "name": "Schooner Tavern", "city": "minneapolis", "neighborhood": "longfellow", "lat": 44.9440, "lng": -93.2344, "website": "https://www.schoonertavern.com", "patio": 0, "price": 1, "category": "dive-bar", "seating": "Bar stools, Booths", "food": "Pizza, Snacks", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 600, "end_min": 720, "deals": "Happy hour pricing on all drinks" },
+      { "dow_mask": 31, "start_min": 900, "end_min": 1140, "deals": "Happy hour pricing on all drinks" },
+      { "dow_mask": 64, "start_min": 600, "end_min": 60, "deals": "Happy hour all day Sunday" }
+    ], "notes": "HH days+times confirmed on official site (schoonertavern.com): M-F 10am-noon & 3-7pm, Sun all day; deal specifics not published. Oldest pub house in Minneapolis, est. 1932. 2901 27th Ave S." },
+
+    { "slug": "vegas-lounge-ne", "name": "Vegas Lounge", "city": "minneapolis", "neighborhood": "nordeast", "lat": 44.9949, "lng": -93.2490, "website": "https://vegasloungene.com", "patio": 0, "price": 1, "category": "dive-bar", "seating": "Bar stools, Tables", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 990, "end_min": 1110, "deals": "2-for-1 drink specials" },
+      { "dow_mask": 79, "start_min": 1380, "end_min": 60, "deals": "2-for-1 drink specials (late night)" }
+    ], "notes": "Official site (vegasloungene.com) mentions '2-for-1 Happy Hours'; times per secondary sources. Best karaoke in Minneapolis per City Pages. 965 Central Ave NE." },
+
+    { "slug": "moto-i", "name": "moto-i", "city": "minneapolis", "neighborhood": "uptown", "lat": 44.9476, "lng": -93.2891, "website": "https://moto-i.com", "patio": 0, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "Ramen, Izakaya small plates, Sake", "verified": 0, "hh": [
+      { "dow_mask": 126, "start_min": 900, "end_min": 1020, "deals": "$5 taps, $3 off sake by glass, $7 sake cocktails, discounted apps" }
+    ], "notes": "HH per localfriend.mn (Tue-Sun 3-5pm); official site has HH menu page but content was not accessible. First sake brewpub outside Japan. 2940 Lyndale Ave S." },
+
+    { "slug": "hai-hai-ne", "name": "Hai Hai", "city": "minneapolis", "neighborhood": "nordeast", "lat": 44.9911, "lng": -93.2391, "website": "https://www.haihaimpls.com", "patio": 0, "price": 3, "category": "bar-restaurant", "seating": "Tables, Booths", "food": "Southeast Asian, Street food, Tropical cocktails", "verified": 0, "hh": [
+      { "dow_mask": 30, "start_min": 960, "end_min": 1080, "deals": "$8 select cocktails, $5 beer & wine, food specials" }
+    ], "notes": "Social hour per Jason DeRusha + Thriftlist (Tue-Fri 4-6pm); official site (haihaimpls.com) does not publish HH details. James Beard Award for Best Chef Midwest 2024. 2121 University Ave NE." },
+
+    { "slug": "half-time-rec", "name": "Half Time Rec", "city": "st-paul", "neighborhood": "como", "lat": 44.9706, "lng": -93.1428, "website": "https://halftimerec.net", "patio": 0, "price": 1, "category": "bar-restaurant", "seating": "Tables, Booths, Bar stools", "food": "Burgers, Sandwiches, American", "verified": 0, "hh": [
+      { "dow_mask": 127, "start_min": 660, "end_min": 1140, "deals": "$4 tap beer during happy hour" }
+    ], "notes": "HH daily open to 7pm; official specials page (halftimerec.net) labels HH windows but does not list deal prices. Features Paddy Shack kitchen and indoor bocce ball court. 1013 Front Ave." },
+
+    { "slug": "earl-giles-ne", "name": "Earl Giles", "city": "minneapolis", "neighborhood": "nordeast", "lat": 44.9879, "lng": -93.2476, "website": "https://earlgiles.com", "patio": 1, "price": 3, "category": "bar-restaurant", "seating": "Tables, Bar stools", "food": "Wood-fired pizza, Small plates, Cocktails", "verified": 0, "hh": [
+      { "dow_mask": 15, "start_min": 900, "end_min": 1080, "deals": "$2 off all cocktails, $2 oysters" }
+    ], "notes": "HH per Thriftlist ($2 off cocktails, $2 oysters); official site (earlgiles.com) does not publish HH details. 18,000 sq ft NE Minneapolis distillery restaurant. 1325 Quincy St NE." },
+
+    { "slug": "merlins-rest-pub", "name": "Merlin's Rest Pub", "city": "minneapolis", "neighborhood": "longfellow", "lat": 44.9489, "lng": -93.2138, "website": "https://www.merlinsrest.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "British pub, Bar snacks", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 960, "end_min": 1080, "deals": "Happy hour pricing on drinks" }
+    ], "notes": "HH Mon-Fri 4-6pm confirmed on official specials page (merlinsrest.com); deal specifics not published. Minnesota's most comprehensive single malt scotch & Irish whiskey list. Est. 2007. 3601 E Lake St." }
   ]
 }
