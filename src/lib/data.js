@@ -1,6 +1,6 @@
 // D1 queries + neighborhood/city display names.
 
-export const CITIES = { minneapolis: 'Minneapolis', 'st-paul': 'St Paul' };
+export const CITIES = { minneapolis: 'Minneapolis', 'st-paul': 'St Paul', edina: 'Edina', bloomington: 'Bloomington' };
 
 export const HOODS = {
   nordeast: 'Nordeast', 'north-loop': 'North Loop', downtown: 'Downtown',
@@ -9,6 +9,7 @@ export const HOODS = {
   'grand-avenue': 'Grand Avenue', lowertown: 'Lowertown', 'west-7th': 'West 7th',
   'mac-groveland': 'Mac-Groveland', 'west-side': 'West Side', 'payne-phalen': 'Payne-Phalen',
   longfellow: 'Longfellow', como: 'Como',
+  edina: 'Edina', bloomington: 'Bloomington',
 };
 
 export const hoodName = slug => HOODS[slug] || slug;
