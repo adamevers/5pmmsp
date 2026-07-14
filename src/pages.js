@@ -1,5 +1,5 @@
 // SSR pages: home, neighborhood, city, bar detail, submit, map, 404.
-import { layout, barCard, esc, cityName, icon, trustChip, attrChips, favBtn, withUtm, priceMarks, barFlags } from './lib/html.js';
+import { layout, barCard, esc, cityName, icon, trustChip, attrChips, favBtn, withUtm, priceMarks, barFlags, fmtDate } from './lib/html.js';
 import { allBarsWithHH, barBySlug, hoodCounts, hoodName, CITIES, HOODS } from './lib/data.js';
 import { nowInChicago, isActive, nextStart, fmtWindow, fmtDows } from './lib/time.js';
 
@@ -138,8 +138,9 @@ export async function barPage({ env, params, url }) {
   const ok = url.searchParams.get('ok');
 
   // ── Happy Hr row: a pill per window (+ ⓘ last-verified), deals shown below ──
+  const lv = esc(fmtDate(bar.last_verified));
   const infoBtn = bar.verified && bar.last_verified
-    ? `<button class="info" data-info="Last verified ${esc(bar.last_verified)}" aria-label="Last verified ${esc(bar.last_verified)}" title="Last verified ${esc(bar.last_verified)}">${icon('info')}</button>`
+    ? `<button class="info" data-info="Last verified ${lv}" aria-label="Last verified ${lv}" title="Last verified ${lv}">${icon('info')}</button>`
     : '';
   const hhItems = bar.hh.length
     ? bar.hh.map(h => `<span class="hh-pill${isActive(h, now) ? ' on' : ''}">${fmtDows(h.dow_mask)}: ${fmtWindow(h)}</span>`).join('')
@@ -188,9 +189,9 @@ ${priceMarks(bar.price)}
 ${hoursPanel}
 ${dealQuotes}
 <div class="bar-links">
-  ${bar.website ? `<a href="${esc(withUtm(bar.website))}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
-  <a class="dir" data-lat="${bar.lat}" data-lng="${bar.lng}" data-q="${dirQ}" href="https://www.google.com/maps/search/?api=1&query=${dirQ}" target="_blank" rel="noopener noreferrer">${icon('pin')} Directions</a>
-  <button type="button" data-open-share aria-label="Share">${icon('share')} Share</button>
+  ${bar.website ? `<a href="${esc(withUtm(bar.website))}" target="_blank" rel="noopener noreferrer" aria-label="Website">${icon('globe')}<span class="blbl">Website</span></a>` : ''}
+  <a class="dir" data-lat="${bar.lat}" data-lng="${bar.lng}" data-q="${dirQ}" href="https://www.google.com/maps/search/?api=1&query=${dirQ}" target="_blank" rel="noopener noreferrer" aria-label="Directions">${icon('pin')}<span class="blbl">Directions</span></a>
+  <button type="button" data-open-share aria-label="Share">${icon('share')}<span class="blbl">Share</span></button>
   <button type="button" class="icon-only" data-open-report aria-label="Report a change" title="Report a change">${icon('flag')}</button>
 </div>
 ${bar.notes ? `<p class="hint" style="text-align:left">${esc(bar.notes)}</p>` : ''}

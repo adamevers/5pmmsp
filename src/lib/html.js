@@ -107,11 +107,20 @@ export function statusText(bar, now) {
  * `link`  → whole card navigates to the bar page (stretched-link).
  * `dist`  → reserve a distance slot for near-me.
  */
-/** ◆ Verified / unverified outline chip (no ⓘ — that lives by the Happy Hr row). */
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+/** ISO "2026-07-25" → "July 25 2026" (parsed by parts, no TZ shift). */
+export function fmtDate(iso) {
+  if (!iso) return '';
+  const [y, m, d] = String(iso).split('-').map(Number);
+  return (y && m && d) ? `${MONTHS[m - 1]} ${d} ${y}` : String(iso);
+}
+
+/** ◆ Verified / unverified outline chip (verified date rides along as a tooltip). */
 export function trustChip(bar) {
-  return bar.verified
-    ? '<span class="chip verified">Verified HH</span>'
-    : '<span class="chip unverified">unverified</span>';
+  if (!bar.verified) return '<span class="chip unverified">unverified</span>';
+  const t = bar.last_verified ? ` title="Verified ${esc(fmtDate(bar.last_verified))}"` : '';
+  return `<span class="chip verified"${t}>Verified HH</span>`;
 }
 
 /** Heart/favorite toggle (client-persisted). */
@@ -132,11 +141,11 @@ export function priceMarks(n) {
   return `<span class="price">${s}</span>`;
 }
 
-/** Patio / rooftop / skyway flags as small mono tags. */
+/** Patio / rooftop / skyway flags as outline pills (same as the other chips). */
 export const barFlags = bar => [
-  bar.patio ? '<span class="flag">☀ patio</span>' : '',
-  bar.rooftop ? '<span class="flag">rooftop</span>' : '',
-  bar.skyway ? '<span class="flag">❄ skyway</span>' : '',
+  bar.patio ? '<span class="chip">☀ patio</span>' : '',
+  bar.rooftop ? '<span class="chip">rooftop</span>' : '',
+  bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
 ].join('');
 
 export function barCard(bar, now, { showHood = true, dist = true, link = true } = {}) {

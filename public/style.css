@@ -96,7 +96,6 @@ header .tag b{color:var(--enamel);font-weight:500}
 .chip.verified::before{content:"◆ "}
 .chip.unverified{border-color:#3A4A66;color:var(--dim)}
 .chip.cat{border-color:rgba(255,184,77,.5);color:var(--filament)}
-.flag{font:600 11px/1 "IBM Plex Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
 
 /* price tier — bright amber for the level, dim for the rest */
 .price{display:block;font:700 18px/1 "IBM Plex Mono";letter-spacing:.14em;margin-top:12px}
@@ -185,11 +184,14 @@ header .tag b{color:var(--enamel);font-weight:500}
   background:transparent;box-shadow:inset 0 0 0 1px #2A3A5E;cursor:pointer;border:0;white-space:nowrap}
 .bar-links a:hover,.bar-links button:hover{box-shadow:inset 0 0 0 1px var(--filament)}
 .bar-links button.icon-only{flex:0 0 auto;width:48px;padding:11px 0}
+/* on phones the Website/Directions/Share buttons collapse to just their icon */
+.blbl{display:none}
+@media (min-width:560px){.blbl{display:inline}}
 .ico{flex:none;color:var(--filament)}
 
 /* report modal */
 .modal{border:3px solid var(--cap-red);border-radius:12px;padding:0;max-width:440px;width:calc(100vw - 36px);
-  background:var(--enamel);color:var(--ink)}
+  margin:auto;background:var(--enamel);color:var(--ink)}
 .modal::backdrop{background:rgba(16,27,45,.72)}
 .modal .panel{margin:0;border:0;box-shadow:none}
 .modal-head{display:flex;align-items:center;justify-content:space-between}

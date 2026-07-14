@@ -12,6 +12,11 @@ export const CITIES = {
   oakdale: 'Oakdale', 'cottage-grove': 'Cottage Grove', 'maple-grove': 'Maple Grove',
   osseo: 'Osseo', 'brooklyn-park': 'Brooklyn Park', crystal: 'Crystal',
   'coon-rapids': 'Coon Rapids', anoka: 'Anoka', 'new-hope': 'New Hope', richfield: 'Richfield',
+  'eden-prairie': 'Eden Prairie', chanhassen: 'Chanhassen', chaska: 'Chaska',
+  excelsior: 'Excelsior', shakopee: 'Shakopee', waconia: 'Waconia', blaine: 'Blaine',
+  fridley: 'Fridley', 'columbia-heights': 'Columbia Heights', 'forest-lake': 'Forest Lake',
+  'ham-lake': 'Ham Lake', 'mounds-view': 'Mounds View', andover: 'Andover',
+  'inver-grove-heights': 'Inver Grove Heights',
 };
 
 export const HOODS = {
@@ -36,6 +41,12 @@ export const HOODS = {
   oakdale: 'Oakdale', 'cottage-grove': 'Cottage Grove', 'maple-grove': 'Maple Grove',
   osseo: 'Osseo', 'brooklyn-park': 'Brooklyn Park', crystal: 'Crystal',
   'coon-rapids': 'Coon Rapids', anoka: 'Anoka', 'new-hope': 'New Hope', richfield: 'Richfield',
+  'loring-park': 'Loring Park', tangletown: 'Tangletown',
+  'eden-prairie': 'Eden Prairie', chanhassen: 'Chanhassen', chaska: 'Chaska',
+  excelsior: 'Excelsior', shakopee: 'Shakopee', waconia: 'Waconia', blaine: 'Blaine',
+  fridley: 'Fridley', 'columbia-heights': 'Columbia Heights', 'forest-lake': 'Forest Lake',
+  'ham-lake': 'Ham Lake', 'mounds-view': 'Mounds View', andover: 'Andover',
+  'inver-grove-heights': 'Inver Grove Heights',
 };
 
 export const hoodName = slug => HOODS[slug] || slug;
