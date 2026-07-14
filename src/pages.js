@@ -181,7 +181,7 @@ export async function barPage({ env, params, url }) {
     path: `/bar/${bar.slug}`,
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
-<div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}<button type="button" class="act" data-open-share aria-label="Share">${icon('share')}</button></div></div>
+<div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}</div></div>
 <div class="pills">${trustChip(bar)}${attrChips(bar)}${barFlags(bar)}</div>
 ${priceMarks(bar.price)}
 <p class="loc">${esc(hoodName(bar.neighborhood))} · ${esc(cityName(bar.city))}</p>
@@ -190,6 +190,7 @@ ${dealQuotes}
 <div class="bar-links">
   ${bar.website ? `<a href="${esc(withUtm(bar.website))}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
   <a class="dir" data-lat="${bar.lat}" data-lng="${bar.lng}" data-q="${dirQ}" href="https://www.google.com/maps/search/?api=1&query=${dirQ}" target="_blank" rel="noopener noreferrer">${icon('pin')} Directions</a>
+  <button type="button" data-open-share aria-label="Share">${icon('share')} Share</button>
   <button type="button" class="icon-only" data-open-report aria-label="Report a change" title="Report a change">${icon('flag')}</button>
 </div>
 ${bar.notes ? `<p class="hint" style="text-align:left">${esc(bar.notes)}</p>` : ''}

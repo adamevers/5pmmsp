@@ -7,6 +7,11 @@ export const CITIES = {
   'white-bear-lake': 'White Bear Lake', maplewood: 'Maplewood', shoreview: 'Shoreview',
   'vadnais-heights': 'Vadnais Heights', 'mendota-heights': 'Mendota Heights',
   'west-st-paul': 'West St Paul', 'south-st-paul': 'South St Paul',
+  eagan: 'Eagan', burnsville: 'Burnsville', lakeville: 'Lakeville', savage: 'Savage',
+  rosemount: 'Rosemount', woodbury: 'Woodbury', hudson: 'Hudson', stillwater: 'Stillwater',
+  oakdale: 'Oakdale', 'cottage-grove': 'Cottage Grove', 'maple-grove': 'Maple Grove',
+  osseo: 'Osseo', 'brooklyn-park': 'Brooklyn Park', crystal: 'Crystal',
+  'coon-rapids': 'Coon Rapids', anoka: 'Anoka', 'new-hope': 'New Hope', richfield: 'Richfield',
 };
 
 export const HOODS = {
@@ -24,6 +29,13 @@ export const HOODS = {
   'white-bear-lake': 'White Bear Lake', maplewood: 'Maplewood', shoreview: 'Shoreview',
   'vadnais-heights': 'Vadnais Heights', 'mendota-heights': 'Mendota Heights',
   'west-st-paul': 'West St Paul', 'south-st-paul': 'South St Paul',
+  'linden-hills': 'Linden Hills', 'marcy-holmes': 'Marcy-Holmes',
+  frogtown: 'Frogtown', 'hamline-midway': 'Hamline-Midway',
+  eagan: 'Eagan', burnsville: 'Burnsville', lakeville: 'Lakeville', savage: 'Savage',
+  rosemount: 'Rosemount', woodbury: 'Woodbury', hudson: 'Hudson', stillwater: 'Stillwater',
+  oakdale: 'Oakdale', 'cottage-grove': 'Cottage Grove', 'maple-grove': 'Maple Grove',
+  osseo: 'Osseo', 'brooklyn-park': 'Brooklyn Park', crystal: 'Crystal',
+  'coon-rapids': 'Coon Rapids', anoka: 'Anoka', 'new-hope': 'New Hope', richfield: 'Richfield',
 };
 
 export const hoodName = slug => HOODS[slug] || slug;

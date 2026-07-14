@@ -42,15 +42,15 @@ most beloved illuminated sign in the state.
 | `--night-2` | `#182642` | raised surfaces, ghost buttons |
 | `--filament` | `#FFB84D` | incandescent amber — the glow, links, wordmark |
 | `--cap-red` | `#C8322B` | bottle-cap red — primary action, active state |
-| `--enamel` | `#F4E9D8` | porcelain-sign cream — bar names + body text on dark |
+| `--enamel` | `#F4E9D8` | porcelain-sign cream — **card surfaces**, body text on dark |
 | `--brew-green` | `#2E6B4F` | the "M"-circle green — **verified only** |
 | `--ink` | `#26221C` | text on enamel |
 | `--dim` | `#8FA0BC` | muted mono labels, captions |
 
-**Rules of thumb:** dark ground, dark raised cards (`--night-2`) — content in
-cream/amber on top. Red is for *action and "on now."* Green means *verified*
-(and the happy-hour window pill). Amber is the light: glow, the clock, links,
-the price tier. Don't introduce a fourth accent.
+**Rules of thumb:** dark ground, cream enamel cards. Red is for *action and
+"on now"* — the card's outline goes cap-red when a happy hour is live. Green
+means *verified* (and the happy-hour window pill). Amber is the light: glow,
+the clock, links, the price tier. Don't introduce a fourth accent.
 
 ## Type
 
@@ -75,10 +75,11 @@ Nordeast, not a marketer.
 ## Signature elements
 
 - **Bulb-by-bulb wordmark** (the Grain Belt letter sequence).
-- **Dark cards** — raised `--night-2` panels with outlined pills and label/value
-  rows (Happy Hr · Hours · Food · Seating), the price tier as filled/dim dollar
-  signs, and a glowing cap-red left bar when a happy hour is live. (Layout follows
-  the 5pm.nyc information hierarchy; the palette and type are ours.)
+- **Cream enamel cards** — porcelain-sign panels with a hard `0 5px 0` drop and a
+  cap-red outline when a happy hour is live. Inside: outlined pills, label/value
+  rows (Happy Hr · Hours), the price tier as filled/dim dollar signs. (Layout
+  follows the 5pm.nyc information hierarchy; the surface, palette and type are ours.
+  The bar detail page renders the same rows on a dark ground.)
 - **◆ diamond** = verified marker (never used decoratively).
 - **The live clock** in the section header, amber mono, ticking.
 
@@ -101,8 +102,8 @@ gratuitous scroll animation — the sign flickers; it doesn't dance.
 
 ## What this brand is *not*
 
-- Dark, but *warm* — amber bulb-light and cap-red on river-night blue, not cold
-  glass-neon. Sign-painted, not startup-slick.
+- Not glassy dark-neon (that's 5pm.nyc — we're deliberately warmer, cream and
+  sign-painted). We borrowed their information layout, not their surface.
 - Not sponsored or ad-driven. No "featured" placement styling exists on purpose.
 - Not slick-startup. It should feel like it was painted on a bar window in 1955
   and wired for neon.

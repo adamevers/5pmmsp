@@ -60,16 +60,33 @@ header .tag b{color:var(--enamel);font-weight:500}
      box-shadow:0 0 10px var(--filament);align-self:center}
 .rail-label small{font:400 12px "IBM Plex Mono";color:var(--dim);margin-left:auto}
 
-/* ── dark cards — 5pm reference layout in our river-night palette ── */
-.card{position:relative;background:var(--night-2);color:var(--enamel);border-radius:12px;padding:16px 18px;
-      margin-bottom:14px;border:1px solid #2A3A5E;box-shadow:0 2px 0 rgba(0,0,0,.35);overflow:hidden}
-.card.active{border-color:#3A4A66}
-.card.active::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
-      background:var(--cap-red);box-shadow:0 0 14px rgba(200,50,43,.7)}
+/* ── cards: cream enamel by default; cap-red outline = open right now ── */
+.card{position:relative;background:var(--enamel);color:var(--ink);border-radius:12px;padding:16px 18px;
+      margin-bottom:14px;border:3px solid #B8AD98;box-shadow:0 5px 0 rgba(0,0,0,.3);overflow:hidden}
+.card.active{border-color:var(--cap-red)}
 .card .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.card h3{font:800 24px/1.03 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase;color:var(--enamel)}
+.card h3{font:800 24px/1.03 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase;color:var(--ink)}
 .card h3 a{text-decoration:none}
-.card .dist{font:500 12px "IBM Plex Mono";color:var(--filament);white-space:nowrap}
+.card .dist{font:500 12px "IBM Plex Mono";color:var(--cap-red);white-space:nowrap}
+/* cream-card internals — the shared pill/price/kv classes stay dark for the bar page */
+.card .chip{border-color:rgba(38,34,28,.22);color:#5C544A}
+.card .chip.verified{border-color:var(--brew-green);color:var(--brew-green)}
+.card .chip.cat{border-color:#C99A3A;color:#8A5A12}
+.card .chip.unverified{border-color:rgba(38,34,28,.22);color:#7A6F5D}
+.card .flag{color:#6B6250}
+.card .price .on{color:#B26B00}
+.card .price .off{color:#C9BDA6}
+.card .loc{color:#7A6F5D}
+.card .kv .k{color:#7A6F5D}
+.card .kv .is-open{color:var(--brew-green)}
+.card .kv .is-closed{color:var(--cap-red)}
+.card .hh-pill{color:var(--brew-green);background:rgba(46,107,79,.12);border-color:rgba(46,107,79,.5);box-shadow:none}
+.card .hh-none{color:#7A6F5D}
+.card .deal{color:var(--ink);background:rgba(200,50,43,.09)}
+.card .now{color:var(--brew-green)}
+.card .next{color:#7A6F5D}
+.card .fav{color:#9A8F7A}
+.card .fav[aria-pressed="true"]{color:var(--cap-red)}
 
 /* pills row — verified / category / flags (outlined, high-contrast on dark) */
 .pills{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:11px}
@@ -161,8 +178,8 @@ header .tag b{color:var(--enamel);font-weight:500}
 .crumb{font:500 12px "IBM Plex Mono";color:var(--dim)}
 .crumb a{color:var(--dim)}
 /* three equal segments on one line: Website · Directions · Report */
-.bar-links{display:flex;gap:8px;flex-wrap:nowrap;margin:16px 0}
-.bar-links a,.bar-links button{flex:1 1 0;min-width:0;display:inline-flex;align-items:center;justify-content:center;
+.bar-links{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.bar-links a,.bar-links button{flex:1 1 0;min-width:82px;display:inline-flex;align-items:center;justify-content:center;
   gap:7px;font:600 12px "IBM Plex Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--enamel);
   text-decoration:none;padding:12px 8px;border-radius:8px;
   background:transparent;box-shadow:inset 0 0 0 1px #2A3A5E;cursor:pointer;border:0;white-space:nowrap}
