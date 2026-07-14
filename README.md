@@ -28,6 +28,16 @@ Remote DB: same two d1 commands with `--remote`.
 
 ## Data
 
-`seed/bars.json` is the reviewable source of truth for the launch dataset.
+`seed/bars.json` is the reviewable source of truth for the dataset.
 `verified: 1` only when the deal is confirmed on the bar's own website
 (`last_verified` date required). Everything else renders as unverified.
+
+`seed/skiplist.json` tracks venues we've already evaluated and intentionally
+did **not** add — `closed` / `no-happy-hour` / `out-of-scope` / `duplicate` —
+so repeat ingests don't re-fetch and re-reject them. It's ingest-time reference
+only; the worker never loads it.
+
+To add venues from listicles, follow `docs/ingest.md` — the repeatable ingest
+playbook (extract → dedupe against bars.json **and** skiplist.json → verify on
+official site → seed/test/ship). It also documents the curl + `__NEXT_DATA__`
+workaround for hosts that block the fetch tools.
