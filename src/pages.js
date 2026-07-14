@@ -1,5 +1,5 @@
 // SSR pages: home, neighborhood, city, bar detail, submit, map, 404.
-import { layout, barCard, esc, cityName, icon, trustChip, attrChips, favBtn, withUtm } from './lib/html.js';
+import { layout, barCard, esc, cityName, icon, trustChip, attrChips, favBtn, withUtm, priceMarks, barFlags } from './lib/html.js';
 import { allBarsWithHH, barBySlug, hoodCounts, hoodName, CITIES, HOODS } from './lib/data.js';
 import { nowInChicago, isActive, nextStart, fmtWindow, fmtDows } from './lib/time.js';
 
@@ -16,7 +16,9 @@ const clock = now => {
   return `${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][now.dow]} ${h}:${m} ${now.minutes < 720 ? 'AM' : 'PM'}`;
 };
 
-const FILTERS = `<div class="filters" data-filters hidden>
+const FILTERS = `<div class="filter-wrap">
+<button class="filters-btn" data-filters-toggle aria-expanded="false" hidden>Filters <span class="fb-arrow">▾</span></button>
+<div class="filters" data-filters hidden>
   <span class="fgroup">
     <button aria-pressed="false" data-f="happyhournow">● Happy Hour Now</button>
     <button aria-pressed="false" data-f="opennow">Open Now</button>
@@ -39,6 +41,7 @@ const FILTERS = `<div class="filters" data-filters hidden>
     <button aria-pressed="false" data-f="verified">◆ Verified</button>
     <button aria-pressed="false" data-f="saved">♥ Saved</button>
   </span>
+</div>
 </div>`;
 
 export async function home({ env, url }) {
@@ -133,21 +136,14 @@ export async function barPage({ env, params, url }) {
   if (!bar) return null;
   const now = nowInChicago();
   const ok = url.searchParams.get('ok');
-  const flags = [
-    bar.patio ? '<span class="chip">☀ patio</span>' : '',
-    bar.rooftop ? '<span class="chip">rooftop</span>' : '',
-    bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
-  ].join('');
 
-  // ── Happy Hr row: a green pill per window + the deal beneath it ──
+  // ── Happy Hr row: a pill per window (+ ⓘ last-verified), deals shown below ──
   const infoBtn = bar.verified && bar.last_verified
     ? `<button class="info" data-info="Last verified ${esc(bar.last_verified)}" aria-label="Last verified ${esc(bar.last_verified)}" title="Last verified ${esc(bar.last_verified)}">${icon('info')}</button>`
     : '';
   const hhItems = bar.hh.length
-    ? bar.hh.map(h =>
-        `<div class="hh-item"><span class="hh-pill${isActive(h, now) ? ' on' : ''}">${fmtDows(h.dow_mask)}: ${fmtWindow(h)}</span>${h.deals ? `<p class="hh-deal">${esc(h.deals)}</p>` : ''}</div>`
-      ).join('')
-    : '<p class="hh-none">No happy hour on file yet — know one? Report it below.</p>';
+    ? bar.hh.map(h => `<span class="hh-pill${isActive(h, now) ? ' on' : ''}">${fmtDows(h.dow_mask)}: ${fmtWindow(h)}</span>`).join('')
+    : '<span class="hh-none">Not on file yet — report it below.</span>';
 
   // ── Hours row (venue open/closed): only when regular hours are on file ──
   const hasHours = bar.hours && bar.hours.length;
@@ -163,16 +159,19 @@ export async function barPage({ env, params, url }) {
   <div class="reg-hours" id="reg-hours" hidden>${bar.hours.map(h =>
     `<div class="hh-srow"><span class="hh-days">${fmtDows(h.dow_mask)}</span><span class="hh-time">${fmtWindow(h)}</span></div>`).join('')}</div>` : '';
 
+  const foodRow = bar.food ? `<div class="hrow hrow--div"><span class="hrow-k">Food</span><div class="hrow-v hrow-plain">${esc(bar.food)}</div></div>` : '';
+  const seatingRow = bar.seating ? `<div class="hrow hrow--div"><span class="hrow-k">Seating</span><div class="hrow-v hrow-plain">${esc(bar.seating)}</div></div>` : '';
+
   const hoursPanel = `<div class="hours-panel">
   <div class="hrow">
     <span class="hrow-k">Happy Hr</span>
     <div class="hrow-v">${hhItems}${infoBtn}</div>
-  </div>${hoursSection}
+  </div>${hoursSection}${foodRow}${seatingRow}
 </div>`;
-  const about = [
-    bar.food ? `<div><span>Food</span> ${esc(bar.food)}</div>` : '',
-    bar.seating ? `<div><span>Seating</span> ${esc(bar.seating)}</div>` : '',
-  ].join('');
+
+  // The actual deals as quote lines under the panel.
+  const dealQuotes = bar.hh.filter(h => h.deals)
+    .map(h => `<p class="deal-quote">“${esc(h.deals)}”</p>`).join('');
   const w0 = bar.hh[0];
   const shareText = `Happy hour at ${bar.name}${w0 ? ` — ${fmtDows(w0.dow_mask)} ${fmtWindow(w0)}` : ''} · via 5PM MSP\nhttps://5pmmsp.com/bar/${bar.slug}`;
   const dirQ = encodeURIComponent(`${bar.name}, ${cityName(bar.city)} MN`);
@@ -183,9 +182,11 @@ export async function barPage({ env, params, url }) {
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
 <div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}<button type="button" class="act" data-open-share aria-label="Share">${icon('share')}</button></div></div>
-<div class="meta bar-meta">${trustChip(bar)}${attrChips(bar)}<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>${flags}</div>
+<div class="pills">${trustChip(bar)}${attrChips(bar)}${barFlags(bar)}</div>
+${priceMarks(bar.price)}
+<p class="loc">${esc(hoodName(bar.neighborhood))} · ${esc(cityName(bar.city))}</p>
 ${hoursPanel}
-${about ? `<dl class="about">${about}</dl>` : ''}
+${dealQuotes}
 <div class="bar-links">
   ${bar.website ? `<a href="${esc(withUtm(bar.website))}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}
   <a class="dir" data-lat="${bar.lat}" data-lng="${bar.lng}" data-q="${dirQ}" href="https://www.google.com/maps/search/?api=1&query=${dirQ}" target="_blank" rel="noopener noreferrer">${icon('pin')} Directions</a>

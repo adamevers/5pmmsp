@@ -153,17 +153,26 @@
       c.hidden = !show;
     });
   }
+  // "Filters ▾" reveals/hides the panel; the pills themselves toggle + apply.
+  const filtersBtn = document.querySelector('[data-filters-toggle]');
+  if (filtersBtn && filters) {
+    filtersBtn.hidden = false;
+    filtersBtn.addEventListener('click', () => {
+      const open = filtersBtn.getAttribute('aria-expanded') === 'true';
+      filtersBtn.setAttribute('aria-expanded', String(!open));
+      filters.hidden = open;
+    });
+  }
   if (filters && container) {
-    fetch('/api/bars.json').then(r => r.json()).then(({ bars }) => {
-      meta = Object.fromEntries(bars.map(b => [b.slug, b]));
-      filters.hidden = false;
-      filters.addEventListener('click', e => {
-        const b = e.target.closest('button[data-f]');
-        if (!b) return;
-        b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
-        applyFilters();
-      });
-    }).catch(() => {});
+    filters.addEventListener('click', e => {
+      const b = e.target.closest('button[data-f]');
+      if (!b) return;
+      b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+      applyFilters();
+    });
+    fetch('/api/bars.json').then(r => r.json())
+      .then(({ bars }) => { meta = Object.fromEntries(bars.map(b => [b.slug, b])); })
+      .catch(() => {});
   }
 
   // ---------- info tooltip (last-verified ⓘ) ----------

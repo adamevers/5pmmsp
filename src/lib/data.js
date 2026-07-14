@@ -1,6 +1,13 @@
 // D1 queries + neighborhood/city display names.
 
-export const CITIES = { minneapolis: 'Minneapolis', 'st-paul': 'St Paul', edina: 'Edina', bloomington: 'Bloomington' };
+export const CITIES = {
+  minneapolis: 'Minneapolis', 'st-paul': 'St Paul', edina: 'Edina', bloomington: 'Bloomington',
+  'st-louis-park': 'St Louis Park', wayzata: 'Wayzata', hopkins: 'Hopkins',
+  'golden-valley': 'Golden Valley', minnetonka: 'Minnetonka', roseville: 'Roseville',
+  'white-bear-lake': 'White Bear Lake', maplewood: 'Maplewood', shoreview: 'Shoreview',
+  'vadnais-heights': 'Vadnais Heights', 'mendota-heights': 'Mendota Heights',
+  'west-st-paul': 'West St Paul', 'south-st-paul': 'South St Paul',
+};
 
 export const HOODS = {
   nordeast: 'Nordeast', 'north-loop': 'North Loop', downtown: 'Downtown',
@@ -10,7 +17,13 @@ export const HOODS = {
   'mac-groveland': 'Mac-Groveland', 'west-side': 'West Side', 'payne-phalen': 'Payne-Phalen',
   longfellow: 'Longfellow', como: 'Como',
   edina: 'Edina', bloomington: 'Bloomington',
-  standish: 'Standish',
+  standish: 'Standish', seward: 'Seward', kingfield: 'Kingfield',
+  'highland-park': 'Highland Park', 'downtown-st-paul': 'Downtown St Paul',
+  'st-louis-park': 'St Louis Park', wayzata: 'Wayzata', hopkins: 'Hopkins',
+  'golden-valley': 'Golden Valley', minnetonka: 'Minnetonka', roseville: 'Roseville',
+  'white-bear-lake': 'White Bear Lake', maplewood: 'Maplewood', shoreview: 'Shoreview',
+  'vadnais-heights': 'Vadnais Heights', 'mendota-heights': 'Mendota Heights',
+  'west-st-paul': 'West St Paul', 'south-st-paul': 'South St Paul',
 };
 
 export const hoodName = slug => HOODS[slug] || slug;

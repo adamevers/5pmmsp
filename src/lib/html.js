@@ -107,33 +107,40 @@ export function statusText(bar, now) {
  * `link`  → whole card navigates to the bar page (stretched-link).
  * `dist`  → reserve a distance slot for near-me.
  */
-/** ◆ Verified chip + a little ⓘ that reveals the last-verified date, or "unverified". */
+/** ◆ Verified / unverified outline chip (no ⓘ — that lives by the Happy Hr row). */
 export function trustChip(bar) {
-  if (!bar.verified) return '<span class="chip">unverified</span>';
-  const d = esc(bar.last_verified || '');
-  return `<span class="chip verified">Verified</span>` +
-    `<button class="info" data-info="Last verified ${d}" aria-label="Last verified ${d}" title="Last verified ${d}">${icon('info')}</button>`;
+  return bar.verified
+    ? '<span class="chip verified">Verified HH</span>'
+    : '<span class="chip unverified">unverified</span>';
 }
 
 /** Heart/favorite toggle (client-persisted). */
 export const favBtn = bar =>
   `<button class="fav" data-fav="${esc(bar.slug)}" aria-label="Save ${esc(bar.name)}" aria-pressed="false">${icon('heart')}</button>`;
 
-/** Category · price attribute chips. */
+/** Category outline chip. */
 export function attrChips(bar) {
   const cat = categoryName(bar.category);
-  const price = priceLabel(bar.price);
-  return (cat ? `<span class="chip cat">${esc(cat)}</span>` : '') +
-    (price ? `<span class="chip price">${price}</span>` : '');
+  return cat ? `<span class="chip cat">${esc(cat)}</span>` : '';
 }
+
+/** Price tier as filled/dim dollar signs: $$·· for a 2-of-4 spot. */
+export function priceMarks(n) {
+  if (!(n >= 1 && n <= 4)) return '';
+  let s = '';
+  for (let i = 1; i <= 4; i++) s += `<span class="${i <= n ? 'on' : 'off'}">$</span>`;
+  return `<span class="price">${s}</span>`;
+}
+
+/** Patio / rooftop / skyway flags as small mono tags. */
+export const barFlags = bar => [
+  bar.patio ? '<span class="flag">☀ patio</span>' : '',
+  bar.rooftop ? '<span class="flag">rooftop</span>' : '',
+  bar.skyway ? '<span class="flag">❄ skyway</span>' : '',
+].join('');
 
 export function barCard(bar, now, { showHood = true, dist = true, link = true } = {}) {
   const active = bar.hh.some(h => isActive(h, now));
-  const flags = [
-    bar.patio ? '<span class="chip">☀ patio</span>' : '',
-    bar.rooftop ? '<span class="chip">rooftop</span>' : '',
-    bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
-  ].join('');
   const st = statusText(bar, now);
   const title = link
     ? `<a class="card-link" href="/bar/${esc(bar.slug)}">${esc(bar.name)}</a>`
@@ -141,12 +148,27 @@ export function barCard(bar, now, { showHood = true, dist = true, link = true } 
   // Compact window data so the client can re-derive active/next + countdown live.
   const hhData = esc(JSON.stringify(bar.hh.map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
   const hoursData = esc(JSON.stringify((bar.hours || []).map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
-  const windows = bar.hh.map(h =>
-    `<p class="deal">${esc(h.deals)} <span class="win">· ${fmtDows(h.dow_mask)} ${fmtWindow(h)}</span></p>`).join('');
+  const hhPills = bar.hh.length
+    ? bar.hh.map(h => `<span class="hh-pill${isActive(h, now) ? ' on' : ''}">${fmtDows(h.dow_mask)}: ${fmtWindow(h)}</span>`).join('')
+    : '<span class="hh-none">not on file</span>';
+  const hasHours = bar.hours && bar.hours.length;
+  const openNow = hasHours && bar.hours.some(h => isActive(h, now));
+  const hoursRow = hasHours
+    ? `<div class="kv"><span class="k">Hours</span><span class="v"><span class="${openNow ? 'is-open' : 'is-closed'}">${openNow ? 'Open' : 'Closed'}</span></span></div>`
+    : '';
+  const deal = (bar.hh.find(h => h.deals) || {}).deals;
+  const loc = showHood
+    ? `${esc(hoodName(bar.neighborhood))} · ${esc(bar.city === 'st-paul' ? 'St Paul' : 'Minneapolis')}`
+    : esc(bar.city === 'st-paul' ? 'St Paul' : 'Minneapolis');
   return `<article class="card${active ? ' active' : ''}${link ? ' card--link' : ''}" data-lat="${bar.lat}" data-lng="${bar.lng}" data-slug="${esc(bar.slug)}" data-hh="${hhData}" data-hours="${hoursData}">
   <div class="top"><h3>${title}</h3><div class="top-right">${dist ? '<span class="dist" data-dist hidden></span>' : ''}${favBtn(bar)}</div></div>
-  ${windows}
-  <div class="meta">${trustChip(bar)}${attrChips(bar)}${showHood ? `<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>` : ''}${flags}<span class="${st.cls}" data-status>${st.text}</span></div>
+  <div class="pills">${trustChip(bar)}${attrChips(bar)}${barFlags(bar)}</div>
+  ${priceMarks(bar.price)}
+  <p class="loc">${loc}</p>
+  <div class="kv"><span class="k">Happy Hr</span><span class="v">${hhPills}</span></div>
+  ${hoursRow}
+  ${deal ? `<p class="deal">${esc(deal)}</p>` : ''}
+  <div class="card-foot"><span class="${st.cls}" data-status>${st.text}</span></div>
 </article>`;
 }
 

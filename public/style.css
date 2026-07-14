@@ -60,25 +60,48 @@ header .tag b{color:var(--enamel);font-weight:500}
      box-shadow:0 0 10px var(--filament);align-self:center}
 .rail-label small{font:400 12px "IBM Plex Mono";color:var(--dim);margin-left:auto}
 
-/* ── enamel cards ── */
-.card{background:var(--enamel);color:var(--ink);border-radius:10px;padding:15px 16px 12px;margin-bottom:14px;
-      border:3px solid #B8AD98;box-shadow:0 6px 0 rgba(0,0,0,.35)}
-.card.active{border-color:var(--cap-red)}
+/* ── dark cards — 5pm reference layout in our river-night palette ── */
+.card{position:relative;background:var(--night-2);color:var(--enamel);border-radius:12px;padding:16px 18px;
+      margin-bottom:14px;border:1px solid #2A3A5E;box-shadow:0 2px 0 rgba(0,0,0,.35);overflow:hidden}
+.card.active{border-color:#3A4A66}
+.card.active::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+      background:var(--cap-red);box-shadow:0 0 14px rgba(200,50,43,.7)}
 .card .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.card h3{font:800 23px/1.05 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase}
+.card h3{font:800 24px/1.03 "Big Shoulders Display";letter-spacing:.03em;text-transform:uppercase;color:var(--enamel)}
 .card h3 a{text-decoration:none}
-.card .dist{font:500 12px "IBM Plex Mono";color:var(--cap-red);white-space:nowrap}
-.deal{font:500 14px/1.5 "IBM Plex Mono";margin:8px 0 0;padding:7px 10px;background:rgba(200,50,43,.07);
-      border-left:3px solid var(--cap-red);border-radius:0 6px 6px 0}
-.deal .win{color:#7A6F5D;font-size:12px}
-.meta{display:flex;gap:7px;flex-wrap:wrap;font:600 11px/1 Archivo;letter-spacing:.05em;text-transform:uppercase;
-      align-items:center;margin-top:10px}
-.chip{padding:5px 9px;border-radius:99px;background:rgba(38,34,28,.08);color:#5C544A}
-.chip.verified{background:var(--brew-green);color:var(--enamel)}
+.card .dist{font:500 12px "IBM Plex Mono";color:var(--filament);white-space:nowrap}
+
+/* pills row — verified / category / flags (outlined, high-contrast on dark) */
+.pills{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:11px}
+.chip{font:600 11px/1 "IBM Plex Mono";letter-spacing:.08em;text-transform:uppercase;
+      padding:6px 9px;border-radius:6px;border:1px solid #2A3A5E;color:var(--dim);background:transparent}
+.chip.verified{border-color:var(--brew-green);color:#8FD6B0}
 .chip.verified::before{content:"◆ "}
-.now{font:500 12px "IBM Plex Mono";color:var(--brew-green);margin-left:auto;text-transform:none}
+.chip.unverified{border-color:#3A4A66;color:var(--dim)}
+.chip.cat{border-color:rgba(255,184,77,.5);color:var(--filament)}
+.flag{font:600 11px/1 "IBM Plex Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+
+/* price tier — bright amber for the level, dim for the rest */
+.price{display:block;font:700 18px/1 "IBM Plex Mono";letter-spacing:.14em;margin-top:12px}
+.price .on{color:var(--filament)}
+.price .off{color:#3A4A66}
+
+/* location line */
+.loc{font:500 12px/1.4 "IBM Plex Mono";color:var(--dim);letter-spacing:.06em;text-transform:uppercase;margin-top:9px}
+
+/* label / value rows (card) */
+.kv{display:flex;gap:12px;align-items:baseline;margin-top:12px}
+.kv .k{flex:0 0 64px;font:600 11px/1.4 "IBM Plex Mono";color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.kv .v{flex:1;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.kv .is-open{font:600 14px "IBM Plex Mono";color:var(--filament)}
+.kv .is-closed{font:600 14px "IBM Plex Mono";color:var(--cap-red)}
+
+.deal{font:500 13px/1.5 "IBM Plex Mono";color:var(--enamel);margin-top:12px;padding:9px 12px;
+      background:rgba(200,50,43,.10);border-left:3px solid var(--cap-red);border-radius:0 6px 6px 0}
+.card-foot{display:flex;align-items:center;margin-top:12px}
+.now{font:500 12px "IBM Plex Mono";color:#8FD6B0;margin-left:auto;text-transform:none}
 .now::before{content:"● "}
-.next{font:500 12px "IBM Plex Mono";color:#7A6F5D;margin-left:auto;text-transform:none}
+.next{font:500 12px "IBM Plex Mono";color:var(--dim);margin-left:auto;text-transform:none}
 
 /* ── hood browse ── */
 .hoods{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
@@ -86,17 +109,21 @@ header .tag b{color:var(--enamel);font-weight:500}
       background:var(--night-2);color:var(--enamel);box-shadow:inset 0 0 0 1px #2A3A5E}
 .hood small{color:var(--dim)}
 
-/* ── filters ── */
-.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+/* ── filters (collapsed behind a "Filters ▾" button) ── */
+.filter-wrap{margin:0 0 16px}
+.filters-btn{font:600 12px/1 "IBM Plex Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--enamel);
+      background:transparent;border:1px solid #2A3A5E;border-radius:8px;padding:11px 16px;cursor:pointer;
+      display:inline-flex;gap:8px;align-items:center}
+.filters-btn[aria-expanded="true"]{border-color:var(--filament);color:var(--filament)}
+.filters-btn .fb-arrow{font-size:10px;transition:transform .15s}
+.filters-btn[aria-expanded="true"] .fb-arrow{transform:rotate(180deg)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 0}
 .fgroup{display:inline-flex;gap:6px;flex-wrap:wrap;margin-right:6px}
 .fgroup:last-child{margin-right:0}
 .filters button{font:600 12px/1 Archivo;letter-spacing:.04em;padding:8px 12px;border-radius:99px;cursor:pointer;
       border:0;background:var(--night-2);color:var(--enamel);box-shadow:inset 0 0 0 1px #2A3A5E}
 .filters button[aria-pressed="true"]{background:var(--filament);color:var(--ink)}
 
-/* attribute chips */
-.chip.cat{background:rgba(46,107,79,.18);color:#8FD6B0}
-.chip.price{background:rgba(255,184,77,.16);color:var(--filament);font-weight:700;letter-spacing:.05em}
 
 /* favorite heart + share/info controls (raised above the card stretched-link) */
 .top-right{display:flex;align-items:center;gap:8px;position:relative;z-index:2}
@@ -104,7 +131,8 @@ header .tag b{color:var(--enamel);font-weight:500}
 .fav .ico,.act .ico{color:inherit}
 .fav[aria-pressed="true"]{color:var(--cap-red)}
 .fav[aria-pressed="true"] .ico{fill:var(--cap-red);stroke:var(--cap-red)}
-.info{background:none;border:0;cursor:pointer;padding:2px;color:var(--brew-green);line-height:0;position:relative;z-index:2}
+.info{background:none;border:0;cursor:pointer;padding:2px;color:var(--dim);line-height:0;position:relative;z-index:2}
+.info:hover{color:var(--filament)}
 .info .ico{color:inherit;width:15px;height:15px}
 .info-pop{display:none;font:500 11px "IBM Plex Mono";color:var(--ink);background:var(--enamel);
       box-shadow:0 2px 8px rgba(0,0,0,.3);border-radius:6px;padding:5px 8px;margin-left:6px}
@@ -115,7 +143,8 @@ header .tag b{color:var(--enamel);font-weight:500}
 .card--link .card-link{text-decoration:none}
 .card--link .card-link::after{content:"";position:absolute;inset:0;z-index:1}
 .card--link:active{transform:translateY(1px)}
-.card--link .meta,.card--link .deal{position:relative;z-index:0}
+.card--link .pills,.card--link .kv,.card--link .deal,.card--link .loc,
+.card--link .price,.card--link .card-foot{position:relative;z-index:0}
 
 /* ── bar detail ── */
 .bar-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:14px 0 4px}
@@ -134,8 +163,9 @@ header .tag b{color:var(--enamel);font-weight:500}
 /* three equal segments on one line: Website · Directions · Report */
 .bar-links{display:flex;gap:8px;flex-wrap:nowrap;margin:16px 0}
 .bar-links a,.bar-links button{flex:1 1 0;min-width:0;display:inline-flex;align-items:center;justify-content:center;
-  gap:7px;font:600 13px Archivo;color:var(--enamel);text-decoration:none;padding:11px 8px;border-radius:8px;
-  background:var(--night-2);box-shadow:inset 0 0 0 1px #2A3A5E;cursor:pointer;border:0;white-space:nowrap}
+  gap:7px;font:600 12px "IBM Plex Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--enamel);
+  text-decoration:none;padding:12px 8px;border-radius:8px;
+  background:transparent;box-shadow:inset 0 0 0 1px #2A3A5E;cursor:pointer;border:0;white-space:nowrap}
 .bar-links a:hover,.bar-links button:hover{box-shadow:inset 0 0 0 1px var(--filament)}
 .bar-links button.icon-only{flex:0 0 auto;width:48px;padding:11px 0}
 .ico{flex:none;color:var(--filament)}
@@ -173,6 +203,9 @@ header .tag b{color:var(--enamel);font-weight:500}
 .hh-srow:first-child{border-top:0}
 .hh-days{font:500 13px "IBM Plex Mono";color:var(--enamel)}
 .hh-time{font:500 13px "IBM Plex Mono";color:var(--dim)}
+.hrow-plain{font:500 15px Archivo;color:var(--enamel);padding-top:1px}
+.deal-quote{font:italic 500 15px/1.5 Archivo;color:var(--enamel);margin:12px 0 0;padding:12px 15px;
+      background:rgba(200,50,43,.09);border-left:3px solid var(--cap-red);border-radius:0 8px 8px 0}
 
 /* ── forms ── */
 .panel{background:var(--enamel);color:var(--ink);border-radius:10px;padding:16px;border:3px solid #B8AD98;margin:14px 0}
