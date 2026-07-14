@@ -56,6 +56,77 @@
     { "slug": "tom-reids-hockey-city-pub", "name": "Tom Reid's Hockey City Pub", "city": "st-paul", "neighborhood": "west-7th", "lat": 44.9445, "lng": -93.1010, "website": "https://tomreids.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Bar stools", "food": "Wings, Burgers, American", "verified": 1, "last_verified": "2026-07-13", "hh": [
       { "dow_mask": 31, "start_min": 960, "end_min": 1080, "deals": "2-for-1 drink specials" },
       { "dow_mask": 31, "start_min": 1260, "end_min": 120, "deals": "2-for-1 drink specials (non-event days only)" }
-    ], "notes": "Happy hour does not apply on Wild game nights or special events. By Xcel Energy Center." }
+    ], "notes": "Happy hour does not apply on Wild game nights or special events. By Xcel Energy Center." },
+
+    { "slug": "aster-cafe", "name": "Aster Cafe", "city": "minneapolis", "neighborhood": "nordeast", "lat": 44.9838, "lng": -93.2522, "website": "https://www.astercafe.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Small plates, Brunch", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 78, "start_min": 960, "end_min": 1080, "deals": "$5 draft beer, $7 sangria, $9 house wine, $9 sliders" }
+    ], "notes": "Riverfront space at St. Anthony Main. Tue–Thu + Sun 4–6 PM." },
+
+    { "slug": "tc-400-tavern", "name": "Twin Cities 400 Tavern", "city": "minneapolis", "neighborhood": "nordeast", "lat": 45.0078, "lng": -93.2435, "website": "https://twincities400tavern.com", "price": 1, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Wings, Bar food", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 31, "start_min": 900, "end_min": 1080, "deals": "$2 off taps, $5 wells, $4 house wine, $2 off appetizers" }
+    ], "notes": "Industrial Blvd NE sports bar with strong neighborhood following." },
+
+    { "slug": "the-loop-mpls", "name": "The Loop Minneapolis", "city": "minneapolis", "neighborhood": "north-loop", "lat": 44.9845, "lng": -93.2768, "website": "https://theloopmpls.com", "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "Pizza, Sandwiches, Bar food", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 127, "start_min": 960, "end_min": 1140, "deals": "$2 off wines, rails, taps & cocktails; $3 off pizzas" }
+    ], "notes": "Daily 4–7 PM happy hour in the North Loop." },
+
+    { "slug": "parlour-minneapolis", "name": "Parlour Minneapolis", "city": "minneapolis", "neighborhood": "north-loop", "lat": 44.9840, "lng": -93.2780, "website": "https://parlourbar.com", "price": 3, "category": "cocktail-bar", "seating": "Booths, Tables, Bar stools", "food": "Burgers, Bar food, American", "verified": 0, "hh": [
+      { "dow_mask": 127, "start_min": 960, "end_min": 1080, "deals": "HH pricing on cocktails, beer & bar bites" }
+    ], "notes": "Daily 4–6 PM HH confirmed on official site; specific deal prices not published. 730 Washington Ave N." },
+
+    { "slug": "barcelona-wine-bar-mpls", "name": "Barcelona Wine Bar", "city": "minneapolis", "neighborhood": "north-loop", "lat": 44.9851, "lng": -93.2760, "website": "https://barcelonawinebar.com", "price": 3, "category": "cocktail-bar", "seating": "Tables, Bar stools", "food": "Tapas, Spanish, Pintxos", "verified": 0, "hh": [
+      { "dow_mask": 15, "start_min": 960, "end_min": 1080, "deals": "HH pricing on wines, tapas & cocktails" }
+    ], "notes": "Mon–Thu 4–6 PM HH confirmed on official site; deal details partially image-based. Monday has additional half-off bottle deal till midnight." },
+
+    { "slug": "day-block-brewing", "name": "Day Block Brewing", "city": "minneapolis", "neighborhood": "downtown", "lat": 44.9703, "lng": -93.2598, "website": "https://dayblockbrewing.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Tables, Bar stools", "food": "American, Snacks, Pretzels", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 30, "start_min": 960, "end_min": 1080, "deals": "$2 off craft brews & house wine, $7 Manhattans, $8–10 appetizers" },
+      { "dow_mask": 64, "start_min": 660, "end_min": 720, "deals": "Sunday brunch HH: $2 off craft brews" }
+    ], "notes": "South Loop taproom under the Washington Ave bridge." },
+
+    { "slug": "centro-nicollet", "name": "Centro", "city": "minneapolis", "neighborhood": "eat-street", "lat": 44.9547, "lng": -93.2866, "website": "https://centrorestaurants.com", "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "Mexican, Tacos, Margaritas", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 95, "start_min": 900, "end_min": 1080, "deals": "$8 margaritas, $5 draft beer, $7 house wine" },
+      { "dow_mask": 79, "start_min": 1230, "end_min": 120, "deals": "Late-night HH: cocktail & snack specials" }
+    ], "notes": "Sun–Fri afternoon + Sun–Thu late-night HH. 2412 Nicollet Ave." },
+
+    { "slug": "holmans-table", "name": "Holman's Table", "city": "st-paul", "neighborhood": "west-side", "lat": 44.9293, "lng": -93.0892, "website": "https://holmanstable.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables", "food": "American, Small plates, Brunch", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 31, "start_min": 900, "end_min": 1080, "deals": "$5 off taps, wine & cocktails; $9–14 food appetizers" }
+    ], "notes": "At historic Holman Field with views of the St. Paul airfield and skyline." },
+
+    { "slug": "alarys-bar", "name": "Alary's Bar", "city": "st-paul", "neighborhood": "lowertown", "lat": 44.9502, "lng": -93.0875, "website": "https://alarysbar.com", "patio": 1, "price": 1, "category": "dive-bar", "seating": "Bar stools, Booths, Tables", "food": "Bar food, Snacks", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 127, "start_min": 900, "end_min": 1080, "deals": "$2 off tap beer, liquor & appetizers" }
+    ], "notes": "HH suspended on Wild game nights and special event days. Classic Lowertown dive, 139 E 7th St." },
+
+    { "slug": "1881-eating-house", "name": "1881 Eating House", "city": "st-paul", "neighborhood": "lowertown", "lat": 44.9510, "lng": -93.0862, "website": "https://1881eatinghouse.com", "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Brunch, Burgers", "verified": 0, "hh": [
+      { "dow_mask": 62, "start_min": 840, "end_min": 1080, "deals": "HH pricing on drinks and appetizers" }
+    ], "notes": "Inside historic Union Depot. HH exists but details not confirmed on official site." },
+
+    { "slug": "kincaids-st-paul", "name": "Kincaid's Fish, Chop & Steak House", "city": "st-paul", "neighborhood": "lowertown", "lat": 44.9488, "lng": -93.0934, "website": "https://kincaids.com", "price": 3, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "Steak, Seafood, American", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 31, "start_min": 960, "end_min": 1080, "deals": "$5.25 domestic drafts, $6–6.50 craft beer, $8–10 wine, $7–13 food apps" }
+    ], "notes": "Upscale steak and seafood near Rice Park, downtown St. Paul." },
+
+    { "slug": "gnome-craft-pub", "name": "The Gnome Craft Pub", "city": "st-paul", "neighborhood": "cathedral-hill", "lat": 44.9447, "lng": -93.1157, "website": "https://gnomecraftpub.com", "patio": 1, "price": 2, "category": "cocktail-bar", "seating": "Tables, Bar stools", "food": "Beer snacks, Bar food", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 79, "start_min": 900, "end_min": 1080, "deals": "Half-off draft beer, $5–8 wine, $8 craft cocktails" }
+    ], "notes": "Pet-friendly patio. 20+ craft drafts. Sun–Thu 3–6 PM." },
+
+    { "slug": "red-cow-st-paul", "name": "Red Cow (St. Paul)", "city": "st-paul", "neighborhood": "cathedral-hill", "lat": 44.9451, "lng": -93.1196, "website": "https://redcowmn.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "Burgers, American, Brunch", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 30, "start_min": 840, "end_min": 1050, "deals": "$7 taps & house wine, $8 cocktails, $8–10 appetizer specials" }
+    ], "notes": "Cathedral Hill location. Minneapolis location also has HH." },
+
+    { "slug": "iron-ranger-st-paul", "name": "Iron Ranger Bar & Restaurant", "city": "st-paul", "neighborhood": "grand-avenue", "lat": 44.9398, "lng": -93.1422, "website": "https://ironrangermn.com", "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Cocktails, Bar food", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 900, "end_min": 1020, "deals": "HH pricing on drinks and food specials" }
+    ], "notes": "HH page exists on official site (ironrangermn.com/happyhour) but content could not be fetched. 1085 Grand Ave." },
+
+    { "slug": "groveland-tap", "name": "Groveland Tap", "city": "st-paul", "neighborhood": "mac-groveland", "lat": 44.9335, "lng": -93.1437, "website": "https://grovelandtap.com", "patio": 1, "price": 1, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Burgers, Bar food", "verified": 1, "last_verified": "2026-07-13", "hh": [
+      { "dow_mask": 127, "start_min": 840, "end_min": 1080, "deals": "$2 off wine, $1 off tap beer" },
+      { "dow_mask": 63, "start_min": 1260, "end_min": 120, "deals": "$2 off wine, $1 off taps (late-night)" }
+    ], "notes": "Dual HH windows — daily 2–6 PM + Mon–Sat 9 PM to close. Classic St. Clair Ave neighborhood bar." },
+
+    { "slug": "brunsons-pub", "name": "Brunson's Pub", "city": "st-paul", "neighborhood": "payne-phalen", "lat": 44.9582, "lng": -93.0699, "website": "https://brunsonspub.com", "price": 1, "category": "bar-restaurant", "seating": "Booths, Bar stools", "food": "American, Bar food", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 900, "end_min": 1080, "deals": "Discounted taps & rails" }
+    ], "notes": "Payne Ave neighborhood bar. HH not confirmed on official site. 956 Payne Ave." },
+
+    { "slug": "shamrocks-st-paul", "name": "Shamrocks Bar & Grill", "city": "st-paul", "neighborhood": "west-7th", "lat": 44.9382, "lng": -93.1117, "website": "https://crshamrocks.com", "patio": 1, "price": 1, "category": "bar-restaurant", "seating": "Booths, Bar stools, Tables", "food": "American, Irish pub, Bar food", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 900, "end_min": 1080, "deals": "2-for-1 domestic taps, $3.75 bottles, $3.25 rail drinks" }
+    ], "notes": "HH details per Visit Saint Paul; official site (crshamrocks.com) displays image-only menus. 995 W 7th St." }
   ]
 }

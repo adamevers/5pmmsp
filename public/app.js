@@ -194,6 +194,17 @@
     setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1800);
   });
 
+  // ---------- hours toggle (bar detail page) ----------
+  const hhToggle = document.querySelector('[data-hh-toggle]');
+  if (hhToggle) {
+    hhToggle.addEventListener('click', () => {
+      const expanded = hhToggle.getAttribute('aria-expanded') === 'true';
+      hhToggle.setAttribute('aria-expanded', String(!expanded));
+      const sched = document.getElementById('hh-sched');
+      if (sched) sched.hidden = expanded;
+    });
+  }
+
   // ---------- platform-aware directions (iOS → Apple Maps) ----------
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);

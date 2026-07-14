@@ -7,6 +7,7 @@ export const HOODS = {
   uptown: 'Uptown', 'eat-street': 'Eat Street', 'west-bank': 'West Bank',
   dinkytown: 'Dinkytown', 'cathedral-hill': 'Cathedral Hill',
   'grand-avenue': 'Grand Avenue', lowertown: 'Lowertown', 'west-7th': 'West 7th',
+  'mac-groveland': 'Mac-Groveland', 'west-side': 'West Side', 'payne-phalen': 'Payne-Phalen',
 };
 
 export const hoodName = slug => HOODS[slug] || slug;

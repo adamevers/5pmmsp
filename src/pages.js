@@ -136,8 +136,23 @@ export async function barPage({ env, params, url }) {
     bar.skyway ? '<span class="chip">❄ skyway</span>' : '',
   ].join('');
   const hhData = esc(JSON.stringify(bar.hh.map(h => ({ d: h.dow_mask, s: h.start_min, e: h.end_min }))));
-  const schedule = bar.hh.map(h =>
-    `<p class="deal">${esc(h.deals)} <span class="win">· ${fmtDows(h.dow_mask)} ${fmtWindow(h)}</span></p>`).join('');
+  const hhOpen = bar.hh.some(h => isActive(h, now));
+  const statusSpan = hhOpen
+    ? `<span class="now" data-status>${st.text}</span>`
+    : `<span class="hh-closed" data-status>Closed</span>`;
+  const hhRows = bar.hh.length
+    ? bar.hh.map(h =>
+        `<div class="hh-srow"><span class="hh-days">${fmtDows(h.dow_mask)}</span><span class="hh-time">${fmtWindow(h)}</span>${h.deals ? `<p class="hh-deal">${esc(h.deals)}</p>` : ''}</div>`
+      ).join('')
+    : '<p class="hh-empty">No windows on file yet — know one? Report it below.</p>';
+  const hhBlock = `<div class="hh-block" data-hh="${hhData}">
+  <button class="hh-toggle-row" data-hh-toggle aria-expanded="true" aria-controls="hh-sched">
+    <span class="hh-label">Happy hour</span>
+    ${statusSpan}
+    <span class="hh-arrow" aria-hidden="true">▲</span>
+  </button>
+  <div class="hh-sched" id="hh-sched">${hhRows}</div>
+</div>`;
   const about = [
     bar.food ? `<div><span>Food</span> ${esc(bar.food)}</div>` : '',
     bar.seating ? `<div><span>Seating</span> ${esc(bar.seating)}</div>` : '',
@@ -152,9 +167,8 @@ export async function barPage({ env, params, url }) {
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
 <div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}<button type="button" class="act" data-open-share aria-label="Share">${icon('share')}</button></div></div>
-<div class="meta bar-meta" data-hh="${hhData}">${trustChip(bar)}${attrChips(bar)}<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>${flags}<span class="${st.cls}" data-status>${st.text}</span></div>
-<div class="rail-label"><h2>Happy hour</h2><small data-clock></small></div>
-${schedule || '<div class="empty">No happy hour windows on file yet — know one? Report it below.</div>'}
+<div class="meta bar-meta">${trustChip(bar)}${attrChips(bar)}<span class="chip">${esc(hoodName(bar.neighborhood))}${bar.city === 'st-paul' ? ' · STP' : ''}</span>${flags}</div>
+${hhBlock}
 ${about ? `<dl class="about">${about}</dl>` : ''}
 <div class="bar-links">
   ${bar.website ? `<a href="${esc(bar.website)}" target="_blank" rel="noopener noreferrer">${icon('globe')} Website</a>` : ''}

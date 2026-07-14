@@ -140,6 +140,23 @@ header .tag b{color:var(--enamel);font-weight:500}
 .modal-x{background:none;border:0;font-size:20px;line-height:1;cursor:pointer;color:#7A6F5D;padding:4px}
 .modal-sub{font:400 13px/1.5 Archivo;color:#5C544A;margin:6px 0 4px}
 
+/* ── collapsible hours block (bar detail) ── */
+.hh-block{background:var(--night-2);border-radius:10px;box-shadow:inset 0 0 0 1px #2A3A5E;margin:16px 0;overflow:hidden}
+.hh-toggle-row{display:flex;align-items:center;gap:10px;padding:13px 14px;width:100%;background:none;border:0;cursor:pointer;color:var(--enamel);text-align:left}
+.hh-label{font:600 11px/1 "IBM Plex Mono";color:var(--dim);text-transform:uppercase;letter-spacing:.1em;flex:none}
+.hh-toggle-row .now{font:500 13px "IBM Plex Mono";color:var(--brew-green);text-transform:none;flex:1}
+.hh-toggle-row .next{font:500 13px "IBM Plex Mono";color:var(--dim);text-transform:none;flex:1}
+.hh-closed{font:500 13px "IBM Plex Mono";color:var(--cap-red);flex:1}
+.hh-arrow{font-size:10px;color:var(--dim);margin-left:auto;flex:none;display:inline-block;transition:transform .15s}
+.hh-toggle-row[aria-expanded="false"] .hh-arrow{transform:rotate(180deg)}
+.hh-sched{border-top:1px solid #24334F;padding:4px 0 10px}
+.hh-sched[hidden]{display:none}
+.hh-srow{display:flex;flex-wrap:wrap;gap:2px 16px;padding:7px 14px}
+.hh-days{font:500 13px "IBM Plex Mono";color:var(--enamel);min-width:90px}
+.hh-time{font:500 13px "IBM Plex Mono";color:var(--enamel)}
+.hh-deal{font:400 11.5px "IBM Plex Mono";color:var(--dim);width:100%;padding:2px 0 0}
+.hh-empty{font:400 13px "IBM Plex Mono";color:var(--dim);padding:10px 14px}
+
 /* ── forms ── */
 .panel{background:var(--enamel);color:var(--ink);border-radius:10px;padding:16px;border:3px solid #B8AD98;margin:14px 0}
 .panel label{display:block;font:600 13px Archivo;margin:10px 0 4px}
