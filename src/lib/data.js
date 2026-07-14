@@ -10,6 +10,7 @@ export const HOODS = {
   'mac-groveland': 'Mac-Groveland', 'west-side': 'West Side', 'payne-phalen': 'Payne-Phalen',
   longfellow: 'Longfellow', como: 'Como',
   edina: 'Edina', bloomington: 'Bloomington',
+  standish: 'Standish',
 };
 
 export const hoodName = slug => HOODS[slug] || slug;

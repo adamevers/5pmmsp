@@ -201,6 +201,45 @@
 
     { "slug": "hazelwood-bloomington", "name": "Hazelwood Food + Drink (Bloomington)", "city": "bloomington", "neighborhood": "bloomington", "lat": 44.8560, "lng": -93.2380, "website": "https://hazelwoodfoodanddrink.com", "patio": 1, "price": 3, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Burgers, Cocktails", "verified": 1, "last_verified": "2026-07-14", "hours": [{ "dow_mask": 31, "start_min": 630, "end_min": 1440 }, { "dow_mask": 96, "start_min": 510, "end_min": 1440 }], "hh": [
       { "dow_mask": 31, "start_min": 840, "end_min": 1020, "deals": "Happy hour Mon–Fri 2–5 PM, bar only (deal specifics on site menu)" }
-    ], "notes": "HH Mon–Fri 2–5 PM bar-only confirmed on official site (hazelwoodfoodanddrink.com). South Loop district near MOA; street address not published on site." }
+    ], "notes": "HH Mon–Fri 2–5 PM bar-only confirmed on official site (hazelwoodfoodanddrink.com). South Loop district near MOA; street address not published on site." },
+
+    { "slug": "skinners-pub", "name": "Skinner's Pub & Eatery", "city": "st-paul", "neighborhood": "west-7th", "lat": 44.9272, "lng": -93.1358, "website": "https://skinnersmn.com", "patio": 1, "price": 1, "category": "bar-restaurant", "seating": "Booths, Bar stools, Tables", "food": "Pizza, American, Bar food", "verified": 1, "last_verified": "2026-07-14", "hh": [
+      { "dow_mask": 31, "start_min": 900, "end_min": 1080, "deals": "$3.50 rails, $3.50 domestic pints & bottles, $4.50 craft/import pints & bottles" }
+    ], "notes": "HH M-F 3-6 PM confirmed on official site (skinnersmn.com). AYCE pizza + live music on the patio. 919 Randolph Ave." },
+
+    { "slug": "modist-brewing", "name": "Modist Brewing", "city": "minneapolis", "neighborhood": "north-loop", "lat": 44.9856, "lng": -93.2748, "website": "https://modistbrewing.com", "price": 2, "category": "bar-restaurant", "seating": "Tables, Bar stools", "food": "Snacks, Food trucks", "verified": 1, "last_verified": "2026-07-14", "hh": [
+      { "dow_mask": 64, "start_min": 720, "end_min": 1200, "deals": "Sunday all-day HH: $5 Dreamyard, $4 Supra Deluxe" },
+      { "dow_mask": 7, "start_min": 960, "end_min": 1080, "deals": "$5 Dreamyard, $4 Supra Deluxe + weekly HH-only specials" }
+    ], "notes": "HH Sun all day + Mon-Wed 4-6 PM confirmed on official site (modistbrewing.com). Mash-filter brewery in the North Loop. 505 N 3rd St." },
+
+    { "slug": "tongue-in-cheek", "name": "Tongue in Cheek", "city": "st-paul", "neighborhood": "payne-phalen", "lat": 44.9635, "lng": -93.0705, "website": "https://www.tongueincheek.biz", "patio": 0, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "New American, Steam buns, Smash burgers", "verified": 1, "last_verified": "2026-07-14", "hh": [
+      { "dow_mask": 127, "start_min": 960, "end_min": 1080, "deals": "Mini cocktails (~$2), Pacifico, chelada, sangria; smash burger & pork belly steam bun specials" }
+    ], "notes": "HH every day 4-6 PM confirmed on official site (tongueincheek.biz); $2 mini cocktails per secondary sources. 989 Payne Ave." },
+
+    { "slug": "troubadour-wine-bar", "name": "Troubadour Wine Bar", "city": "minneapolis", "neighborhood": "uptown", "lat": 44.9497, "lng": -93.2981, "website": "https://troubadourwinebar.com", "price": 2, "category": "lounge", "seating": "Tables, Bar stools", "food": "Charcuterie, Tapas, Small plates", "verified": 1, "last_verified": "2026-07-14", "hh": [
+      { "dow_mask": 1, "start_min": 1020, "end_min": 1320, "deals": "Industry Night: $2 off all wine pours, 15% off charcuterie boards" }
+    ], "notes": "Day-specific specials confirmed on official specials page (troubadourwinebar.com): Mon Industry Night $2 off pours, Wine Flight Wed, Tapas & Wine Thu. Live music nightly. 2827 Hennepin Ave." },
+
+    { "slug": "up-down-mpls", "name": "Up-Down", "city": "minneapolis", "neighborhood": "uptown", "lat": 44.9468, "lng": -93.2880, "website": "https://updownarcadebar.com", "price": 2, "category": "bar-restaurant", "seating": "Bar stools, Tables", "food": "Pizza, Bar food", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 900, "end_min": 1140, "deals": "'777' — seven specials for $7 until 7 PM; $1 off taps Mon, $1 off MN taps Tue" }
+    ], "notes": "HH per thriftyhipster/p2bars (weekday '777' until 7 PM); official site (updownarcadebar.com) does not publish HH details. Retro arcade bar, 70+ games, 60 taps. 21+. 3012 Lyndale Ave S." },
+
+    { "slug": "busters-on-28th", "name": "Buster's on 28th", "city": "minneapolis", "neighborhood": "standish", "lat": 44.9257, "lng": -93.2332, "website": "https://www.busterson28th.com", "patio": 1, "price": 2, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "Gastropub, Burgers, American", "verified": 0, "hh": [
+      { "dow_mask": 127, "start_min": 840, "end_min": 1020, "deals": "$2.25 domestic bottles/taps/wells, $1 off import taps" },
+      { "dow_mask": 127, "start_min": 1320, "end_min": 60, "deals": "Late-night HH: 1/2 off tall micros, $4 wine glasses, $18 wine bottles" }
+    ], "notes": "HH daily 2-5 PM + late night per localfriend/thehappyhourfinder; official menu page returned HTTP 403. 4204 28th Ave S." },
+
+    { "slug": "bulls-horn", "name": "Bull's Horn Food and Drink", "city": "minneapolis", "neighborhood": "standish", "lat": 44.9207, "lng": -93.2256, "website": "https://www.bullshornfoodanddrink.com", "price": 2, "category": "bar-restaurant", "seating": "Booths, Bar stools, Tables", "food": "American, Burgers, Bar food", "verified": 0, "hh": [
+      { "dow_mask": 31, "start_min": 960, "end_min": 1080, "deals": "$1 off tap beer, house wine & rail drinks; food specials (dine-in only)" }
+    ], "notes": "HH M-F 4-6 PM per Thriftlist/localfriend; official site (bullshornfoodanddrink.com) does not publish HH details. Classic South Minneapolis neighborhood bar. 4563 34th Ave S." },
+
+    { "slug": "union-rooftop", "name": "Union Rooftop", "city": "minneapolis", "neighborhood": "downtown", "lat": 44.9779, "lng": -93.2742, "website": "https://unionmpls.com", "rooftop": 1, "price": 3, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Small plates", "verified": 0, "hh": [
+      { "dow_mask": 127, "start_min": 900, "end_min": 1080, "deals": "BOGO cocktails, half-price appetizers; Wine Down Wednesday 50% bottles" },
+      { "dow_mask": 79, "start_min": 1320, "end_min": 1440, "deals": "Late-night HH: BOGO cocktails + app specials" }
+    ], "notes": "HH daily 3-6 PM + Sun-Thu 10 PM-midnight per totalhappyhour/thriftlist; official site (unionmpls.com) lists hours but not HH. Only year-round glass-enclosed rooftop in MN. 731 Hennepin Ave." },
+
+    { "slug": "crave-downtown", "name": "CRAVE (Downtown)", "city": "minneapolis", "neighborhood": "downtown", "lat": 44.9757, "lng": -93.2762, "website": "https://craveamerica.com", "patio": 1, "rooftop": 1, "price": 3, "category": "bar-restaurant", "seating": "Booths, Tables, Bar stools", "food": "American, Sushi, Small plates", "verified": 0, "hh": [
+      { "dow_mask": 95, "start_min": 900, "end_min": 1050, "deals": "$5 select drinks (Happiest Hour)" }
+    ], "notes": "HH Sun-Fri 3-5:30 PM per totalhappyhour; official site (craveamerica.com) does not publish downtown HH details. Seasonal rooftop patio at LaSalle Plaza. 825 Hennepin Ave." }
   ]
 }
