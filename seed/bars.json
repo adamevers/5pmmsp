@@ -1383,7 +1383,7 @@
           "deals": "$5 draft beer, $7 sangria, $9 house wine, $9 sliders"
         }
       ],
-      "notes": "Riverfront space at St. Anthony Main. Tue–Thu + Sun 4–6 PM.",
+      "notes": "Riverfront space at St. Anthony Main. Tue\u2013Thu + Sun 4\u20136 PM.",
       "hours": [
         {
           "dow_mask": 14,
@@ -1488,7 +1488,7 @@
           "deals": "$2 off wines, rails, taps & cocktails; $3 off pizzas"
         }
       ],
-      "notes": "Daily 4–7 PM happy hour in the North Loop."
+      "notes": "Daily 4\u20137 PM happy hour in the North Loop."
     },
     {
       "slug": "parlour-minneapolis",
@@ -1526,7 +1526,7 @@
           "deals": "HH pricing on cocktails, beer & bar bites"
         }
       ],
-      "notes": "Daily 4–6 PM HH confirmed on official site; specific deal prices not published. 730 Washington Ave N."
+      "notes": "Daily 4\u20136 PM HH confirmed on official site; specific deal prices not published. 730 Washington Ave N."
     },
     {
       "slug": "barcelona-wine-bar-mpls",
@@ -1569,7 +1569,7 @@
           "deals": "HH pricing on wines, tapas & cocktails"
         }
       ],
-      "notes": "Mon–Thu 4–6 PM HH confirmed on official site; deal details partially image-based. Monday has additional half-off bottle deal till midnight."
+      "notes": "Mon\u2013Thu 4\u20136 PM HH confirmed on official site; deal details partially image-based. Monday has additional half-off bottle deal till midnight."
     },
     {
       "slug": "day-block-brewing",
@@ -1616,7 +1616,7 @@
           "dow_mask": 30,
           "start_min": 960,
           "end_min": 1080,
-          "deals": "$2 off craft brews & house wine, $7 Manhattans, $8–10 appetizers"
+          "deals": "$2 off craft brews & house wine, $7 Manhattans, $8\u201310 appetizers"
         },
         {
           "dow_mask": 64,
@@ -1658,7 +1658,7 @@
           "deals": "Late-night HH: cocktail & snack specials"
         }
       ],
-      "notes": "Sun–Fri afternoon + Sun–Thu late-night HH. 2412 Nicollet Ave.",
+      "notes": "Sun\u2013Fri afternoon + Sun\u2013Thu late-night HH. 2412 Nicollet Ave.",
       "hours": [
         {
           "dow_mask": 79,
@@ -1712,7 +1712,7 @@
           "dow_mask": 31,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "$5 off taps, wine & cocktails; $9–14 food appetizers"
+          "deals": "$5 off taps, wine & cocktails; $9\u201314 food appetizers"
         }
       ],
       "notes": "At historic Holman Field with views of the St. Paul airfield and skyline."
@@ -1822,7 +1822,7 @@
           "dow_mask": 31,
           "start_min": 960,
           "end_min": 1080,
-          "deals": "$5.25 domestic drafts, $6–6.50 craft beer, $8–10 wine, $7–13 food apps"
+          "deals": "$5.25 domestic drafts, $6\u20136.50 craft beer, $8\u201310 wine, $7\u201313 food apps"
         }
       ],
       "notes": "Upscale steak and seafood near Rice Park, downtown St. Paul.",
@@ -1867,10 +1867,10 @@
           "dow_mask": 79,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "Half-off draft beer, $5–8 wine, $8 craft cocktails"
+          "deals": "Half-off draft beer, $5\u20138 wine, $8 craft cocktails"
         }
       ],
-      "notes": "Pet-friendly patio. 20+ craft drafts. Sun–Thu 3–6 PM.",
+      "notes": "Pet-friendly patio. 20+ craft drafts. Sun\u2013Thu 3\u20136 PM.",
       "hours": [
         {
           "dow_mask": 15,
@@ -1939,7 +1939,7 @@
           "dow_mask": 30,
           "start_min": 840,
           "end_min": 1050,
-          "deals": "$7 taps & house wine, $8 cocktails, $8–10 appetizer specials"
+          "deals": "$7 taps & house wine, $8 cocktails, $8\u201310 appetizer specials"
         }
       ],
       "notes": "Cathedral Hill location. Minneapolis location also has HH."
@@ -2031,7 +2031,7 @@
           "deals": "$2 off wine, $1 off taps (late-night)"
         }
       ],
-      "notes": "Dual HH windows — daily 2–6 PM + Mon–Sat 9 PM to close. Classic St. Clair Ave neighborhood bar."
+      "notes": "Dual HH windows \u2014 daily 2\u20136 PM + Mon\u2013Sat 9 PM to close. Classic St. Clair Ave neighborhood bar."
     },
     {
       "slug": "brunsons-pub",
@@ -2332,7 +2332,24 @@
           "deals": "$2 off all cocktails, $2 oysters"
         }
       ],
-      "notes": "HH per Thriftlist ($2 off cocktails, $2 oysters); official site (earlgiles.com) does not publish HH details. 18,000 sq ft NE Minneapolis distillery restaurant. 1325 Quincy St NE."
+      "notes": "HH per Thriftlist ($2 off cocktails, $2 oysters); official site (earlgiles.com) does not publish HH details. 18,000 sq ft NE Minneapolis distillery restaurant. 1325 Quincy St NE.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 900,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "merlins-rest-pub",
@@ -2359,7 +2376,29 @@
           "deals": "Happy hour pricing on drinks"
         }
       ],
-      "notes": "HH Mon-Fri 4-6pm confirmed on official specials page (merlinsrest.com); deal specifics not published. Minnesota's most comprehensive single malt scotch & Irish whiskey list. Est. 2007. 3601 E Lake St."
+      "notes": "HH Mon-Fri 4-6pm confirmed on official specials page (merlinsrest.com); deal specifics not published. Minnesota's most comprehensive single malt scotch & Irish whiskey list. Est. 2007. 3601 E Lake St.",
+      "hours": [
+        {
+          "dow_mask": 1,
+          "start_min": 690,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 30,
+          "start_min": 690,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 540,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "longfellow-grill",
@@ -2396,7 +2435,7 @@
           "dow_mask": 127,
           "start_min": 840,
           "end_min": 1080,
-          "deals": "$7 rail cocktails & select wines, $5 Freehouse taps; $3.99–6.99 apps, $9.99 Bang Bang salmon rolls (bar & patio only)"
+          "deals": "$7 rail cocktails & select wines, $5 Freehouse taps; $3.99\u20136.99 apps, $9.99 Bang Bang salmon rolls (bar & patio only)"
         },
         {
           "dow_mask": 31,
@@ -2405,7 +2444,7 @@
           "deals": "Morning HH: $4 Freehouse taps, $6 mimosas, $7 bloody marys"
         }
       ],
-      "notes": "Blue Plate riverfront spot. Afternoon HH daily 2–6 PM + morning HH Mon–Fri 8–10 AM. Dine-in, bar & patio only. 2990 W River Pkwy."
+      "notes": "Blue Plate riverfront spot. Afternoon HH daily 2\u20136 PM + morning HH Mon\u2013Fri 8\u201310 AM. Dine-in, bar & patio only. 2990 W River Pkwy."
     },
     {
       "slug": "blue-door-pub-longfellow",
@@ -2478,7 +2517,7 @@
           "deals": "Late HH: $2 off most taps & all wines; half-off fried sides"
         }
       ],
-      "notes": "Windows confirmed on official site (thebdp.com): Mon–Thu 4–5 + evenings, Fri 2–5 + 9–10, Sat 9–10, Sun 8–9. Home of the Juicy Blucy. 3448 42nd Ave S."
+      "notes": "Windows confirmed on official site (thebdp.com): Mon\u2013Thu 4\u20135 + evenings, Fri 2\u20135 + 9\u201310, Sat 9\u201310, Sun 8\u20139. Home of the Juicy Blucy. 3448 42nd Ave S."
     },
     {
       "slug": "town-hall-brewery",
@@ -2518,11 +2557,11 @@
           "deals": "Happy hour pricing on craft beer & drinks (specifics not published on site)"
         }
       ],
-      "notes": "HH days+times Mon–Fri 2–5 PM confirmed on official site (townhallbrewery.com); deal specifics not published. Seven Corners brewpub since 1997. 1430 Washington Ave S."
+      "notes": "HH days+times Mon\u2013Fri 2\u20135 PM confirmed on official site (townhallbrewery.com); deal specifics not published. Seven Corners brewpub since 1997. 1430 Washington Ave S."
     },
     {
       "slug": "cov-edina",
-      "name": "CōV Edina",
+      "name": "C\u014dV Edina",
       "city": "edina",
       "neighborhood": "edina",
       "lat": 44.8785,
@@ -2552,7 +2591,29 @@
           "deals": "Saturday day HH menu, dine-in bar only"
         }
       ],
-      "notes": "HH Mon–Fri 4–6 PM + Sat 10 AM–4 PM confirmed on official site (covedina.com); dine-in bar only, deal prices on menu. 3155 Galleria."
+      "notes": "HH Mon\u2013Fri 4\u20136 PM + Sat 10 AM\u20134 PM confirmed on official site (covedina.com); dine-in bar only, deal prices on menu. 3155 Galleria.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "starling-edina",
@@ -2580,7 +2641,29 @@
           "deals": "Daily happy hour (deal specifics not published on site)"
         }
       ],
-      "notes": "HH daily 2–6 PM confirmed on official site (starlingmn.com); deal specifics not published. 4925 Eden Ave, Edina."
+      "notes": "HH daily 2\u20136 PM confirmed on official site (starlingmn.com); deal specifics not published. 4925 Eden Ave, Edina.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "bar-cart-grand",
@@ -2605,16 +2688,28 @@
           "dow_mask": 127,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "Daily happy hour 3–6 PM (deal specifics not published on site)"
+          "deals": "Daily happy hour 3\u20136 PM (deal specifics not published on site)"
         },
         {
           "dow_mask": 127,
           "start_min": 1260,
           "end_min": 60,
-          "deals": "Late night: 1/2 off entire spirits list, 9 PM–close"
+          "deals": "Late night: 1/2 off entire spirits list, 9 PM\u2013close"
         }
       ],
-      "notes": "HH daily 3–6 PM + late-night half-off spirits 9 PM–close confirmed on official site (barcartlounge.com). 1571 Grand Ave."
+      "notes": "HH daily 3\u20136 PM + late-night half-off spirits 9 PM\u2013close confirmed on official site (barcartlounge.com). 1571 Grand Ave.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 900,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 900,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "russells-grand",
@@ -2639,10 +2734,10 @@
           "dow_mask": 62,
           "start_min": 900,
           "end_min": 1050,
-          "deals": "Happy hour Tue–Sat 3–5:30 PM (deal specifics not published on site)"
+          "deals": "Happy hour Tue\u2013Sat 3\u20135:30 PM (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Tue–Sat 3–5:30 PM confirmed on official site (russellsstpaul.com); deal specifics not published. Summit Hill, 656 Grand Ave."
+      "notes": "HH Tue\u2013Sat 3\u20135:30 PM confirmed on official site (russellsstpaul.com); deal specifics not published. Summit Hill, 656 Grand Ave."
     },
     {
       "slug": "lela-bloomington",
@@ -2689,10 +2784,10 @@
           "dow_mask": 63,
           "start_min": 960,
           "end_min": 1050,
-          "deals": "Happy hour Mon–Sat 4–5:30 PM (deal specifics not published on site)"
+          "deals": "Happy hour Mon\u2013Sat 4\u20135:30 PM (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Sat 4–5:30 PM confirmed on official site (lelarestaurant.com); deal specifics not published. 5601 W 78th St, Bloomington."
+      "notes": "HH Mon\u2013Sat 4\u20135:30 PM confirmed on official site (lelarestaurant.com); deal specifics not published. 5601 W 78th St, Bloomington."
     },
     {
       "slug": "hazelwood-bloomington",
@@ -2729,10 +2824,10 @@
           "dow_mask": 31,
           "start_min": 840,
           "end_min": 1020,
-          "deals": "Happy hour Mon–Fri 2–5 PM, bar only (deal specifics on site menu)"
+          "deals": "Happy hour Mon\u2013Fri 2\u20135 PM, bar only (deal specifics on site menu)"
         }
       ],
-      "notes": "HH Mon–Fri 2–5 PM bar-only confirmed on official site (hazelwoodfoodanddrink.com). South Loop district near MOA; street address not published on site."
+      "notes": "HH Mon\u2013Fri 2\u20135 PM bar-only confirmed on official site (hazelwoodfoodanddrink.com). South Loop district near MOA; street address not published on site."
     },
     {
       "slug": "skinners-pub",
@@ -2760,7 +2855,14 @@
           "deals": "$3.50 rails, $3.50 domestic pints & bottles, $4.50 craft/import pints & bottles"
         }
       ],
-      "notes": "HH M-F 3-6 PM confirmed on official site (skinnersmn.com). AYCE pizza + live music on the patio. 919 Randolph Ave."
+      "notes": "HH M-F 3-6 PM confirmed on official site (skinnersmn.com). AYCE pizza + live music on the patio. 919 Randolph Ave.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 600,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "modist-brewing",
@@ -2793,7 +2895,24 @@
           "deals": "$5 Dreamyard, $4 Supra Deluxe + weekly HH-only specials"
         }
       ],
-      "notes": "HH Sun all day + Mon-Wed 4-6 PM confirmed on official site (modistbrewing.com). Mash-filter brewery in the North Loop. 505 N 3rd St."
+      "notes": "HH Sun all day + Mon-Wed 4-6 PM confirmed on official site (modistbrewing.com). Mash-filter brewery in the North Loop. 505 N 3rd St.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 720,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 720,
+          "end_min": 1200
+        }
+      ]
     },
     {
       "slug": "tongue-in-cheek",
@@ -2821,7 +2940,14 @@
           "deals": "Mini cocktails (~$2), Pacifico, chelada, sangria; smash burger & pork belly steam bun specials"
         }
       ],
-      "notes": "HH every day 4-6 PM confirmed on official site (tongueincheek.biz); $2 mini cocktails per secondary sources. 989 Payne Ave."
+      "notes": "HH every day 4-6 PM confirmed on official site (tongueincheek.biz); $2 mini cocktails per secondary sources. 989 Payne Ave.",
+      "hours": [
+        {
+          "dow_mask": 124,
+          "start_min": 660,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "troubadour-wine-bar",
@@ -2848,7 +2974,19 @@
           "deals": "Industry Night: $2 off all wine pours, 15% off charcuterie boards"
         }
       ],
-      "notes": "Day-specific specials confirmed on official specials page (troubadourwinebar.com): Mon Industry Night $2 off pours, Wine Flight Wed, Tapas & Wine Thu. Live music nightly. 2827 Hennepin Ave."
+      "notes": "Day-specific specials confirmed on official specials page (troubadourwinebar.com): Mon Industry Night $2 off pours, Wine Flight Wed, Tapas & Wine Thu. Live music nightly. 2827 Hennepin Ave.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 1020,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 1020,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "up-down-mpls",
@@ -2871,10 +3009,22 @@
           "dow_mask": 31,
           "start_min": 900,
           "end_min": 1140,
-          "deals": "'777' — seven specials for $7 until 7 PM; $1 off taps Mon, $1 off MN taps Tue"
+          "deals": "'777' \u2014 seven specials for $7 until 7 PM; $1 off taps Mon, $1 off MN taps Tue"
         }
       ],
-      "notes": "HH per thriftyhipster/p2bars (weekday '777' until 7 PM); official site (updownarcadebar.com) does not publish HH details. Retro arcade bar, 70+ games, 60 taps. 21+. 3012 Lyndale Ave S."
+      "notes": "HH per thriftyhipster/p2bars (weekday '777' until 7 PM); official site (updownarcadebar.com) does not publish HH details. Retro arcade bar, 70+ games, 60 taps. 21+. 3012 Lyndale Ave S.",
+      "hours": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 96,
+          "start_min": 660,
+          "end_min": 120
+        }
+      ]
     },
     {
       "slug": "busters-on-28th",
@@ -2907,7 +3057,29 @@
           "deals": "Late-night HH: 1/2 off tall micros, $4 wine glasses, $18 wine bottles"
         }
       ],
-      "notes": "HH daily 2-5 PM + late night per localfriend/thehappyhourfinder; official menu page returned HTTP 403. 4204 28th Ave S."
+      "notes": "HH daily 2-5 PM + late night per localfriend/thehappyhourfinder; official menu page returned HTTP 403. 4204 28th Ave S.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "bulls-horn",
@@ -2933,7 +3105,19 @@
           "deals": "$1 off tap beer, house wine & rail drinks; food specials (dine-in only)"
         }
       ],
-      "notes": "HH M-F 4-6 PM per Thriftlist/localfriend; official site (bullshornfoodanddrink.com) does not publish HH details. Classic South Minneapolis neighborhood bar. 4563 34th Ave S."
+      "notes": "HH M-F 4-6 PM per Thriftlist/localfriend; official site (bullshornfoodanddrink.com) does not publish HH details. Classic South Minneapolis neighborhood bar. 4563 34th Ave S.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 960,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "union-rooftop",
@@ -2966,7 +3150,29 @@
           "deals": "Late-night HH: BOGO cocktails + app specials"
         }
       ],
-      "notes": "HH daily 3-6 PM + Sun-Thu 10 PM-midnight per totalhappyhour/thriftlist; official site (unionmpls.com) lists hours but not HH. Only year-round glass-enclosed rooftop in MN. 731 Hennepin Ave."
+      "notes": "HH daily 3-6 PM + Sun-Thu 10 PM-midnight per totalhappyhour/thriftlist; official site (unionmpls.com) lists hours but not HH. Only year-round glass-enclosed rooftop in MN. 731 Hennepin Ave.",
+      "hours": [
+        {
+          "dow_mask": 4,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 24,
+          "start_min": 960,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 960
+        }
+      ]
     },
     {
       "slug": "crave-downtown",
@@ -2994,7 +3200,19 @@
           "deals": "$5 select drinks (Happiest Hour)"
         }
       ],
-      "notes": "HH Sun-Fri 3-5:30 PM per totalhappyhour; official site (craveamerica.com) does not publish downtown HH details. Seasonal rooftop patio at LaSalle Plaza. 825 Hennepin Ave."
+      "notes": "HH Sun-Fri 3-5:30 PM per totalhappyhour; official site (craveamerica.com) does not publish downtown HH details. Seasonal rooftop patio at LaSalle Plaza. 825 Hennepin Ave.",
+      "hours": [
+        {
+          "dow_mask": 14,
+          "start_min": 960,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 960,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "mill-valley-kitchen-st-louis-park",
@@ -3022,7 +3240,29 @@
           "deals": "Happy hour food + drink specials (deal prices not published on site)"
         }
       ],
-      "notes": "HH daily 3–6 PM confirmed on official site (millvalleykitchen.com); bar first-come. 3906 Excelsior Blvd, St. Louis Park."
+      "notes": "HH daily 3\u20136 PM confirmed on official site (millvalleykitchen.com); bar first-come. 3906 Excelsior Blvd, St. Louis Park.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "the-narrows-saloon-wayzata",
@@ -3047,10 +3287,32 @@
           "dow_mask": 31,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "$2 off wine & local taps, $1 off bottles & rails, $5 margarita/peach tea, $5–10 apps"
+          "deals": "$2 off wine & local taps, $1 off bottles & rails, $5 margarita/peach tea, $5\u201310 apps"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 PM confirmed on official site (thenarrowssaloon.com). Lake Minnetonka lakeside saloon. 3380 Shoreline Dr, Wayzata."
+      "notes": "HH Mon\u2013Fri 3\u20136 PM confirmed on official site (thenarrowssaloon.com). Lake Minnetonka lakeside saloon. 3380 Shoreline Dr, Wayzata.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 540,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 540,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "wayzata-bar-and-grill-wayzata",
@@ -3078,7 +3340,19 @@
           "deals": "Cocktail, beer & wine specials (deal prices not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 3–5:30 PM confirmed on official site (wayzatabarandgrill.com). 747 Mill St, Wayzata."
+      "notes": "HH Mon\u2013Fri 3\u20135:30 PM confirmed on official site (wayzatabarandgrill.com). 747 Mill St, Wayzata.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "pub-819-hopkins",
@@ -3103,10 +3377,32 @@
           "dow_mask": 31,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "$1 off taps, $5 rails, $4.50 Coors Light, $7 margaritas/mule/wine; $7–10 food"
+          "deals": "$1 off taps, $5 rails, $4.50 Coors Light, $7 margaritas/mule/wine; $7\u201310 food"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 PM confirmed on official site (pub819.com). 819 Mainstreet, Hopkins."
+      "notes": "HH Mon\u2013Fri 3\u20136 PM confirmed on official site (pub819.com). 819 Mainstreet, Hopkins.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1350
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1350
+        }
+      ]
     },
     {
       "slug": "kitchen-and-rail-golden-valley",
@@ -3157,7 +3453,7 @@
           "deals": "Weekend HH (deal prices not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 3–5:30 PM + Sat–Sun 2–4 PM confirmed on official site (kitchenandrail.com). 525 Winnetka Ave N, Golden Valley."
+      "notes": "HH Mon\u2013Fri 3\u20135:30 PM + Sat\u2013Sun 2\u20134 PM confirmed on official site (kitchenandrail.com). 525 Winnetka Ave N, Golden Valley."
     },
     {
       "slug": "jjs-clubhouse-golden-valley",
@@ -3188,10 +3484,22 @@
           "dow_mask": 127,
           "start_min": 1200,
           "end_min": 60,
-          "deals": "Second daily HH 8 PM–close: apps at HH pricing"
+          "deals": "Second daily HH 8 PM\u2013close: apps at HH pricing"
         }
       ],
-      "notes": "HH twice daily 7 days: 2–6 PM & 8 PM–close, confirmed on official site (jjsclubhousemn.com). 6400 Wayzata Blvd, Golden Valley."
+      "notes": "HH twice daily 7 days: 2\u20136 PM & 8 PM\u2013close, confirmed on official site (jjsclubhousemn.com). 6400 Wayzata Blvd, Golden Valley.",
+      "hours": [
+        {
+          "dow_mask": 63,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "scoreboard-bar-grill-minnetonka",
@@ -3222,10 +3530,27 @@
           "dow_mask": 127,
           "start_min": 1200,
           "end_min": 60,
-          "deals": "Second daily HH 8 PM–close: same drink specials"
+          "deals": "Second daily HH 8 PM\u2013close: same drink specials"
         }
       ],
-      "notes": "HH twice daily 7 days: 2–6 PM & 8 PM–close, confirmed on official site (scoreboardmn.com). 5765 Sanibel Dr, Minnetonka."
+      "notes": "HH twice daily 7 days: 2\u20136 PM & 8 PM\u2013close, confirmed on official site (scoreboardmn.com). 5765 Sanibel Dr, Minnetonka.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "baldamar-roseville",
@@ -3256,7 +3581,7 @@
           "dow_mask": 32,
           "start_min": 660,
           "end_min": 900,
-          "deals": "Sat HH menu 11 AM–3 PM"
+          "deals": "Sat HH menu 11 AM\u20133 PM"
         },
         {
           "dow_mask": 64,
@@ -3265,7 +3590,24 @@
           "deals": "Sunday HH all day"
         }
       ],
-      "notes": "HH Mon–Fri 2–4 PM, Sat 11 AM–3 PM, Sun all day confirmed on official site (baldamar.com); not on major holidays. 1642 County Rd B2 W, Roseville."
+      "notes": "HH Mon\u2013Fri 2\u20134 PM, Sat 11 AM\u20133 PM, Sun all day confirmed on official site (baldamar.com); not on major holidays. 1642 County Rd B2 W, Roseville.",
+      "hours": [
+        {
+          "dow_mask": 1,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 62,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "b-dale-club-roseville",
@@ -3293,7 +3635,24 @@
           "deals": "Reduced drink prices (food deals not specified on site)"
         }
       ],
-      "notes": "HH Mon–Fri 4–6 PM confirmed on official site (b-dale.com). 2100 N Dale St, Roseville."
+      "notes": "HH Mon\u2013Fri 4\u20136 PM confirmed on official site (b-dale.com). 2100 N Dale St, Roseville.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 720,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 720,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "manitou-bar-kitchen-white-bear-lake",
@@ -3321,7 +3680,24 @@
           "deals": "$4 Coors Light/Hamms; $2 off house wine, rails, taps, bottles, cans, seltzers; $2 off apps"
         }
       ],
-      "notes": "HH daily 3–6 PM confirmed on official site (manitougrill.com). 2171 4th St, White Bear Lake."
+      "notes": "HH daily 3\u20136 PM confirmed on official site (manitougrill.com). 2171 4th St, White Bear Lake.",
+      "hours": [
+        {
+          "dow_mask": 7,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 56,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1200
+        }
+      ]
     },
     {
       "slug": "5-8-club-maplewood",
@@ -3346,10 +3722,32 @@
           "dow_mask": 31,
           "start_min": 660,
           "end_min": 1080,
-          "deals": "$3.75 16oz taps & rails; premium taps $4.75–5.50; select wines $4.75"
+          "deals": "$3.75 16oz taps & rails; premium taps $4.75\u20135.50; select wines $4.75"
         }
       ],
-      "notes": "HH Mon–Fri 11 AM–6 PM confirmed on official site (5-8club.com); late-night HH Sun–Thu too. 2289 Minnehaha Ave E, Maplewood."
+      "notes": "HH Mon\u2013Fri 11 AM\u20136 PM confirmed on official site (5-8club.com); late-night HH Sun\u2013Thu too. 2289 Minnehaha Ave E, Maplewood.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 510,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 510,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "olivers-shoreview",
@@ -3383,7 +3781,14 @@
           "deals": "Evening HH, drinks only"
         }
       ],
-      "notes": "HH 3–5 PM daily + 8–11 PM Sun–Thu confirmed on official site (olivers-shoreview.com). 159 Grass Lake Pl, Shoreview."
+      "notes": "HH 3\u20135 PM daily + 8\u201311 PM Sun\u2013Thu confirmed on official site (olivers-shoreview.com). 159 Grass Lake Pl, Shoreview.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 480,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "macalusos-roadhouse-vadnais-heights",
@@ -3411,7 +3816,19 @@
           "deals": "Deal specifics not published on site"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 PM confirmed on official site (macalusosroadhouse.com). 3857 Labore Rd, Vadnais Heights."
+      "notes": "HH Mon\u2013Fri 3\u20136 PM confirmed on official site (macalusosroadhouse.com). 3857 Labore Rd, Vadnais Heights.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "red-cow-uptown",
@@ -3439,11 +3856,33 @@
           "deals": "$2 off wine, select beer, Moscow mule & house cocktails; $7 starters"
         }
       ],
-      "notes": "HH Tue–Fri 2–5:30 PM confirmed on official site (redcowmn.com). 2626 Hennepin Ave S."
+      "notes": "HH Tue\u2013Fri 2\u20135:30 PM confirmed on official site (redcowmn.com). 2626 Hennepin Ave S.",
+      "hours": [
+        {
+          "dow_mask": 14,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "pizza-luce-seward",
-      "name": "Pizza Lucé (Seward)",
+      "name": "Pizza Luc\u00e9 (Seward)",
       "city": "minneapolis",
       "neighborhood": "seward",
       "lat": 44.9627,
@@ -3467,7 +3906,14 @@
           "deals": "$5 select taps, rails & house wine; $2 off select apps"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 PM confirmed on official site (pizzaluce.com); late-night Mon–Thu 10 PM–close. 2200 E Franklin Ave."
+      "notes": "HH Mon\u2013Fri 3\u20136 PM confirmed on official site (pizzaluce.com); late-night Mon\u2013Thu 10 PM\u2013close. 2200 E Franklin Ave.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 660,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "stanleys-ne-bar-room",
@@ -3492,10 +3938,37 @@
           "dow_mask": 31,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "$1 off taps, $5 rails, $7 margaritas/mules/wine; $7–9 food specials"
+          "deals": "$1 off taps, $5 rails, $7 margaritas/mules/wine; $7\u20139 food specials"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 PM confirmed on official site (stanleysbarroom.com). 2500 University Ave NE."
+      "notes": "HH Mon\u2013Fri 3\u20136 PM confirmed on official site (stanleysbarroom.com). 2500 University Ave NE.",
+      "hours": [
+        {
+          "dow_mask": 7,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 8,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 540,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 540,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "jun-north-loop",
@@ -3520,10 +3993,32 @@
           "dow_mask": 31,
           "start_min": 990,
           "end_min": 1080,
-          "deals": "$7 rails, $12–13 cocktails, $7–9 taps, $8–11 wines; $9–14 apps/dumplings"
+          "deals": "$7 rails, $12\u201313 cocktails, $7\u20139 taps, $8\u201311 wines; $9\u201314 apps/dumplings"
         }
       ],
-      "notes": "HH Mon–Fri 4:30–6 PM confirmed on official site (junnorthloop.com). 730 N Washington Ave Ste 140."
+      "notes": "HH Mon\u2013Fri 4:30\u20136 PM confirmed on official site (junnorthloop.com). 730 N Washington Ave Ste 140.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 990,
+          "end_min": 1290
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 930,
+          "end_min": 1350
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 690,
+          "end_min": 1350
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 690,
+          "end_min": 1290
+        }
+      ]
     },
     {
       "slug": "bricksworth-beer-north-loop",
@@ -3557,11 +4052,23 @@
           "deals": "Late-night HH (deal prices not published on site)"
         }
       ],
-      "notes": "HH Mon–Wed 2–6 PM, Thu 2–6 & 9–11 PM, Fri–Sat 9–11 PM confirmed on official site (bricksworthbeer.co). 305 N 5th Ave Ste 105."
+      "notes": "HH Mon\u2013Wed 2\u20136 PM, Thu 2\u20136 & 9\u201311 PM, Fri\u2013Sat 9\u201311 PM confirmed on official site (bricksworthbeer.co). 305 N 5th Ave Ste 105.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "rincon-38",
-      "name": "Rincón 38",
+      "name": "Rinc\u00f3n 38",
       "city": "minneapolis",
       "neighborhood": "kingfield",
       "lat": 44.9346,
@@ -3585,7 +4092,19 @@
           "deals": "$6 tap beer & house wine; $9 tapas (queso frito, albondigas, patatas bravas)"
         }
       ],
-      "notes": "HH Sun–Thu 3–5 PM confirmed on official site (rincon38.net). 3801 Grand Ave S, Kingfield."
+      "notes": "HH Sun\u2013Thu 3\u20135 PM confirmed on official site (rincon38.net). 3801 Grand Ave S, Kingfield.",
+      "hours": [
+        {
+          "dow_mask": 78,
+          "start_min": 900,
+          "end_min": 1230
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 900,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "highland-grill",
@@ -3613,7 +4132,19 @@
           "deals": "Happy hour (deal prices not published on site)"
         }
       ],
-      "notes": "HH daily 2–6 PM confirmed on official site (highlandgrill.com). Blue Plate neighborhood grill. 771 Cleveland Ave S."
+      "notes": "HH daily 2\u20136 PM confirmed on official site (highlandgrill.com). Blue Plate neighborhood grill. 771 Cleveland Ave S.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 420,
+          "end_min": 1200
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 420,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "tiffany-sports-lounge",
@@ -3638,10 +4169,32 @@
           "dow_mask": 31,
           "start_min": 840,
           "end_min": 1080,
-          "deals": "$4 rails & domestic bottles, $4 Coors drafts, $5 Summit, $7 cocktails/wine; $5–8 apps"
+          "deals": "$4 rails & domestic bottles, $4 Coors drafts, $5 Summit, $7 cocktails/wine; $5\u20138 apps"
         }
       ],
-      "notes": "HH Mon–Fri 2–6 PM confirmed on official site (tiffanysportslounge.com); excluded during select events. Sports bar since 1971. 2051 Ford Pkwy."
+      "notes": "HH Mon\u2013Fri 2\u20136 PM confirmed on official site (tiffanysportslounge.com); excluded during select events. Sports bar since 1971. 2051 Ford Pkwy.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "la-costa-mexican-grill-st-paul",
@@ -3669,7 +4222,29 @@
           "deals": "Deal specifics not published on site"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 PM confirmed on official site (lacostamn.com). 194 Cesar Chavez St."
+      "notes": "HH Mon\u2013Fri 3\u20136 PM confirmed on official site (lacostamn.com). 194 Cesar Chavez St.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "boca-chica-st-paul",
@@ -3697,7 +4272,24 @@
           "deals": "Deals in HH menu PDF, not inline on site"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 PM confirmed on official site (bocachicarestaurant.com). District del Sol landmark since 1964. 11 Cesar Chavez St."
+      "notes": "HH Mon\u2013Fri 3\u20136 PM confirmed on official site (bocachicarestaurant.com). District del Sol landmark since 1964. 11 Cesar Chavez St.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1230
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1230
+        }
+      ]
     },
     {
       "slug": "smorgies-bar",
@@ -3725,7 +4317,14 @@
           "deals": "2-for-1 rail liquor, house wine & all tap beer"
         }
       ],
-      "notes": "HH daily 3–5 PM confirmed on official site (smorgiesbar.com). Across from Xcel Energy Center. 127 7th St W."
+      "notes": "HH daily 3\u20135 PM confirmed on official site (smorgiesbar.com). Across from Xcel Energy Center. 127 7th St W.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 660,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "the-copperfield-mendota-heights",
@@ -3750,10 +4349,32 @@
           "dow_mask": 127,
           "start_min": 900,
           "end_min": 1020,
-          "deals": "$1 off all beer, $6 select wines & cocktails; half-price wine bottles 4 PM–close"
+          "deals": "$1 off all beer, $6 select wines & cocktails; half-price wine bottles 4 PM\u2013close"
         }
       ],
-      "notes": "HH daily 3–5 PM confirmed on official site (thecopperfieldmn.com). 735 Maple St, Mendota Heights."
+      "notes": "HH daily 3\u20135 PM confirmed on official site (thecopperfieldmn.com). 735 Maple St, Mendota Heights.",
+      "hours": [
+        {
+          "dow_mask": 3,
+          "start_min": 450,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 12,
+          "start_min": 450,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 420,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 420,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "5-8-club-west-st-paul",
@@ -3781,7 +4402,29 @@
           "deals": "$3.50 select 16oz taps, $5 premium taps, $4 select wines, $3.50 rails (all-day Thu)"
         }
       ],
-      "notes": "HH daily 2–6 PM confirmed on official site (5-8club.com); Thu all-day HH. 1741 S Robert St, West St. Paul."
+      "notes": "HH daily 2\u20136 PM confirmed on official site (5-8club.com); Thu all-day HH. 1741 S Robert St, West St. Paul.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "stockyards-tavern-chophouse",
@@ -3809,7 +4452,19 @@
           "deals": "Deals in separate HH menu, not inline on site"
         }
       ],
-      "notes": "HH Mon–Fri 2–6 PM confirmed on official site (stockyardstc.com). 456 Concord Exchange S, South St. Paul."
+      "notes": "HH Mon\u2013Fri 2\u20136 PM confirmed on official site (stockyardstc.com). 456 Concord Exchange S, South St. Paul.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "kitchen-and-rail-eagan",
@@ -3849,7 +4504,24 @@
           "deals": "Weekend HH (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Thu 4–6, Fri 4–5:30, Sat–Sun 2–4 confirmed on official site (kitchenandrail.com). 3344 Promenade Ave, Eagan."
+      "notes": "HH Mon\u2013Thu 4\u20136, Fri 4\u20135:30, Sat\u2013Sun 2\u20134 confirmed on official site (kitchenandrail.com). 3344 Promenade Ave, Eagan.",
+      "hours": [
+        {
+          "dow_mask": 31,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 840,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1200
+        }
+      ]
     },
     {
       "slug": "andiamo-eagan",
@@ -3883,7 +4555,19 @@
           "deals": "Late-night HH (deal specifics not published on site)"
         }
       ],
-      "notes": "HH daily 3–6 + Fri–Sat 9–10 confirmed on official site (andiamomn.com). 1629 Lena Ct, Eagan."
+      "notes": "HH daily 3\u20136 + Fri\u2013Sat 9\u201310 confirmed on official site (andiamomn.com). 1629 Lena Ct, Eagan.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "racks-sports-bar-burnsville",
@@ -3911,7 +4595,24 @@
           "deals": "Daily afternoon HH (deal specifics not published on site)"
         }
       ],
-      "notes": "HH daily 3–6 + late-night 9:30–close confirmed on official site (racks-bar.com); close time not published. 2400 Cliff Rd E, Burnsville."
+      "notes": "HH daily 3\u20136 + late-night 9:30\u2013close confirmed on official site (racks-bar.com); close time not published. 2400 Cliff Rd E, Burnsville.",
+      "hours": [
+        {
+          "dow_mask": 3,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 60,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "garys-supper-club-lakeville",
@@ -3936,10 +4637,32 @@
           "dow_mask": 31,
           "start_min": 840,
           "end_min": 1020,
-          "deals": "$10 house martinis; $3 off specialty drinks; $2 off calls, drafts & house wine; $6–22 apps (not holidays)"
+          "deals": "$10 house martinis; $3 off specialty drinks; $2 off calls, drafts & house wine; $6\u201322 apps (not holidays)"
         }
       ],
-      "notes": "HH Mon–Fri 2–5 confirmed on official site (garysupperclub.com). 20790 Keokuk Ave, Lakeville."
+      "notes": "HH Mon\u2013Fri 2\u20135 confirmed on official site (garysupperclub.com). 20790 Keokuk Ave, Lakeville.",
+      "hours": [
+        {
+          "dow_mask": 7,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 24,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 540,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 540,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "pau-hana-savage",
@@ -3964,10 +4687,32 @@
           "dow_mask": 15,
           "start_min": 960,
           "end_min": 1080,
-          "deals": "$2 off wine, $4 Hawaii beers, $6 daiquiri, $8–10 margarita & Mai Tai, $7–13 apps"
+          "deals": "$2 off wine, $4 Hawaii beers, $6 daiquiri, $8\u201310 margarita & Mai Tai, $7\u201313 apps"
         }
       ],
-      "notes": "HH Mon–Thu 4–6 + Sun all day confirmed on official site (pauhanamn.com); Sun window not encoded. 14435 Hwy 13, Savage."
+      "notes": "HH Mon\u2013Thu 4\u20136 + Sun all day confirmed on official site (pauhanamn.com); Sun window not encoded. 14435 Hwy 13, Savage.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 960,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "whiskey-inferno-savage",
@@ -3995,7 +4740,29 @@
           "deals": "Happy hour specials (deal specifics on menu PDF)"
         }
       ],
-      "notes": "HH Mon–Fri 11 AM–5:30 PM confirmed on official site (whiskeyinferno.com). 14425 Hwy 13, Savage."
+      "notes": "HH Mon\u2013Fri 11 AM\u20135:30 PM confirmed on official site (whiskeyinferno.com). 14425 Hwy 13, Savage.",
+      "hours": [
+        {
+          "dow_mask": 1,
+          "start_min": 900,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 6,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 56,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "celts-pub-rosemount",
@@ -4023,7 +4790,19 @@
           "deals": "$1 off all beer, wine & spirits"
         }
       ],
-      "notes": "HH Mon–Fri 2–6 confirmed on official site (celtspubrosemount.com). 14506 S Robert Trail, Rosemount."
+      "notes": "HH Mon\u2013Fri 2\u20136 confirmed on official site (celtspubrosemount.com). 14506 S Robert Trail, Rosemount.",
+      "hours": [
+        {
+          "dow_mask": 31,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 96,
+          "start_min": 600,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "ole-piper-rosemount",
@@ -4061,10 +4840,10 @@
           "dow_mask": 127,
           "start_min": 1260,
           "end_min": 1380,
-          "deals": "Late HH 9 PM–close (deal specifics not published on site)"
+          "deals": "Late HH 9 PM\u2013close (deal specifics not published on site)"
         }
       ],
-      "notes": "HH 3–6 + 9 PM–close daily confirmed on official site (olepiper.com); open 11 AM–11 PM. 16604 Cedar Ave S, Rosemount."
+      "notes": "HH 3\u20136 + 9 PM\u2013close daily confirmed on official site (olepiper.com); open 11 AM\u201311 PM. 16604 Cedar Ave S, Rosemount."
     },
     {
       "slug": "hazelwood-woodbury",
@@ -4114,7 +4893,7 @@
           "deals": "Bar only (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 2–5 (bar only) confirmed on official site (hazelwoodfoodanddrink.com). Woodbury Lakes."
+      "notes": "HH Mon\u2013Fri 2\u20135 (bar only) confirmed on official site (hazelwoodfoodanddrink.com). Woodbury Lakes."
     },
     {
       "slug": "carmines-woodbury",
@@ -4148,7 +4927,19 @@
           "deals": "1/2 price rails, bottle beer & select taps; $3 off apps"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 + Sat–Sun 11–3 confirmed on official site (carmineswoodbury.com). 9900 Valley Creek Rd, Woodbury."
+      "notes": "HH Mon\u2013Fri 3\u20136 + Sat\u2013Sun 11\u20133 confirmed on official site (carmineswoodbury.com). 9900 Valley Creek Rd, Woodbury.",
+      "hours": [
+        {
+          "dow_mask": 63,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "post-american-eatery-hudson",
@@ -4198,7 +4989,7 @@
           "deals": "$3 all taps & rails, up to $7 craft cocktails/wine; $8 apps (dine-in only)"
         }
       ],
-      "notes": "HH Mon–Fri 2–5 (dine-in only) confirmed on official site (posthudson.com). 225 Locust St, Hudson WI."
+      "notes": "HH Mon\u2013Fri 2\u20135 (dine-in only) confirmed on official site (posthudson.com). 225 Locust St, Hudson WI."
     },
     {
       "slug": "stillwater-proper",
@@ -4241,10 +5032,10 @@
           "dow_mask": 64,
           "start_min": 900,
           "end_min": 1200,
-          "deals": "Sunday 3 PM–close (deal specifics not published on site)"
+          "deals": "Sunday 3 PM\u2013close (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 3–5 + Sun 3–close confirmed on official site (stillwaterproper.com). 227 Main St S, Stillwater."
+      "notes": "HH Mon\u2013Fri 3\u20135 + Sun 3\u2013close confirmed on official site (stillwaterproper.com). 227 Main St S, Stillwater."
     },
     {
       "slug": "mad-capper-stillwater",
@@ -4278,7 +5069,19 @@
           "deals": "Evening HH (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Sun–Thu 2–5 & 8–9 + all day Wed confirmed on official site (madcappermn.com). 224 Main St S, Stillwater."
+      "notes": "HH Sun\u2013Thu 2\u20135 & 8\u20139 + all day Wed confirmed on official site (madcappermn.com). 224 Main St S, Stillwater.",
+      "hours": [
+        {
+          "dow_mask": 77,
+          "start_min": 660,
+          "end_min": 1290
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "wild-boar-oakdale",
@@ -4330,7 +5133,7 @@
           "deals": "Drinks only: $3.50 domestics; $4.50 house wine"
         }
       ],
-      "notes": "HH Mon–Fri 3–6, Sat 11–6, Sun 12–6 confirmed on official site (wildboarbarandgrill.com). 950 Helena Ave N, Oakdale."
+      "notes": "HH Mon\u2013Fri 3\u20136, Sat 11\u20136, Sun 12\u20136 confirmed on official site (wildboarbarandgrill.com). 950 Helena Ave N, Oakdale."
     },
     {
       "slug": "carbones-cottage-grove",
@@ -4355,16 +5158,38 @@
           "dow_mask": 31,
           "start_min": 840,
           "end_min": 1020,
-          "deals": "$2–3 domestics, $3.50–4.50 craft, $4.50 house wine, discounted apps"
+          "deals": "$2\u20133 domestics, $3.50\u20134.50 craft, $4.50 house wine, discounted apps"
         },
         {
           "dow_mask": 31,
           "start_min": 1200,
           "end_min": 1440,
-          "deals": "8 PM–close: $2–3 domestics, $3.50–4.50 craft, $4.50 wine, discounted apps"
+          "deals": "8 PM\u2013close: $2\u20133 domestics, $3.50\u20134.50 craft, $4.50 wine, discounted apps"
         }
       ],
-      "notes": "HH Mon–Fri 2–5 & 8–close confirmed on official site (cgcarbones.com). 7155 Jorgensen Ln S, Cottage Grove."
+      "notes": "HH Mon\u2013Fri 2\u20135 & 8\u2013close confirmed on official site (cgcarbones.com). 7155 Jorgensen Ln S, Cottage Grove.",
+      "hours": [
+        {
+          "dow_mask": 65,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 2,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 12,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "brians-stillwater",
@@ -4392,7 +5217,19 @@
           "deals": "$2 domestic drafts, $3 rails, $2 off all wine and apps"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 confirmed on official site (briansstillwater.com). 219 Main St S, Stillwater."
+      "notes": "HH Mon\u2013Fri 3\u20136 confirmed on official site (briansstillwater.com). 219 Main St S, Stillwater.",
+      "hours": [
+        {
+          "dow_mask": 63,
+          "start_min": 660,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "maple-tavern-maple-grove",
@@ -4420,7 +5257,19 @@
           "deals": "$3.50 domestic taps & bottles & rails, $4.50 calls & house wine, $2 off select apps"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 confirmed on official site (mapletavern.com). 9375 Deerwood Ln N, Maple Grove."
+      "notes": "HH Mon\u2013Fri 3\u20136 confirmed on official site (mapletavern.com). 9375 Deerwood Ln N, Maple Grove.",
+      "hours": [
+        {
+          "dow_mask": 31,
+          "start_min": 660,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 96,
+          "start_min": 600,
+          "end_min": 120
+        }
+      ]
     },
     {
       "slug": "duffys-bar-grill-osseo",
@@ -4460,7 +5309,29 @@
           "deals": "$4.25 domestics, $4.75 taps, $1 off most bar items"
         }
       ],
-      "notes": "HH Mon–Fri 3–7, Sat 12–3, Sun 12–midnight confirmed on official site (duffysbargrill.com). 337 Central Ave, Osseo."
+      "notes": "HH Mon\u2013Fri 3\u20137, Sat 12\u20133, Sun 12\u2013midnight confirmed on official site (duffysbargrill.com). 337 Central Ave, Osseo.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 480,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 480,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "cams-bar-eatery-brooklyn-park",
@@ -4488,7 +5359,19 @@
           "deals": "Discounted domestics, rails, house wines & apps (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 confirmed on official site (camsbar.com). 8517 63rd Ave N, Brooklyn Park."
+      "notes": "HH Mon\u2013Fri 3\u20136 confirmed on official site (camsbar.com). 8517 63rd Ave N, Brooklyn Park.",
+      "hours": [
+        {
+          "dow_mask": 63,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "big-louies-crystal",
@@ -4523,7 +5406,7 @@
           "deals": "Happy hour food & drink specials (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 3–7 confirmed on official site (biglouiesbarandgrill.com); open 11 AM–2 AM. 5216 W Broadway Ave, Crystal."
+      "notes": "HH Mon\u2013Fri 3\u20137 confirmed on official site (biglouiesbarandgrill.com); open 11 AM\u20132 AM. 5216 W Broadway Ave, Crystal."
     },
     {
       "slug": "boulevard-bar-grille-coon-rapids",
@@ -4551,7 +5434,29 @@
           "deals": "All day every day: 2-for-1 single-pour cocktails ($4.50), $4.50 20oz domestics, house wine"
         }
       ],
-      "notes": "HH all day, every day confirmed on official site (boulevardbarmn.com); encoded to open hours. 3395 Coon Rapids Blvd NW, Coon Rapids."
+      "notes": "HH all day, every day confirmed on official site (boulevardbarmn.com); encoded to open hours. 3395 Coon Rapids Blvd NW, Coon Rapids.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 540,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 540,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "serums-anoka",
@@ -4586,7 +5491,7 @@
           "deals": "Specials on all alcoholic drinks (~$2 off)"
         }
       ],
-      "notes": "HH daily 4–6 confirmed on official site (serumsanoka.com); open 11 AM–1 AM. 213 Jackson St, Anoka."
+      "notes": "HH daily 4\u20136 confirmed on official site (serumsanoka.com); open 11 AM\u20131 AM. 213 Jackson St, Anoka."
     },
     {
       "slug": "shortstop-bar-grill-coon-rapids",
@@ -4623,10 +5528,10 @@
           "dow_mask": 127,
           "start_min": 900,
           "end_min": 1140,
-          "deals": "$4 rails, domestic pints & bottles all day; +$1 off other cocktails/wine/craft taps 3–7 PM"
+          "deals": "$4 rails, domestic pints & bottles all day; +$1 off other cocktails/wine/craft taps 3\u20137 PM"
         }
       ],
-      "notes": "HH 3–7 every day + $4 rails/domestics all day confirmed on official site (shortstopbar.com). 421 Northdale Blvd NW, Coon Rapids."
+      "notes": "HH 3\u20137 every day + $4 rails/domestics all day confirmed on official site (shortstopbar.com). 421 Northdale Blvd NW, Coon Rapids."
     },
     {
       "slug": "pub-42-new-hope",
@@ -4666,7 +5571,29 @@
           "deals": "All-day Sunday HH (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 2–6, Sat 10–4, Sun all day confirmed on official site (pub42.com). 7600 42nd Ave N, New Hope."
+      "notes": "HH Mon\u2013Fri 2\u20136, Sat 10\u20134, Sun all day confirmed on official site (pub42.com). 7600 42nd Ave N, New Hope.",
+      "hours": [
+        {
+          "dow_mask": 7,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 24,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 540,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 540,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "tilia-mpls",
@@ -4701,7 +5628,7 @@
           "deals": "Deal specifics not published on site"
         }
       ],
-      "notes": "HH Tue–Fri 4–5:30 confirmed on official site (tiliampls.com). 2726 W 43rd St, Linden Hills."
+      "notes": "HH Tue\u2013Fri 4\u20135:30 confirmed on official site (tiliampls.com). 2726 W 43rd St, Linden Hills."
     },
     {
       "slug": "northbound-smokehouse",
@@ -4741,7 +5668,7 @@
           "deals": "$4 Northbound beers, $5 rails, $6 house wine (Tue $2.50 Northbound)"
         }
       ],
-      "notes": "HH Sun–Fri 3–6 confirmed on official site (northboundbrewpub.com). 2716 E 38th St, Standish/Longfellow."
+      "notes": "HH Sun\u2013Fri 3\u20136 confirmed on official site (northboundbrewpub.com). 2716 E 38th St, Standish/Longfellow."
     },
     {
       "slug": "elsies-ne",
@@ -4802,7 +5729,7 @@
           "deals": "Late-night HH apps & drink specials"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 + late-night Mon–Thu/Sun 9:30–11 confirmed on official site (elsies.com). 729 Marshall St NE, Sheridan."
+      "notes": "HH Mon\u2013Fri 3\u20136 + late-night Mon\u2013Thu/Sun 9:30\u201311 confirmed on official site (elsies.com). 729 Marshall St NE, Sheridan."
     },
     {
       "slug": "sallys-saloon",
@@ -4853,7 +5780,7 @@
           "deals": "$3 select drinks & beers, half-price select apps"
         }
       ],
-      "notes": "HH daily 3–6 & 10–midnight confirmed on official site (thesallyssaloon.com); may change on event days. 700 Washington Ave SE."
+      "notes": "HH daily 3\u20136 & 10\u2013midnight confirmed on official site (thesallyssaloon.com); may change on event days. 700 Washington Ave SE."
     },
     {
       "slug": "butcher-and-the-boar",
@@ -4881,7 +5808,19 @@
           "deals": "$7 Butcher burger/brat/fries/wine/cocktail; $2 off beers; $10 sammy, rails, beer & shot"
         }
       ],
-      "notes": "HH daily 4–6 confirmed on official site (butcherandtheboarmpls.com). 901 N 3rd St Ste 195, North Loop."
+      "notes": "HH daily 4\u20136 confirmed on official site (butcherandtheboarmpls.com). 901 N 3rd St Ste 195, North Loop.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 960,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "jefe-urban-cocina",
@@ -4931,7 +5870,7 @@
           "deals": "$5 taps, $8 sangria, $10 margarita slush; $5 chips & salsa, $10 tacos (2)"
         }
       ],
-      "notes": "HH Tue–Thu + Sun 4–6 confirmed on official site (jefeminneapolis.com); closed Mon. 219 Main St SE, St. Anthony Main."
+      "notes": "HH Tue\u2013Thu + Sun 4\u20136 confirmed on official site (jefeminneapolis.com); closed Mon. 219 Main St SE, St. Anthony Main."
     },
     {
       "slug": "fireside-foundry",
@@ -4974,10 +5913,10 @@
           "dow_mask": 127,
           "start_min": 1260,
           "end_min": 1380,
-          "deals": "Late-night HH 9 PM–close: $2 off taps, $1 off wine & cocktails, $2 off snacks"
+          "deals": "Late-night HH 9 PM\u2013close: $2 off taps, $1 off wine & cocktails, $2 off snacks"
         }
       ],
-      "notes": "HH daily 3–6 & 9 PM–close confirmed on official site (firesidefoundry.com). 6736 Penn Ave S, Richfield."
+      "notes": "HH daily 3\u20136 & 9 PM\u2013close confirmed on official site (firesidefoundry.com). 6736 Penn Ave S, Richfield."
     },
     {
       "slug": "gabes-by-the-park",
@@ -5008,16 +5947,33 @@
           "dow_mask": 79,
           "start_min": 1260,
           "end_min": 1380,
-          "deals": "Late HH 9–11: $1.50 off rails, $1 off taps & domestics, $4.50 wine, $1.50 off apps"
+          "deals": "Late HH 9\u201311: $1.50 off rails, $1 off taps & domestics, $4.50 wine, $1.50 off apps"
         },
         {
           "dow_mask": 48,
           "start_min": 1320,
           "end_min": 1440,
-          "deals": "Fri/Sat late HH 10–12: $1.50 off rails, $1 off taps & domestics, $4.50 wine"
+          "deals": "Fri/Sat late HH 10\u201312: $1.50 off rails, $1 off taps & domestics, $4.50 wine"
         }
       ],
-      "notes": "HH Mon–Fri 2–6, Sun–Thu 9–11, Fri–Sat 10–12 confirmed on official site (gabesmn.com). 991 Lexington Pkwy N, near Como Park."
+      "notes": "HH Mon\u2013Fri 2\u20136, Sun\u2013Thu 9\u201311, Fri\u2013Sat 10\u201312 confirmed on official site (gabesmn.com). 991 Lexington Pkwy N, near Como Park.",
+      "hours": [
+        {
+          "dow_mask": 7,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 56,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "los-ocampo-frogtown",
@@ -5048,10 +6004,27 @@
           "dow_mask": 95,
           "start_min": 1200,
           "end_min": 1320,
-          "deals": "Evening HH 8–10: 2-for-1 rails, drafts & margaritas; $4 bottled beer; $7 cocktails (dine-in)"
+          "deals": "Evening HH 8\u201310: 2-for-1 rails, drafts & margaritas; $4 bottled beer; $7 cocktails (dine-in)"
         }
       ],
-      "notes": "HH Sun–Fri 2–6 & 8–10 confirmed on official site (losocampo.com). 615 University Ave W, Frogtown."
+      "notes": "HH Sun\u2013Fri 2\u20136 & 8\u201310 confirmed on official site (losocampo.com). 615 University Ave W, Frogtown.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "el-tejaban-richfield",
@@ -5104,10 +6077,10 @@
           "dow_mask": 126,
           "start_min": 1200,
           "end_min": 1320,
-          "deals": "Evening HH 8–10: $2 off drinks"
+          "deals": "Evening HH 8\u201310: $2 off drinks"
         }
       ],
-      "notes": "HH 3–5 & 8–10 every day open (closed Mon) confirmed on official site (eltejabangrill.com). 6519 Nicollet Ave, Richfield."
+      "notes": "HH 3\u20135 & 8\u201310 every day open (closed Mon) confirmed on official site (eltejabangrill.com). 6519 Nicollet Ave, Richfield."
     },
     {
       "slug": "dubliner-pub",
@@ -5135,7 +6108,29 @@
           "deals": "$4.50 Summits, $20 beer buckets during matches (full deals not published on site)"
         }
       ],
-      "notes": "HH daily 4–7 confirmed on official site (thedublinerpub.com). Historic Irish music pub. 2162 University Ave W, Hamline-Midway."
+      "notes": "HH daily 4\u20137 confirmed on official site (thedublinerpub.com). Historic Irish music pub. 2162 University Ave W, Hamline-Midway.",
+      "hours": [
+        {
+          "dow_mask": 7,
+          "start_min": 840,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 24,
+          "start_min": 840,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 690,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 690,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "kona-grill-eden-prairie",
@@ -5163,7 +6158,24 @@
           "deals": "$3/$6/$9 specials on cocktails, sushi & bar bites"
         }
       ],
-      "notes": "Social hour Tue–Fri 2–6 confirmed on official site (konagrill.com); also all-day Mon + nightly 9–close. 11997 Singletree Ln, Eden Prairie."
+      "notes": "Social hour Tue\u2013Fri 2\u20136 confirmed on official site (konagrill.com); also all-day Mon + nightly 9\u2013close. 11997 Singletree Ln, Eden Prairie.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 720,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 690,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "champps-eden-prairie",
@@ -5191,7 +6203,19 @@
           "deals": "Deal specifics not published on site"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 + nightly 10–close confirmed on official site (champps.com). 8010 Glen Ln, Eden Prairie."
+      "notes": "HH Mon\u2013Fri 3\u20136 + nightly 10\u2013close confirmed on official site (champps.com). 8010 Glen Ln, Eden Prairie.",
+      "hours": [
+        {
+          "dow_mask": 71,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 56,
+          "start_min": 660,
+          "end_min": 120
+        }
+      ]
     },
     {
       "slug": "crave-eden-prairie",
@@ -5216,10 +6240,22 @@
           "dow_mask": 31,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "$5–7 cocktails & beers, $6–8 appetizers"
+          "deals": "$5\u20137 cocktails & beers, $6\u20138 appetizers"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 confirmed on official Eden Prairie page (craveamerica.com). 8251 Flying Cloud Dr #3010, Eden Prairie."
+      "notes": "HH Mon\u2013Fri 3\u20136 confirmed on official Eden Prairie page (craveamerica.com). 8251 Flying Cloud Dr #3010, Eden Prairie.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "tavern-4-5-eden-prairie",
@@ -5247,7 +6283,14 @@
           "deals": "Bar only (deal specifics not published on site)"
         }
       ],
-      "notes": "HH Mon–Fri 2–5 (bar only) confirmed on official site (tavern4and5.com). 16396 Wagner Way, Eden Prairie."
+      "notes": "HH Mon\u2013Fri 2\u20135 (bar only) confirmed on official site (tavern4and5.com). 16396 Wagner Way, Eden Prairie.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 480,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "bravis-shakopee",
@@ -5275,7 +6318,14 @@
           "deals": "$2 off margaritas & tap beer, $1 off bottles & wine, discounted wings/tacos/taquitos"
         }
       ],
-      "notes": "HH Mon–Thu 3–6 + all day Sun confirmed on official site (bravismn.com). 2815 Winners Circle Dr, Shakopee."
+      "notes": "HH Mon\u2013Thu 3\u20136 + all day Sun confirmed on official site (bravismn.com). 2815 Winners Circle Dr, Shakopee.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 660,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "tavern-19-shakopee",
@@ -5310,7 +6360,7 @@
           "deals": "$10 Tavern Burger, $3 bottled beers"
         }
       ],
-      "notes": "HH Mon–Fri 4–6 confirmed on official site (tavern-19.com); summer hours daily 11–10. 2693 County Rd 79, Shakopee."
+      "notes": "HH Mon\u2013Fri 4\u20136 confirmed on official site (tavern-19.com); summer hours daily 11\u201310. 2693 County Rd 79, Shakopee."
     },
     {
       "slug": "layline-excelsior",
@@ -5338,7 +6388,29 @@
           "deals": "Deal specifics not published on site"
         }
       ],
-      "notes": "HH daily 3:30–5:30 confirmed on official site (laylinerestaurant.com). 301 Water St, Excelsior."
+      "notes": "HH daily 3:30\u20135:30 confirmed on official site (laylinerestaurant.com). 301 Water St, Excelsior.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 930,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 930,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "mirabelle-excelsior",
@@ -5366,7 +6438,29 @@
           "deals": "Coors Light, seasonal tap, High Noon, house wines, cocktail of the moment, food specials"
         }
       ],
-      "notes": "HH daily 4–6 confirmed on official site (mirabellemn.com). 200 Water St, Excelsior."
+      "notes": "HH daily 4\u20136 confirmed on official site (mirabellemn.com). 200 Water St, Excelsior.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 960,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 960,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "garage-bar-bowl-waconia",
@@ -5394,7 +6488,29 @@
           "deals": "Appetizer specials + BOGO for $1 on select beer, wine & rail drinks"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 confirmed on official site (garagebowl.com). Bowling bar. 16 W 1st St, Waconia."
+      "notes": "HH Mon\u2013Fri 3\u20136 confirmed on official site (garagebowl.com). Bowling bar. 16 W 1st St, Waconia.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 900,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 900,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "willy-mccoys-chaska",
@@ -5422,7 +6538,19 @@
           "deals": "$1 off and 2-for-1 drinks"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 confirmed on official site (willymccoys.com); open Sun–Thu 11–11, Fri–Sat 11–12. 320 Pioneer Trail, Chaska."
+      "notes": "HH Mon\u2013Fri 3\u20136 confirmed on official site (willymccoys.com); open Sun\u2013Thu 11\u201311, Fri\u2013Sat 11\u201312. 320 Pioneer Trail, Chaska.",
+      "hours": [
+        {
+          "dow_mask": 79,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "moes-char-house-chanhassen",
@@ -5462,7 +6590,24 @@
           "deals": "Weekend drink & food specials"
         }
       ],
-      "notes": "HH Mon–Fri 2:30–5:30 & 8:30–10:30, Sat–Sun 11–5 confirmed on official site (moescharhouse.com). 560 W 78th St, Chanhassen."
+      "notes": "HH Mon\u2013Fri 2:30\u20135:30 & 8:30\u201310:30, Sat\u2013Sun 11\u20135 confirmed on official site (moescharhouse.com). 560 W 78th St, Chanhassen.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 540,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 540,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "ole-piper-inn-blaine",
@@ -5502,7 +6647,14 @@
           "deals": "Sunday HH: $1 off drinks & apps"
         }
       ],
-      "notes": "HH Mon–Fri 2–7 & 8–10 AM, Sun 5–11 confirmed on official site (olepiperinn.com). 785 99th Ln NE, Blaine."
+      "notes": "HH Mon\u2013Fri 2\u20137 & 8\u201310 AM, Sun 5\u201311 confirmed on official site (olepiperinn.com). 785 99th Ln NE, Blaine.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 420,
+          "end_min": 120
+        }
+      ]
     },
     {
       "slug": "route-47-pub-fridley",
@@ -5530,7 +6682,29 @@
           "deals": "$3 domestic taps, bottles & rails; $2 off select apps"
         }
       ],
-      "notes": "HH Mon–Fri 2–6 confirmed on official site (route47pubngrub.com); +$2 off apps Sun–Wed 8–10. 7820 University Ave NE, Fridley."
+      "notes": "HH Mon\u2013Fri 2\u20136 confirmed on official site (route47pubngrub.com); +$2 off apps Sun\u2013Wed 8\u201310. 7820 University Ave NE, Fridley.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 480,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 480,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "tavern-grill-blaine",
@@ -5561,10 +6735,27 @@
           "dow_mask": 127,
           "start_min": 1260,
           "end_min": 1440,
-          "deals": "Late-night HH 9–close: $4 off apps, $3 off cocktails, $2 off taps & wine"
+          "deals": "Late-night HH 9\u2013close: $4 off apps, $3 off cocktails, $2 off taps & wine"
         }
       ],
-      "notes": "HH daily 2–5 & 9–close confirmed on official site (thetaverngrill.com). 10950 Club W Pkwy NE #280, Blaine."
+      "notes": "HH daily 2\u20135 & 9\u2013close confirmed on official site (thetaverngrill.com). 10950 Club W Pkwy NE #280, Blaine.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     },
     {
       "slug": "stellas-on-97-forest-lake",
@@ -5604,7 +6795,24 @@
           "deals": "Late-night HH (deal specifics not published on site)"
         }
       ],
-      "notes": "HH 3–6 most days, 3–5 Fri/Sat, +9–11 Sun–Thu confirmed on official site (stellas97.com). 7050 Scandia Trail N, Forest Lake."
+      "notes": "HH 3\u20136 most days, 3\u20135 Fri/Sat, +9\u201311 Sun\u2013Thu confirmed on official site (stellas97.com). 7050 Scandia Trail N, Forest Lake.",
+      "hours": [
+        {
+          "dow_mask": 14,
+          "start_min": 900,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 900,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 96,
+          "start_min": 660,
+          "end_min": 1380
+        }
+      ]
     },
     {
       "slug": "rail-werks-columbia-heights",
@@ -5632,7 +6840,24 @@
           "deals": "$1 off full pours, cocktails & mocktails; HH food specials"
         }
       ],
-      "notes": "HH Mon–Fri 2–6 confirmed on official site (railwerksbrewingdepot.com). 4055 Central Ave NE, Columbia Heights."
+      "notes": "HH Mon\u2013Fri 2\u20136 confirmed on official site (railwerksbrewingdepot.com). 4055 Central Ave NE, Columbia Heights.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 660,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "moes-american-grill-mounds-view",
@@ -5657,7 +6882,7 @@
           "dow_mask": 31,
           "start_min": 870,
           "end_min": 1050,
-          "deals": "$1 off cocktails, $1.50 off rails, $2 off taps, $1.75 off bottles, $1.25 off wine; $6–15 food"
+          "deals": "$1 off cocktails, $1.50 off rails, $2 off taps, $1.75 off bottles, $1.25 off wine; $6\u201315 food"
         },
         {
           "dow_mask": 31,
@@ -5669,10 +6894,27 @@
           "dow_mask": 96,
           "start_min": 660,
           "end_min": 1020,
-          "deals": "Weekend HH: drink + $6–15 food specials"
+          "deals": "Weekend HH: drink + $6\u201315 food specials"
         }
       ],
-      "notes": "HH Mon–Fri 2:30–5:30 & 8:30–10, Sat–Sun 11–5 confirmed on official site (moesamericangrill.com). 2400 Mounds View Blvd, Mounds View."
+      "notes": "HH Mon\u2013Fri 2:30\u20135:30 & 8:30\u201310, Sat\u2013Sun 11\u20135 confirmed on official site (moesamericangrill.com). 2400 Mounds View Blvd, Mounds View.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 480,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 480,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 480,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "willy-mccoys-andover",
@@ -5700,7 +6942,14 @@
           "deals": "$1 off & 2-for-1 drinks"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 confirmed on official site (willymccoys.com); open daily 11–1 AM. 13655 Martin St NW, Andover."
+      "notes": "HH Mon\u2013Fri 3\u20136 confirmed on official site (willymccoys.com); open daily 11\u20131 AM. 13655 Martin St NW, Andover.",
+      "hours": [
+        {
+          "dow_mask": 127,
+          "start_min": 660,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "t-box-ham-lake",
@@ -5734,7 +6983,29 @@
           "deals": "All-day Sunday HH; 1/2-price wine bottles after 5"
         }
       ],
-      "notes": "HH Mon–Sat 2–6 + all day Sun confirmed on official menu (tboxbarandgrill.com). 1431 147th Ave NE, Ham Lake."
+      "notes": "HH Mon\u2013Sat 2\u20136 + all day Sun confirmed on official menu (tboxbarandgrill.com). 1431 147th Ave NE, Ham Lake.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 660,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1380
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "on-the-rox-mpls",
@@ -5762,7 +7033,19 @@
           "deals": "2-for-1 taps, rails & wine; $3 off appetizers"
         }
       ],
-      "notes": "HH Mon–Fri 5–7 confirmed on official site (mplsontherox.com). Cocktail lounge above Nicollet Diner, 1333 Nicollet Mall."
+      "notes": "HH Mon\u2013Fri 5\u20137 confirmed on official site (mplsontherox.com). Cocktail lounge above Nicollet Diner, 1333 Nicollet Mall.",
+      "hours": [
+        {
+          "dow_mask": 31,
+          "start_min": 1020,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 96,
+          "start_min": 540,
+          "end_min": 60
+        }
+      ]
     },
     {
       "slug": "sonora-mexican-kitchen",
@@ -5790,7 +7073,19 @@
           "deals": "Deal specifics not published on site"
         }
       ],
-      "notes": "HH 3–5 (site says every day; Sun closed) confirmed on official site (sonoramexicankitchenandbar.com). 1414 Nicollet Ave."
+      "notes": "HH 3\u20135 (site says every day; Sun closed) confirmed on official site (sonoramexicankitchenandbar.com). 1414 Nicollet Ave.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 720,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 720,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "st-genevieve-mpls",
@@ -5818,7 +7113,24 @@
           "deals": "Deal specifics in Social Hour menu (not itemized on site)"
         }
       ],
-      "notes": "Social Hour Tue–Sat 4–5:30 confirmed on official site (stgmpls.com). 5003 Bryant Ave S, Tangletown."
+      "notes": "Social Hour Tue\u2013Sat 4\u20135:30 confirmed on official site (stgmpls.com). 5003 Bryant Ave S, Tangletown.",
+      "hours": [
+        {
+          "dow_mask": 30,
+          "start_min": 960,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 1260
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 840
+        }
+      ]
     },
     {
       "slug": "barrio-downtown-mpls",
@@ -5843,16 +7155,33 @@
           "dow_mask": 31,
           "start_min": 900,
           "end_min": 1080,
-          "deals": "$2 off wine & taps, $8 Barrio margarita, $14 Dobel flight, $7 queso fundido, $4–5 tacos"
+          "deals": "$2 off wine & taps, $8 Barrio margarita, $14 Dobel flight, $7 queso fundido, $4\u20135 tacos"
         },
         {
           "dow_mask": 15,
           "start_min": 1320,
           "end_min": 60,
-          "deals": "Late-night HH 10–close (deal specifics not itemized on site)"
+          "deals": "Late-night HH 10\u2013close (deal specifics not itemized on site)"
         }
       ],
-      "notes": "HH Mon–Fri 3–6 + late-night 10–close Mon–Thu confirmed on official site (barriotequila.com). 925 Nicollet Mall."
+      "notes": "HH Mon\u2013Fri 3\u20136 + late-night 10\u2013close Mon\u2013Thu confirmed on official site (barriotequila.com). 925 Nicollet Mall.",
+      "hours": [
+        {
+          "dow_mask": 31,
+          "start_min": 660,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 32,
+          "start_min": 600,
+          "end_min": 60
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1320
+        }
+      ]
     },
     {
       "slug": "the-red-sea-mpls",
@@ -5880,7 +7209,19 @@
           "deals": "$4 bottled beers"
         }
       ],
-      "notes": "HH daily 5–7 confirmed on official site (theredseampls.com). 320 Cedar Ave S, West Bank."
+      "notes": "HH daily 5\u20137 confirmed on official site (theredseampls.com). 320 Cedar Ave S, West Bank.",
+      "hours": [
+        {
+          "dow_mask": 3,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 124,
+          "start_min": 660,
+          "end_min": 120
+        }
+      ]
     },
     {
       "slug": "jerseys-bar-igh",
@@ -5914,7 +7255,24 @@
           "deals": "Evening HH: $2 off drink-menu drinks"
         }
       ],
-      "notes": "HH daily 2–6 & 9–11 confirmed on official site (jerseysbar.com). 6449 Concord Blvd S, Inver Grove Heights."
+      "notes": "HH daily 2\u20136 & 9\u201311 confirmed on official site (jerseysbar.com). 6449 Concord Blvd S, Inver Grove Heights.",
+      "hours": [
+        {
+          "dow_mask": 15,
+          "start_min": 660,
+          "end_min": 1440
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 660,
+          "end_min": 120
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 540,
+          "end_min": 1440
+        }
+      ]
     },
     {
       "slug": "mallards-igh",
@@ -5942,7 +7300,19 @@
           "deals": "$4 margaritas, $5 bites & drinks, $2 off starters/cocktails/wine, 1/2-price taps"
         }
       ],
-      "notes": "HH Mon–Fri + Sun 2–6 (also 9–close) confirmed on official site (mallardsmn.com). 5681 Blaine Ave, Inver Grove Heights."
+      "notes": "HH Mon\u2013Fri + Sun 2\u20136 (also 9\u2013close) confirmed on official site (mallardsmn.com). 5681 Blaine Ave, Inver Grove Heights.",
+      "hours": [
+        {
+          "dow_mask": 63,
+          "start_min": 660,
+          "end_min": 1320
+        },
+        {
+          "dow_mask": 64,
+          "start_min": 600,
+          "end_min": 1260
+        }
+      ]
     }
   ]
 }
