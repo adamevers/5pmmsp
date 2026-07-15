@@ -121,7 +121,6 @@
         btn.textContent = '◉ sorted by distance'; btn.disabled = true;
       }, () => {
         btn.textContent = '◉ location unavailable'; btn.disabled = true;
-        document.getElementById('hoods')?.scrollIntoView({ behavior: 'smooth' });
       }, { maximumAge: 300000, timeout: 8000 });
     });
   }
@@ -167,28 +166,74 @@
     filters.addEventListener('click', e => {
       const b = e.target.closest('button[data-f]');
       if (!b) return;
-      b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+      const turningOn = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', String(turningOn));
       applyFilters();
+      if (turningOn) container.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     fetch('/api/bars.json').then(r => r.json())
       .then(({ bars }) => { meta = Object.fromEntries(bars.map(b => [b.slug, b])); })
       .catch(() => {});
   }
 
-  // ---------- info tooltip (last-verified ⓘ) ----------
+  // ---------- info tooltip (last-verified ⓘ) — floats above everything ----------
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-info]');
-    if (!b) return;
+    if (!b) { document.querySelectorAll('.info-pop.show').forEach(p => p.classList.remove('show')); return; }
     e.preventDefault(); e.stopPropagation();
-    let pop = b.nextElementSibling;
-    if (!pop || !pop.classList.contains('info-pop')) {
+    let pop = b.querySelector('.info-pop');
+    if (!pop) {
       pop = document.createElement('span');
       pop.className = 'info-pop';
       pop.textContent = b.dataset.info;
-      b.after(pop);
+      b.appendChild(pop);
     }
     pop.classList.toggle('show');
   });
+
+  // ---------- bar roulette: spin, land on a winner, confetti, go ----------
+  function confetti() {
+    const wrap = document.createElement('div');
+    wrap.className = 'confetti';
+    const colors = ['#FFB84D', '#C8322B', '#2E6B4F', '#F4E9D8'];
+    for (let i = 0; i < 60; i++) {
+      const p = document.createElement('i');
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.background = colors[i % colors.length];
+      p.style.animationDelay = Math.random() * 0.3 + 's';
+      p.style.animationDuration = 0.9 + Math.random() * 0.8 + 's';
+      p.style.transform = `rotate(${Math.random() * 360}deg)`;
+      wrap.appendChild(p);
+    }
+    document.body.appendChild(wrap);
+  }
+  const roulette = document.querySelector('[data-roulette]');
+  if (roulette) roulette.addEventListener('click', () => {
+    // on phones the button starts as just the dice — first tap expands it
+    if (roulette.classList.contains('mini')) { roulette.classList.remove('mini'); return; }
+    if (roulette.disabled) return;
+    const pool = cards().filter(c => !c.hidden && windowsActive(c.dataset.hh));
+    const any = cards().filter(c => !c.hidden);
+    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+    const from = pool.length ? pool : any;
+    if (!from.length) return;
+    const chosen = pick(from);
+    const name = chosen.querySelector('h3').textContent.trim();
+    roulette.disabled = true;
+    let spins = 0;
+    const iv = setInterval(() => {
+      roulette.textContent = `🎲 ${pick(from).querySelector('h3').textContent.trim()}`;
+      if (++spins >= 12) {
+        clearInterval(iv);
+        roulette.textContent = `🍻 ${name}!`;           // land on the winner…
+        roulette.classList.add('winner');
+        confetti();                                       // …celebrate…
+        setTimeout(() => { window.location.href = `/bar/${chosen.dataset.slug}`; }, 1600);
+      }
+    }, 90);
+  });
+  // start collapsed (dice only) on phones
+  if (roulette && window.matchMedia('(max-width: 559px)').matches) roulette.classList.add('mini');
 
   // ---------- modals (share + report) ----------
   function wireModal(openSel, id, closeSel) {

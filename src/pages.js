@@ -48,7 +48,6 @@ export async function home({ env, url }) {
   const subscribed = url.searchParams.get('subscribed');
   const now = nowInChicago();
   const bars = await allBarsWithHH(env.DB);
-  const hoods = await hoodCounts(env.DB);
 
   // Show ALL bars — happy-hour-active first, then soonest upcoming, then the rest.
   const ranked = bars
@@ -70,19 +69,14 @@ export async function home({ env, url }) {
 ${subscribed ? '<div class="ok-note">You\'re on the list. New deals + new bars, occasionally — never spam.</div>' : ''}
 <div class="actions">
   <button class="btn primary" data-nearme hidden>◉ Near me</button>
-  <a class="btn primary" data-nearme-fallback href="#hoods">Browse neighborhoods</a>
+  <a class="btn primary" data-nearme-fallback href="/neighborhoods">Browse neighborhoods</a>
 </div>
+<button class="btn roulette" data-roulette aria-label="Bar roulette — spin for a random open bar"><span class="dice">🎲</span><span class="rlbl"> Bar roulette <small>· spin for a random open bar</small></span></button>
 <p class="hint">location stays on your phone — we never see it</p>
 ${FILTERS}
 <div class="rail-label"><span class="live"></span><h2>Open right now</h2><small data-clock>${clock(now)}</small></div>
 <div data-cards>${rail}</div>
-<div class="rail-label" id="hoods"><h2>By neighborhood</h2></div>
-${hoodChips(hoods)}
-<div class="rail-label"><h2>By city</h2></div>
-<div class="hoods">
-  <a class="hood" href="/minneapolis">Minneapolis</a>
-  <a class="hood" href="/st-paul">St Paul</a>
-</div>`,
+<p class="hint" style="margin-top:20px"><a href="/neighborhoods" style="color:var(--filament)">Browse all neighborhoods →</a></p>`,
     jsonld: {
       '@context': 'https://schema.org', '@type': 'WebSite', name: '5PM MSP',
       url: 'https://5pmmsp.com', description: 'Twin Cities happy hour finder',
@@ -131,6 +125,80 @@ ${FILTERS}
   }));
 }
 
+export async function neighborhoodsPage({ env }) {
+  const hoods = await hoodCounts(env.DB);
+  const groups = [
+    { name: 'Minneapolis', hoods: [], link: '/minneapolis' },
+    { name: 'St Paul', hoods: [], link: '/st-paul' },
+    { name: 'Around the metro', hoods: [] },
+  ];
+  for (const h of hoods) {
+    if (h.city === 'minneapolis') groups[0].hoods.push(h);
+    else if (h.city === 'st-paul') groups[1].hoods.push(h);
+    else groups[2].hoods.push(h);
+  }
+  const total = hoods.reduce((n, h) => n + h.count, 0);
+  return html(layout({
+    title: 'Browse neighborhoods — 5PM MSP',
+    desc: `Every neighborhood we track across the Twin Cities — ${total} bars with happy hours.`,
+    path: '/neighborhoods',
+    body: `
+<p class="crumb"><a href="/">home</a></p>
+<div class="rail-label"><h2>Browse neighborhoods</h2><small>${total} bars</small></div>
+${groups.filter(g => g.hoods.length).map(g => `
+<div class="rail-label"><h2 style="font-size:19px">${g.link ? `<a href="${g.link}" style="text-decoration:none">${esc(g.name)}</a>` : esc(g.name)}</h2>
+<small>${g.hoods.reduce((n, h) => n + h.count, 0)} bars</small></div>
+${hoodChips(g.hoods)}`).join('')}`,
+  }));
+}
+
+export function privacyPage() {
+  return html(layout({
+    title: 'Privacy — 5PM MSP',
+    desc: 'What we know about you (almost nothing) and why.',
+    path: '/privacy',
+    includeAppJs: false,
+    body: `
+<p class="crumb"><a href="/">home</a></p>
+<div class="rail-label"><h2>Privacy</h2></div>
+<div class="prose">
+<p>The short version: <b>we don't want your data.</b> This site helps you find a
+happy hour, then gets out of the way.</p>
+
+<h3>Your location never leaves your phone</h3>
+<p>When you tap "Near me," your browser asks you for permission and does the
+distance math <i>on your device</i>. Your location is never sent to us, stored,
+or shared. We literally cannot see it. If that ever changed, this page would
+say so in big letters.</p>
+
+<h3>No accounts, no cookies that track you</h3>
+<p>There's nothing to sign up for. Your saved bars (the hearts) live in your
+browser's own storage, on your device, where we can't read them. Close the tab
+and they're still yours; clear your browser data and they're gone.</p>
+
+<h3>Analytics without surveillance</h3>
+<p>We use <a href="https://www.simpleanalytics.com" rel="noopener">Simple
+Analytics</a>, which counts visits without cookies, fingerprinting, or personal
+data. We can see "some people looked at Nordeast bars on a Tuesday," never
+"this specific person did."</p>
+
+<h3>What we do keep</h3>
+<p>If you submit a bar, report a wrong deal, or join the newsletter, we keep
+what you typed (and your email, for the newsletter; unsubscribing is one
+click). Forms are protected by Cloudflare Turnstile, which checks you're
+human. That's the whole list.</p>
+
+<h3>Who we'd share data with</h3>
+<p>Nobody. There are no ads, no sponsors, no data sales. The site runs on
+Cloudflare, so requests pass through their infrastructure like any website.</p>
+
+<h3>Questions?</h3>
+<p>Spot something that doesn't match what's written here? <a href="/submit">Tell
+us</a>. We'd genuinely want to know.</p>
+</div>`,
+  }));
+}
+
 export async function barPage({ env, params, url }) {
   const bar = await barBySlug(env.DB, params.slug);
   if (!bar) return null;
@@ -173,9 +241,19 @@ export async function barPage({ env, params, url }) {
   // The actual deals as quote lines under the panel.
   const dealQuotes = bar.hh.filter(h => h.deals)
     .map(h => `<p class="deal-quote">“${esc(h.deals)}”</p>`).join('');
-  const w0 = bar.hh[0];
-  const shareText = `Happy hour at ${bar.name}${w0 ? ` — ${fmtDows(w0.dow_mask)} ${fmtWindow(w0)}` : ''} · via 5PM MSP\nhttps://5pmmsp.com/bar/${bar.slug}`;
-  const dirQ = encodeURIComponent(`${bar.name}, ${cityName(bar.city)} MN`);
+  const dealLine = (bar.hh.find(h => h.deals) || {}).deals;
+  const fullAddr = bar.address
+    ? `${bar.address}, ${cityName(bar.city)}, ${bar.state || 'MN'}${bar.zip ? ' ' + bar.zip : ''}`
+    : '';
+  const shareText = [
+    `Happy hour at ${bar.name} (${hoodName(bar.neighborhood)})`,
+    ...bar.hh.map(h => `${fmtDows(h.dow_mask)}: ${fmtWindow(h)}`),
+    dealLine && `“${dealLine}”`,
+    fullAddr,
+  ].filter(Boolean).join('\n') + '\n\nFind more happy hours at 5pmmsp.com';
+  const dirQ = encodeURIComponent(fullAddr
+    ? `${bar.name}, ${fullAddr}`
+    : `${bar.name}, ${cityName(bar.city)} ${bar.state || 'MN'}`);
   return html(layout({
     title: `${bar.name} happy hour — ${hoodName(bar.neighborhood)} — 5PM MSP`,
     desc: `${bar.name} happy hour times and deals in ${hoodName(bar.neighborhood)}, ${cityName(bar.city)}.`,
@@ -198,9 +276,9 @@ ${bar.notes ? `<p class="hint" style="text-align:left">${esc(bar.notes)}</p>` : 
 ${ok === 'report' ? '<div class="ok-note">Got it — thanks. We review every report before changing a listing.</div>' : ''}
 <dialog id="share-dialog" class="modal">
   <div class="panel">
-    <div class="modal-head"><h3>Share ${esc(bar.name)}</h3><button type="button" class="modal-x" data-close-share aria-label="Close">✕</button></div>
-    <p class="modal-sub">Copy this into a text — friends get the deal and a link.</p>
-    <textarea id="share-text" rows="3" readonly>${esc(shareText)}</textarea>
+    <div class="modal-head"><h3>Share this bar</h3><button type="button" class="modal-x" data-close-share aria-label="Close">✕</button></div>
+    <p class="modal-sub">Copy and paste it into iMessage, WhatsApp, or anywhere.</p>
+    <textarea id="share-text" rows="6" readonly>${esc(shareText)}</textarea>
     <button type="button" data-copy-share data-native>Copy</button>
   </div>
 </dialog>

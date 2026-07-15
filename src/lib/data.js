@@ -86,7 +86,7 @@ export async function barBySlug(db, slug) {
 /** [{slug, name, city, count}] for hoods that actually have bars. */
 export async function hoodCounts(db) {
   const rows = await db.prepare(
-    'SELECT neighborhood, city, COUNT(*) AS count FROM bars GROUP BY neighborhood ORDER BY count DESC'
+    'SELECT neighborhood, city, COUNT(*) AS count FROM bars GROUP BY neighborhood, city ORDER BY count DESC'
   ).all();
   return rows.results.map(r => ({
     slug: r.neighborhood, name: hoodName(r.neighborhood), city: r.city, count: r.count,

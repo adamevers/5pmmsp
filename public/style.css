@@ -53,6 +53,27 @@ header .tag b{color:var(--enamel);font-weight:500}
 .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--filament);outline-offset:2px}
 .hint{font:400 12px/1.5 "IBM Plex Mono";color:var(--dim);text-align:center;margin-bottom:20px}
 
+/* ── bar roulette: the fun button ── */
+.btn.roulette{width:100%;margin:0 0 10px;background:var(--filament);color:var(--ink);
+      border:2px dashed rgba(38,34,28,.45);box-shadow:0 0 22px rgba(255,184,77,.35)}
+.btn.roulette small{display:block;font:500 11px/1.4 "IBM Plex Mono";letter-spacing:.08em;
+      text-transform:none;color:rgba(38,34,28,.65);margin-top:3px}
+.btn.roulette:hover{animation:wobble .45s}
+.btn.roulette:disabled{cursor:wait;animation:none}
+.btn.roulette.winner{background:var(--brew-green);color:var(--enamel);border-style:solid;border-color:rgba(244,233,216,.5);
+      box-shadow:0 0 28px rgba(46,107,79,.7)}
+/* phones: starts as just the dice; first tap expands it */
+.btn.roulette.mini{width:auto;padding:12px 16px;border-radius:50px;margin:0 auto 10px;display:block}
+.btn.roulette.mini .rlbl{display:none}
+@keyframes wobble{25%{transform:rotate(-1.2deg) scale(1.01)}75%{transform:rotate(1.2deg) scale(1.01)}}
+@media (prefers-reduced-motion: reduce){.btn.roulette:hover{animation:none}}
+
+/* confetti burst (roulette winner) */
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:200;overflow:hidden}
+.confetti i{position:absolute;top:-14px;width:9px;height:14px;border-radius:2px;animation:cfall linear forwards}
+@keyframes cfall{to{transform:translateY(105vh) rotate(660deg)}}
+@media (prefers-reduced-motion: reduce){.confetti{display:none}}
+
 /* ── section labels ── */
 .rail-label{display:flex;align-items:baseline;gap:10px;margin:24px 0 12px}
 .rail-label h2{font:800 26px/1 "Big Shoulders Display";letter-spacing:.06em;color:var(--enamel)}
@@ -134,6 +155,7 @@ header .tag b{color:var(--enamel);font-weight:500}
 .filters-btn .fb-arrow{font-size:10px;transition:transform .15s}
 .filters-btn[aria-expanded="true"] .fb-arrow{transform:rotate(180deg)}
 .filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 0}
+.filters[hidden]{display:none}
 .fgroup{display:inline-flex;gap:6px;flex-wrap:wrap;margin-right:6px}
 .fgroup:last-child{margin-right:0}
 .filters button{font:600 12px/1 Archivo;letter-spacing:.04em;padding:8px 12px;border-radius:99px;cursor:pointer;
@@ -147,12 +169,17 @@ header .tag b{color:var(--enamel);font-weight:500}
 .fav .ico,.act .ico{color:inherit}
 .fav[aria-pressed="true"]{color:var(--cap-red)}
 .fav[aria-pressed="true"] .ico{fill:var(--cap-red);stroke:var(--cap-red)}
-.info{background:none;border:0;cursor:pointer;padding:2px;color:var(--dim);line-height:0;position:relative;z-index:2}
+.info{background:none;border:0;cursor:pointer;padding:2px;color:var(--dim);line-height:0;
+      position:relative;z-index:2;align-self:center}
 .info:hover{color:var(--filament)}
 .info .ico{color:inherit;width:15px;height:15px}
-.info-pop{display:none;font:500 11px "IBM Plex Mono";color:var(--ink);background:var(--enamel);
-      box-shadow:0 2px 8px rgba(0,0,0,.3);border-radius:6px;padding:5px 8px;margin-left:6px}
-.info-pop.show{display:inline-block}
+/* floats above everything, centered over the ⓘ */
+.info-pop{display:none;position:absolute;bottom:calc(100% + 9px);left:50%;transform:translateX(-50%);
+      z-index:80;white-space:nowrap;font:500 12px/1.4 "IBM Plex Mono";color:var(--ink);background:var(--enamel);
+      box-shadow:0 3px 12px rgba(0,0,0,.45);border-radius:6px;padding:6px 10px}
+.info-pop::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+      border:6px solid transparent;border-top-color:var(--enamel)}
+.info-pop.show{display:block}
 
 /* whole-card tap target (stretched link) */
 .card--link{position:relative;cursor:pointer}
@@ -174,8 +201,9 @@ header .tag b{color:var(--enamel);font-weight:500}
       box-shadow:inset 0 0 0 1px #2A3A5E;font:400 14px Archivo}
 .about div{display:flex;gap:8px}
 .about span{color:var(--dim);font-weight:600;min-width:72px;text-transform:uppercase;font-size:11px;letter-spacing:.06em;padding-top:2px}
-.crumb{font:500 12px "IBM Plex Mono";color:var(--dim)}
-.crumb a{color:var(--dim)}
+.crumb{font:500 14px "IBM Plex Mono";color:var(--dim);margin:6px 0}
+.crumb a{color:var(--filament);display:inline-block;padding:8px 4px;text-decoration:none}
+.crumb a:first-child{padding-left:0}
 /* three equal segments on one line: Website · Directions · Report */
 .bar-links{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
 .bar-links a,.bar-links button{flex:1 1 0;min-width:82px;display:inline-flex;align-items:center;justify-content:center;
@@ -200,7 +228,7 @@ header .tag b{color:var(--enamel);font-weight:500}
 .modal-sub{font:400 13px/1.5 Archivo;color:#5C544A;margin:6px 0 4px}
 
 /* ── Happy Hr + Hours panel (bar detail) ── */
-.hours-panel{background:var(--night-2);border-radius:10px;box-shadow:inset 0 0 0 1px #2A3A5E;margin:16px 0;overflow:hidden}
+.hours-panel{background:var(--night-2);border-radius:10px;box-shadow:inset 0 0 0 1px #2A3A5E;margin:16px 0}
 .hrow{display:flex;gap:14px;padding:13px 16px;align-items:flex-start}
 .hrow--div{border-top:1px solid #24334F}
 .hrow-k{font:600 11px/1 "IBM Plex Mono";color:var(--dim);text-transform:uppercase;letter-spacing:.11em;flex:0 0 64px;padding-top:9px}
@@ -238,7 +266,7 @@ header .tag b{color:var(--enamel);font-weight:500}
 
 /* ── footer ── */
 footer{margin-top:36px;border-top:1px solid #24334F;padding-top:20px}
-.foot-nav{text-align:center;font:600 14px Archivo;margin-bottom:16px}
+.foot-nav{text-align:center;font:600 14px Archivo;margin-top:18px}
 .foot-nav a{color:var(--filament);text-decoration:none}
 .news label{display:block;font:500 12px "IBM Plex Mono";color:var(--dim);margin-bottom:6px;text-align:center}
 .news-row{display:flex;gap:8px}
@@ -250,6 +278,14 @@ footer{margin-top:36px;border-top:1px solid #24334F;padding-top:20px}
 
 /* ── map ── */
 #map{height:70vh;border-radius:10px;border:3px solid #B8AD98}
+
+/* ── prose pages (privacy) ── */
+.prose{font:400 15px/1.7 Archivo;color:var(--enamel)}
+.prose h3{font:800 20px/1.2 "Big Shoulders Display";letter-spacing:.04em;text-transform:uppercase;
+      color:var(--filament);margin:26px 0 8px}
+.prose p{margin:10px 0}
+.prose a{color:var(--filament)}
+.prose b{color:var(--filament)}
 
 /* ── empty state ── */
 .empty{background:var(--night-2);border-radius:10px;padding:18px;font:400 14px/1.6 Archivo;color:var(--enamel);

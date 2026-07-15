@@ -61,10 +61,6 @@ ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script
 ${body}
 </main>
 <footer>
-  <nav class="foot-nav">
-    <a href="/minneapolis">Minneapolis</a> · <a href="/st-paul">St Paul</a> ·
-    <a href="/submit">Add a bar</a>
-  </nav>
   <form class="news" method="post" action="/api/subscribe">
     <label for="nl-email">New deals + new bars, occasionally:</label>
     <div class="news-row">
@@ -73,6 +69,11 @@ ${body}
       <button type="submit">Sign up</button>
     </div>
   </form>
+  <nav class="foot-nav">
+    <a href="/minneapolis">Minneapolis</a> · <a href="/st-paul">St Paul</a> ·
+    <a href="/neighborhoods">Neighborhoods</a> ·
+    <a href="/submit">Add a bar</a> · <a href="/privacy">Privacy</a>
+  </nav>
   <p class="fine">Free + independent. Deals change — tap “report” on a bar page
   when one's off. Your location never leaves your phone.</p>
 </footer>

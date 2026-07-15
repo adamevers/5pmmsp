@@ -1,5 +1,5 @@
 import { createRouter } from './lib/router.js';
-import { home, hoodPage, cityPage, barPage, submitPage, notFound } from './pages.js';
+import { home, hoodPage, cityPage, barPage, submitPage, neighborhoodsPage, privacyPage, notFound } from './pages.js';
 import { barsJson } from './api.js';
 import { submitBar, reportBar, subscribe } from './forms.js';
 import { sitemap, robots } from './seo.js';
@@ -8,6 +8,8 @@ import { hoodCounts } from './lib/data.js';
 const router = createRouter();
 router.get('/', home);
 router.get('/submit', submitPage);
+router.get('/neighborhoods', neighborhoodsPage);
+router.get('/privacy', privacyPage);
 router.get('/sitemap.xml', sitemap);
 router.get('/robots.txt', robots);
 router.get('/api/bars.json', barsJson);
