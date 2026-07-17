@@ -70,55 +70,55 @@ nonce on admin POSTs.
 
 ### Task 1: Migration 0002 (catch-up + admin tables)
 **Files:** `migrations/0002_admin.sql`
-- [ ] Capture the ad-hoc prod ALTERs (`price,category,seating,food,hours,address,state,zip`)
+- [x] Capture the ad-hoc prod ALTERs (`price,category,seating,food,hours,address,state,zip`)
       as guarded ALTERs so local/dev D1 matches prod.
-- [ ] `ALTER TABLE submissions ADD resolved_at TEXT; ADD resolution TEXT;` +
+- [x] `ALTER TABLE submissions ADD resolved_at TEXT; ADD resolution TEXT;` +
       `CREATE INDEX idx_submissions_status ON submissions(status);`
-- [ ] `CREATE TABLE admin_log (id, ts, action, subject, before TEXT, after TEXT)`:
+- [x] `CREATE TABLE admin_log (id, ts, action, subject, before TEXT, after TEXT)`:
       every admin mutation appends (audit + the escape hatch if an edit goes wrong).
 
 ### Task 2: Seed pipeline → upserts (the Option B flip)
 **Files:** `scripts/seed.js`, `scripts/export.js`, `docs/ingest.md`
-- [ ] seed.js: slug-keyed upsert SQL, no explicit ids, per-bar HH replace. Deleting a
+- [x] seed.js: slug-keyed upsert SQL, no explicit ids, per-bar HH replace. Deleting a
       bar = explicit skiplist step, not implicit omission.
-- [ ] export.js: D1 → `seed/bars.json` (stable ordering; keeps `_readme`).
-- [ ] ingest.md step 5: export → merge → seed → commit both.
-- [ ] `node --test`: upsert SQL emit + export/import round-trip on a fixture.
+- [x] export.js: D1 → `seed/bars.json` (stable ordering; keeps `_readme`).
+- [x] ingest.md step 5: export → merge → seed → commit both.
+- [x] `node --test`: upsert SQL emit + export/import round-trip on a fixture.
 
 ### Task 3: Auth + admin shell
 **Files:** `src/lib/auth.js`, `src/admin.js`, `src/worker.js`, `src/seo.js`, `wrangler.jsonc`
-- [ ] Access JWT verify (or cookie fallback per Adam's answer), applied to `/admin*`
+- [x] Access JWT verify (or cookie fallback per Adam's answer), applied to `/admin*`
       route group; 401 page with login pointer.
-- [ ] Admin layout: Bottle Cap tokens, utilitarian, thumb-sized tap targets.
-- [ ] robots Disallow + no-store headers.
+- [x] Admin layout: Bottle Cap tokens, utilitarian, thumb-sized tap targets.
+- [x] robots Disallow + no-store headers.
 
 ### Task 4: Dashboard + submissions queue
 **Files:** `src/admin.js`
-- [ ] `GET /admin`: stat row (bars, verified %, pending submissions, subscribers,
+- [x] `GET /admin`: stat row (bars, verified %, pending submissions, subscribers,
       stale-verified count >90d) + pending queue.
-- [ ] Queue cards render payload human-readably (report: bar name + "what changed";
+- [x] Queue cards render payload human-readably (report: bar name + "what changed";
       new: all fields), relative time, link to public bar page.
-- [ ] `POST /admin/submission/:id`: accept / reject / note. Accept on a `report` →
+- [x] `POST /admin/submission/:id`: accept / reject / note. Accept on a `report` →
       opens that bar's editor prefilled; accept on a `new` → opens add-bar form
       prefilled from payload. Resolving stamps `resolved_at` + `resolution`.
-- [ ] Store `slug` in report payloads at submit time (one-line `forms.js` change) so
+- [x] Store `slug` in report payloads at submit time (one-line `forms.js` change) so
       old-id drift can never mislabel a queue card again.
 
 ### Task 5: Bar editor + add bar
 **Files:** `src/admin.js`
-- [ ] `GET/POST /admin/bar/:slug`: edit name, city/hood (datalist from `CITIES`/`HOODS`),
+- [x] `GET/POST /admin/bar/:slug`: edit name, city/hood (datalist from `CITIES`/`HOODS`),
       coords, website, flags, price, category, seating, food, notes, verified +
       `last_verified` (verify checkbox auto-stamps today).
-- [ ] HH windows editor: rows of [day checkboxes → dow_mask] + start/end selects +
+- [x] HH windows editor: rows of [day checkboxes → dow_mask] + start/end selects +
       deals text; add/remove row. Same widget reused for regular `hours` (same shape).
-- [ ] `GET/POST /admin/new`: same form, empty; validates slug uniqueness.
-- [ ] Every save: `admin_log` before/after JSON; D1 write; changed pages reflect
+- [x] `GET/POST /admin/new`: same form, empty; validates slug uniqueness.
+- [x] Every save: `admin_log` before/after JSON; D1 write; changed pages reflect
       immediately (SSR reads live).
 
 ### Task 6: Subscribers + deploy
 **Files:** `src/admin.js`
-- [ ] `GET /admin/subscribers`: count, list, copy-as-CSV.
-- [ ] Deploy via vault-remapped wrangler; smoke `/admin` auth-gated, queue renders,
+- [x] `GET /admin/subscribers`: count, list, copy-as-CSV.
+- [x] Deploy via vault-remapped wrangler; smoke `/admin` auth-gated, queue renders,
       an edit round-trips, `admin_log` rows land; triage/delete the test report (id 1).
 
 ## v2 (explicitly later)
