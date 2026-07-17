@@ -129,6 +129,19 @@ fast-forward, not a conflict, but pull if the push rejects.
 Venues extracted · already in dataset · previously skipped · added+verified ·
 added unverified · newly skipped (with reason) · new cities/neighborhoods.
 
+## Re-verify queue (check this EVERY ingest/data session)
+
+When Adam accepts a user report in /admin, the bar joins the re-verify queue.
+Pull it, re-check each bar's happy hour on its OWN official site (Step 3 rules),
+fix the data (via /admin editor or bars.json+seed), then mark the row done:
+
+```
+# list queued re-verifications:
+~/cos/scripts/vault run /cos -- sh -c 'export CLOUDFLARE_API_TOKEN=$COS_CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$COS_CLOUDFLARE_ACCOUNT_ID; cd ~/5pmmsp && npx wrangler d1 execute 5pmmsp --remote --json --command "SELECT s.id, b.slug, b.website, s.payload FROM submissions s JOIN bars b ON b.id = s.bar_id WHERE s.verify_status = ''queued''"'
+# after fixing a bar, mark its row done:
+#   UPDATE submissions SET verify_status = 'done' WHERE id = <id>;
+```
+
 ## skiplist.json reasons
 
 `closed` · `no-happy-hour` · `out-of-scope` · `duplicate`. Each entry:
