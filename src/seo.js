@@ -21,7 +21,7 @@ ${urls.map(u => `  <url><loc>https://5pmmsp.com${u}</loc></url>`).join('\n')}
 }
 
 export function robots() {
-  return new Response('User-agent: *\nAllow: /\nSitemap: https://5pmmsp.com/sitemap.xml\n', {
+  return new Response('User-agent: *\nAllow: /\nDisallow: /admin\nSitemap: https://5pmmsp.com/sitemap.xml\n', {
     headers: { 'content-type': 'text/plain' },
   });
 }

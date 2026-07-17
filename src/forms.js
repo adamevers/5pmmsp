@@ -50,7 +50,7 @@ export async function reportBar({ request, env }) {
   const detail = form.get('detail');
   if (!detail) return bad('Tell us what changed.');
   await env.DB.prepare("INSERT INTO submissions (kind, bar_id, payload) VALUES ('report', ?, ?)")
-    .bind(barId, JSON.stringify({ detail })).run();
+    .bind(barId, JSON.stringify({ detail, slug: bar.slug })).run();
   return back(`/bar/${bar.slug}`, '?ok=report');
 }
 

@@ -3,10 +3,12 @@ import { home, hoodPage, cityPage, barPage, submitPage, neighborhoodsPage, priva
 import { barsJson } from './api.js';
 import { submitBar, reportBar, subscribe } from './forms.js';
 import { sitemap, robots } from './seo.js';
+import { registerAdmin } from './admin.js';
 import { hoodCounts } from './lib/data.js';
 
 const router = createRouter();
 router.get('/', home);
+registerAdmin(router); // before the /:city and /:hood catch-alls
 router.get('/submit', submitPage);
 router.get('/neighborhoods', neighborhoodsPage);
 router.get('/privacy', privacyPage);
