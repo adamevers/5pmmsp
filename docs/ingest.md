@@ -102,7 +102,15 @@ field notes):
 
 ## Step 5 — Load, test, ship
 
+**D1 is the source of truth** (admin edits at /admin land there first). ALWAYS
+refresh `bars.json` from D1 before merging your edits, or a stale file will
+overwrite them. The seed SQL is slug-keyed upserts — bar ids are stable, and
+running it never deletes bars (removals are an explicit skiplist + manual
+DELETE step).
+
 ```
+# 0) refresh bars.json from prod D1 FIRST, then re-apply your edits on top:
+~/cos/scripts/vault run /cos -- sh -c 'export CLOUDFLARE_API_TOKEN=$COS_CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$COS_CLOUDFLARE_ACCOUNT_ID; cd ~/5pmmsp && node scripts/export.js'
 node scripts/seed.js                       # regenerate seed/seed.sql (prints bar/window counts)
 npm test                                   # must stay green
 # apply to prod D1 (token remap via vault):
