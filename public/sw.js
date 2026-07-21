@@ -12,11 +12,14 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET' || url.origin !== location.origin) return;
+  // Chromium sends cache:'only-if-cached' on some back/forward navigations;
+  // fetch() rejects on those even while online — let the browser handle them.
+  if (e.request.cache === 'only-if-cached' && e.request.mode !== 'same-origin') return;
   e.respondWith(
     fetch(e.request).catch(() =>
       caches.match(e.request).then(hit => hit ||
         new Response('Offline — reconnect to see what\'s pouring.', {
-          status: 503, headers: { 'content-type': 'text/plain' },
+          status: 503, headers: { 'content-type': 'text/plain; charset=utf-8' },
         }))),
   );
 });
