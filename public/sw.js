@@ -3,11 +3,15 @@ const CACHE = '5pmmsp-v1';
 const SHELL = ['/style.css', '/app.js', '/manifest.webmanifest', '/icon.svg'];
 
 self.addEventListener('install', e => {
+  self.skipWaiting();   // take over on update — don't wait for every tab to close
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
 });
 self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(keys =>
-    Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))));
+  e.waitUntil(Promise.all([
+    self.clients.claim(),
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))),
+  ]));
 });
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
