@@ -334,6 +334,20 @@ we never see.</p>
 <p>Both are counters, not profiles. There is no way for us to work backwards
 from either one to a person, which is the point.</p>
 
+<h3>Keeping the heart count honest</h3>
+<p>A public counter invites stuffing, and the usual defence — "one vote per
+account" — would mean knowing who you are. We do it without that. When a heart
+is tapped we take your IP address, mix it with the bar and a secret that
+changes every day, and keep only the resulting fingerprint. That fingerprint
+lets us notice "this one has already been counted for this bar today" and
+nothing else: your IP is never written down, the fingerprint can't be turned
+back into it, and today's can't be matched to yesterday's, because the secret
+has rotated. They're deleted after two days.</p>
+<p>It means one heart per bar, per day, per source, and a ceiling on how many
+any one source can cast. It also means the numbers are approximate by design —
+we'd rather show a slightly soft count than build a system that recognises
+people.</p>
+
 <h3>Analytics without surveillance</h3>
 <p>We use <a href="https://www.simpleanalytics.com" rel="noopener">Simple
 Analytics</a>, which counts visits without cookies, fingerprinting, or personal
