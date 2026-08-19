@@ -586,6 +586,31 @@
       "notes": "HH Mon–Fri 3–6 + late-night 10–close Mon–Thu confirmed on official site (barriotequila.com). 925 Nicollet Mall."
     },
     {
+      "slug": "becketts",
+      "name": "Beckett's",
+      "city": "minneapolis",
+      "neighborhood": "uptown",
+      "lat": 44.9482,
+      "lng": -93.2882,
+      "website": "https://becketts.bar",
+      "phone": "+16122008490",
+      "address": "3006 Lyndale Ave South",
+      "state": "MN",
+      "patio": 1,
+      "rooftop": 1,
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 840,
+          "end_min": 1080,
+          "deals": "$6 off cocktail buckets, $6 burgers, $6 big beers"
+        }
+      ]
+    },
+    {
       "slug": "big-louies-crystal",
       "name": "Big Louie's Bar and Grill",
       "city": "crystal",
@@ -620,6 +645,29 @@
         }
       ],
       "notes": "HH Mon–Fri 3–7 confirmed on official site (biglouiesbarandgrill.com); open 11 AM–2 AM. 5216 W Broadway Ave, Crystal."
+    },
+    {
+      "slug": "binas-bar",
+      "name": "Bina's Bar",
+      "city": "minneapolis",
+      "neighborhood": "nordeast",
+      "lat": 45.0024,
+      "lng": -93.2513,
+      "website": "https://binasbar.com",
+      "phone": "+16123155540",
+      "address": "1404 Quincy St NE",
+      "state": "MN",
+      "category": "dive-bar",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 95,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$5 chips & dip, fries, or pickle fries"
+        }
+      ]
     },
     {
       "slug": "black-forest-inn",
@@ -1574,6 +1622,29 @@
       "notes": "HH Mon–Fri 3–6 + nightly 10–close confirmed on official site (champps.com). 8010 Glen Ln, Eden Prairie."
     },
     {
+      "slug": "como-tap",
+      "name": "Como Tap",
+      "city": "minneapolis",
+      "neighborhood": "como",
+      "lat": 44.9878,
+      "lng": -93.2225,
+      "website": "https://comotap.com",
+      "phone": "+16123155257",
+      "address": "2124 Como Ave SE",
+      "state": "MN",
+      "category": "dive-bar",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 1260,
+          "end_min": 1440,
+          "deals": "\"Tappy Hour\" — $3.50 Hamm's"
+        }
+      ]
+    },
+    {
       "slug": "cov-edina",
       "name": "CōV Edina",
       "city": "edina",
@@ -2063,6 +2134,29 @@
         }
       ],
       "notes": "HH per Thriftlist ($2 off cocktails, $2 oysters); official site (earlgiles.com) does not publish HH details. 18,000 sq ft NE Minneapolis distillery restaurant. 1325 Quincy St NE."
+    },
+    {
+      "slug": "eat-street-crossing",
+      "name": "Eat Street Crossing",
+      "city": "minneapolis",
+      "neighborhood": "eat-street",
+      "lat": 44.9513,
+      "lng": -93.2778,
+      "website": "https://eatstreetcrossing.com",
+      "phone": "+16123454136",
+      "address": "2819 Nicollet Avenue",
+      "state": "MN",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 690,
+          "end_min": 1080,
+          "deals": "Discounted drinks at the ESCape Bar while ordering from any food hall vendor"
+        }
+      ]
     },
     {
       "slug": "el-tejaban-richfield",
@@ -2812,6 +2906,29 @@
       "notes": "HH Mon–Fri 2–5 (bar only) confirmed on official site (hazelwoodfoodanddrink.com). Woodbury Lakes."
     },
     {
+      "slug": "hells-kitchen",
+      "name": "Hell's Kitchen",
+      "city": "minneapolis",
+      "neighborhood": "downtown",
+      "lat": 44.9747,
+      "lng": -93.2732,
+      "website": "https://hellskitcheninc.com",
+      "phone": "+16123324700",
+      "address": "80 S 9th St",
+      "state": "MN",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "Limited happy hour menu (prices not published on their site)"
+        }
+      ]
+    },
+    {
       "slug": "highland-grill",
       "name": "Highland Grill",
       "city": "st-paul",
@@ -3239,6 +3356,29 @@
       "notes": "HH Mon–Fri 4:30–6 PM confirmed on official site (junnorthloop.com). 730 N Washington Ave Ste 140."
     },
     {
+      "slug": "kims-uptown",
+      "name": "Kim's",
+      "city": "minneapolis",
+      "neighborhood": "uptown",
+      "lat": 44.9466,
+      "lng": -93.2987,
+      "website": "https://www.kimsmpls.com",
+      "address": "1432 W. 31st St.",
+      "state": "MN",
+      "zip": "55408",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 79,
+          "start_min": 960,
+          "end_min": 1050,
+          "deals": "$8 classic cocktails, $8 wine, $4 tap beers, $9 snacks (in the bar)"
+        }
+      ]
+    },
+    {
       "slug": "kincaids-st-paul",
       "name": "Kincaid's Fish, Chop & Steak House",
       "city": "st-paul",
@@ -3488,6 +3628,36 @@
       "notes": "Social hour Tue–Fri 2–6 confirmed on official site (konagrill.com); also all-day Mon + nightly 9–close. 11997 Singletree Ln, Eden Prairie."
     },
     {
+      "slug": "kyatchi",
+      "name": "Kyatchi",
+      "city": "minneapolis",
+      "neighborhood": "kingfield",
+      "lat": 44.9348,
+      "lng": -93.278,
+      "website": "https://kyatchi.com",
+      "phone": "+16122364429",
+      "address": "3758 Nicollet Ave",
+      "state": "MN",
+      "zip": "55409",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 960,
+          "end_min": 1080,
+          "deals": "Happy hour menu"
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 1260,
+          "end_min": 1380,
+          "deals": "Late-night happy hour"
+        }
+      ]
+    },
+    {
       "slug": "la-costa-mexican-grill-st-paul",
       "name": "La Costa Mexican Sports Bar & Grill",
       "city": "st-paul",
@@ -3537,6 +3707,30 @@
         }
       ],
       "notes": "HH Mon–Fri 3–6 PM confirmed on official site (lacostamn.com). 194 Cesar Chavez St."
+    },
+    {
+      "slug": "lake-and-irving",
+      "name": "Lake & Irving",
+      "city": "minneapolis",
+      "neighborhood": "uptown",
+      "lat": 44.9483,
+      "lng": -93.3011,
+      "website": "https://www.lakeandirving.com",
+      "phone": "+16123542453",
+      "address": "1513 W. Lake St.",
+      "state": "MN",
+      "zip": "55408",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 15,
+          "start_min": 960,
+          "end_min": 1080,
+          "deals": "Bar bites, petite signature cocktails, $2 off wine by the glass and select draft beer"
+        }
+      ]
     },
     {
       "slug": "layline-excelsior",
@@ -4748,6 +4942,35 @@
       "notes": "HH Mon–Fri 5–7 confirmed on official site (mplsontherox.com). Cocktail lounge above Nicollet Diner, 1333 Nicollet Mall."
     },
     {
+      "slug": "otters-saloon",
+      "name": "Otter's Saloon",
+      "city": "minneapolis",
+      "neighborhood": "marcy-holmes",
+      "lat": 44.9901,
+      "lng": -93.2523,
+      "website": "https://otterssaloon.com",
+      "phone": "+16123314169",
+      "address": "617 Central Ave SE",
+      "state": "MN",
+      "category": "dive-bar",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 79,
+          "start_min": 480,
+          "end_min": 1080,
+          "deals": "$4 rail drinks and domestic beers"
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 480,
+          "end_min": 1140,
+          "deals": "$4 rail drinks and domestic beers"
+        }
+      ]
+    },
+    {
       "slug": "palmers-bar",
       "closed": 1,
       "closed_note": "Closed September 2025 after 119 years; the West Bank building was sold to the neighboring mosque.",
@@ -4823,6 +5046,29 @@
         }
       ],
       "notes": "Daily 4–6 PM HH confirmed on official site; specific deal prices not published. 730 Washington Ave N."
+    },
+    {
+      "slug": "parlour-st-paul",
+      "name": "Parlour (St. Paul)",
+      "city": "st-paul",
+      "neighborhood": "west-7th",
+      "lat": 44.9424,
+      "lng": -93.1054,
+      "website": "https://www.parlourbar.com/st-paul-2",
+      "phone": "+16512074433",
+      "address": "267 West 7th Street",
+      "state": "MN",
+      "category": "cocktail-bar",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 960,
+          "end_min": 1080,
+          "deals": "Happy hour menu; not offered on event nights"
+        }
+      ]
     },
     {
       "slug": "patrick-mcgoverns",
@@ -6220,6 +6466,30 @@
       "notes": "HH Mon–Fri 2–6 PM confirmed on official site (stockyardstc.com). 456 Concord Exchange S, South St. Paul."
     },
     {
+      "slug": "sweeneys-saloon",
+      "name": "Sweeney's Saloon",
+      "city": "st-paul",
+      "neighborhood": "cathedral-hill",
+      "lat": 44.9443,
+      "lng": -93.1262,
+      "website": "https://www.sweeneyssaloon.com",
+      "phone": "+16512219157",
+      "address": "96 Dale St N",
+      "state": "MN",
+      "patio": 1,
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$1.75 tacos (dine-in), $5.25 Summit taps"
+        }
+      ]
+    },
+    {
       "slug": "t-box-ham-lake",
       "name": "T-Box Bar & Grill",
       "city": "ham-lake",
@@ -6443,6 +6713,30 @@
       "notes": "Industrial Blvd NE sports bar with strong neighborhood following."
     },
     {
+      "slug": "the-cabana-club",
+      "name": "The Cabana Club",
+      "city": "minneapolis",
+      "neighborhood": "marcy-holmes",
+      "lat": 44.9843,
+      "lng": -93.2548,
+      "website": "https://cabanaclubmpls.com",
+      "phone": "+16123153614",
+      "address": "201 SE Main St",
+      "state": "MN",
+      "patio": 1,
+      "category": "cocktail-bar",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 79,
+          "start_min": 960,
+          "end_min": 1080,
+          "deals": "Happy hour cocktails and select menu items; Monday half-price bottles of wine"
+        }
+      ]
+    },
+    {
       "slug": "the-commodore",
       "name": "The Commodore Bar & Restaurant",
       "city": "st-paul",
@@ -6594,6 +6888,43 @@
       "notes": "Brewpub; dine-in only, no substitutions."
     },
     {
+      "slug": "the-howe",
+      "name": "The Howe Daily Kitchen & Bar",
+      "city": "minneapolis",
+      "neighborhood": "longfellow",
+      "lat": 44.9359,
+      "lng": -93.2251,
+      "website": "https://howempls.com",
+      "phone": "+16127293663",
+      "address": "3675 Minnehaha Ave S",
+      "state": "MN",
+      "zip": "55406",
+      "patio": 1,
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 29,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$4 select domestic taps, $5 rail cocktails, $1 off mocktails, $7 pretzel bites / brussels sprouts / chips & dip, $8 nachos or half bone-in wings"
+        },
+        {
+          "dow_mask": 2,
+          "start_min": 660,
+          "end_min": 1320,
+          "deals": "Happy hour pricing all day Tuesday"
+        },
+        {
+          "dow_mask": 48,
+          "start_min": 1200,
+          "end_min": 1320,
+          "deals": "Late-night happy hour"
+        }
+      ]
+    },
+    {
       "slug": "the-local",
       "name": "The Local",
       "city": "minneapolis",
@@ -6696,6 +7027,30 @@
       "notes": "Daily 4–7 PM happy hour in the North Loop."
     },
     {
+      "slug": "the-lowbrow",
+      "name": "The Lowbrow",
+      "city": "minneapolis",
+      "neighborhood": "kingfield",
+      "lat": 44.9261,
+      "lng": -93.278,
+      "website": "https://thelowbrowmpls.com",
+      "phone": "+16122080720",
+      "address": "4244 Nicollet Ave",
+      "state": "MN",
+      "zip": "55409",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 64,
+          "start_min": 960,
+          "end_min": 1440,
+          "deals": "Half-price bottles from 4 PM to close"
+        }
+      ]
+    },
+    {
       "slug": "the-narrows-saloon-wayzata",
       "name": "The Narrows Saloon",
       "city": "wayzata",
@@ -6787,6 +7142,52 @@
         }
       ],
       "notes": "HH daily 5–7 confirmed on official site (theredseampls.com). 320 Cedar Ave S, West Bank."
+    },
+    {
+      "slug": "the-saloon",
+      "name": "The Saloon",
+      "city": "minneapolis",
+      "neighborhood": "downtown",
+      "lat": 44.977,
+      "lng": -93.2763,
+      "website": "https://www.saloonmn.com",
+      "phone": "+16123320835",
+      "address": "830 Hennepin Ave",
+      "state": "MN",
+      "category": "lounge",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 720,
+          "end_min": 1140,
+          "deals": "$4 rail drinks and domestic beers, $5 Absolut flavored cocktails"
+        }
+      ]
+    },
+    {
+      "slug": "the-sample-room",
+      "name": "The Sample Room",
+      "city": "minneapolis",
+      "neighborhood": "nordeast",
+      "lat": 45.0093,
+      "lng": -93.2718,
+      "website": "https://the-sample-room.com",
+      "phone": "+16127890333",
+      "address": "2124 Marshall St NE",
+      "state": "MN",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 30,
+          "start_min": 900,
+          "end_min": 1020,
+          "deals": "Rotating monthly happy hour menu"
+        }
+      ]
     },
     {
       "slug": "tiffany-sports-lounge",
@@ -7572,6 +7973,30 @@
         }
       ],
       "notes": "HH Mon–Fri 3–6 confirmed on official site (willymccoys.com); open Sun–Thu 11–11, Fri–Sat 11–12. 320 Pioneer Trail, Chaska."
+    },
+    {
+      "slug": "wooden-ship-brewing",
+      "name": "Wooden Ship Brewing",
+      "city": "minneapolis",
+      "neighborhood": "linden-hills",
+      "lat": 44.9234,
+      "lng": -93.3215,
+      "website": "https://www.woodenshipbrewing.com",
+      "address": "3300 W 44th St",
+      "state": "MN",
+      "zip": "55410",
+      "patio": 1,
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 64,
+          "start_min": 720,
+          "end_min": 900,
+          "deals": "$2 off full pours of beer"
+        }
+      ]
     }
   ]
 }
