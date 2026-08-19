@@ -61,10 +61,14 @@ export const CATEGORIES = {
 export const categoryName = slug => CATEGORIES[slug] || '';
 export const priceLabel = n => (n >= 1 && n <= 4 ? '$'.repeat(n) : '');
 
-/** All bars with their HH windows attached. One query each, joined in JS. */
+/**
+ * All OPEN bars with their HH windows attached. One query each, joined in JS.
+ * Closed venues are excluded here so every listing, count and filter drops
+ * them at once; barBySlug still returns them so their page keeps resolving.
+ */
 export async function allBarsWithHH(db) {
   const [bars, hhs] = await Promise.all([
-    db.prepare('SELECT * FROM bars ORDER BY name').all(),
+    db.prepare('SELECT * FROM bars WHERE closed = 0 ORDER BY name').all(),
     db.prepare('SELECT * FROM happy_hours').all(),
   ]);
   const byBar = new Map();
@@ -86,7 +90,7 @@ export async function barBySlug(db, slug) {
 /** [{slug, name, city, count}] for hoods that actually have bars. */
 export async function hoodCounts(db) {
   const rows = await db.prepare(
-    'SELECT neighborhood, city, COUNT(*) AS count FROM bars GROUP BY neighborhood, city ORDER BY count DESC'
+    'SELECT neighborhood, city, COUNT(*) AS count FROM bars WHERE closed = 0 GROUP BY neighborhood, city ORDER BY count DESC'
   ).all();
   return rows.results.map(r => ({
     slug: r.neighborhood, name: hoodName(r.neighborhood), city: r.city, count: r.count,

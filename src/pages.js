@@ -411,9 +411,13 @@ export async function barPage({ env, params, url }) {
     desc: metaDesc,
     path: `/bar/${bar.slug}`,
     ogImage: `/og/bar/${bar.slug}.png`,
+    // Closed venues keep a resolving page so existing links don't 404, but
+    // they're dropped from every listing and told not to stay in the index.
+    noindex: !!bar.closed,
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
 <div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}</div></div>
+${bar.closed ? `<div class="closed-note"><b>Permanently closed.</b> ${esc(bar.closed_note || '')} This page stays up so old links still work, but the bar is off our lists.</div>` : ''}
 <div class="pills">${trustChip(bar)}${attrChips(bar)}${barFlags(bar)}</div>
 ${priceMarks(bar.price)}
 <p class="loc">${esc(hoodName(bar.neighborhood))} · ${esc(cityName(bar.city))}</p>

@@ -4581,7 +4581,7 @@
       "website": "https://www.olepiperinn.com",
       "phone": "+17637807100",
       "instagram": "olepiperinn",
-      "address": "785 99th Ln NE",
+      "address": "1416 93rd Ln NE",
       "state": "MN",
       "zip": "55434",
       "patio": 1,
@@ -4749,6 +4749,8 @@
     },
     {
       "slug": "palmers-bar",
+      "closed": 1,
+      "closed_note": "Closed September 2025 after 119 years; the West Bank building was sold to the neighboring mosque.",
       "name": "Palmer's Bar",
       "city": "minneapolis",
       "neighborhood": "west-bank",
@@ -5459,6 +5461,8 @@
     },
     {
       "slug": "russells-grand",
+      "closed": 1,
+      "closed_note": "Closed May 2026; the Grand Avenue building was listed for sale.",
       "name": "Russell's",
       "city": "st-paul",
       "neighborhood": "grand-avenue",

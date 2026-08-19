@@ -4,7 +4,7 @@ import { CITIES } from './lib/data.js';
 import { DAY_SLUGS } from './pages.js';
 
 export async function sitemap({ env }) {
-  const bars = await env.DB.prepare('SELECT slug FROM bars ORDER BY slug').all();
+  const bars = await env.DB.prepare('SELECT slug FROM bars WHERE closed = 0 ORDER BY slug').all();
   const hoods = await hoodCounts(env.DB);
   // Only list cities that actually have bars — a 404 in the sitemap is a
   // crawl-budget leak and an avoidable Search Console error.

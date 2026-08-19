@@ -268,6 +268,8 @@ ${isNew ? '<label>Slug (kebab-case, permanent)</label><input name="slug" value="
 <label class="inline"><input type="checkbox" name="skyway"${bar.skyway ? ' checked' : ''}>Skyway</label>
 </p>
 <p><label class="inline"><input type="checkbox" name="verified"${bar.verified ? ' checked' : ''}>Verified on the bar's own site</label></p>
+<p><label class="inline"><input type="checkbox" name="closed"${bar.closed ? ' checked' : ''}>Permanently closed (drops it from every list; page stays up)</label></p>
+<label>Closed note (one line, e.g. "Closed September 2025.")</label><input name="closed_note" value="${esc(bar.closed_note || '')}">
 <label>Verified date (blank = stamp today)</label><input type="date" name="last_verified" value="${esc(bar.last_verified || '')}">
 <h2>Happy hour windows</h2>
 ${windowRows('hh', hh, true)}
@@ -279,7 +281,8 @@ ${windowRows('ho', hours, false)}
 
 const BAR_UPDATE_COLS = ['name', 'city', 'neighborhood', 'lat', 'lng', 'website', 'patio',
   'rooftop', 'skyway', 'verified', 'last_verified', 'notes', 'price', 'category',
-  'seating', 'food', 'hours', 'address', 'state', 'zip', 'phone', 'instagram'];
+  'seating', 'food', 'hours', 'address', 'state', 'zip', 'phone', 'instagram',
+  'closed', 'closed_note'];
 
 function barBinds(bar, hoursArr) {
   const vals = { ...bar, hours: hoursArr.length ? JSON.stringify(hoursArr) : null };

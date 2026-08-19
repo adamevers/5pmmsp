@@ -44,11 +44,14 @@ const HHS = [
   { id: 2, bar_id: 2, dow_mask: 0b0110000, start_min: 1320, end_min: 60, deals: 'half-price wine' },
 ];
 
-function fakeDB() {
+function fakeDB(bars = BARS, hhs = HHS) {
   const run = (sql, args) => {
+    // Mirror the real filter: listings exclude closed venues, a slug lookup
+    // does not (so a closed bar's own page still resolves).
+    const open = bars.filter(b => !b.closed);
     if (sql.includes('COUNT(*)')) {
       const seen = new Map();
-      for (const b of BARS) {
+      for (const b of open) {
         const k = `${b.neighborhood}|${b.city}`;
         seen.set(k, (seen.get(k) || 0) + 1);
       }
@@ -60,12 +63,11 @@ function fakeDB() {
       };
     }
     if (sql.includes('FROM happy_hours')) {
-      const rows = args ? HHS.filter(h => h.bar_id === args[0]) : HHS;
-      return { results: rows };
+      return { results: args ? hhs.filter(h => h.bar_id === args[0]) : hhs };
     }
     if (sql.includes('FROM bars')) {
-      const rows = args ? BARS.filter(b => b.slug === args[0]) : BARS;
-      return { results: rows };
+      if (args) return { results: bars.filter(b => b.slug === args[0]) };
+      return { results: sql.includes('closed = 0') ? open : bars };
     }
     return { results: [] };
   };
@@ -223,6 +225,27 @@ test('every OG image a real page references exists on disk', async () => {
     if (!existsSync(pub(`/og/day/${d}.png`))) missing.push(`day/${d}`);
   }
   assert.deepEqual(missing, [], `missing OG images — re-run node scripts/og-pages.js`);
+});
+
+test('a closed bar leaves every listing but keeps its own page', async () => {
+  const closed = { ...BARS[0], id: 9, slug: 'gone-bar', name: 'Gone Bar', closed: 1,
+    closed_note: 'Closed May 2026.' };
+  const envC = { ...env, DB: fakeDB([...BARS, closed], HHS) };
+  const getC = p => worker.fetch(new Request(`https://5pmmsp.com${p}`), envC, {});
+  const txt = async p => (await getC(p)).text();
+
+  for (const p of ['/', '/nordeast', '/minneapolis', '/friday']) {
+    assert.ok(!(await txt(p)).includes('Gone Bar'), `closed bar leaked onto ${p}`);
+  }
+  assert.ok(!(await txt('/sitemap.xml')).includes('gone-bar'), 'closed bar in sitemap');
+
+  // Its own page still resolves, says so, and asks to leave the index.
+  const res = await getC('/bar/gone-bar');
+  assert.equal(res.status, 200, 'closed bar page should not 404');
+  const html = await res.text();
+  assert.match(html, /Permanently closed/);
+  assert.match(html, /Closed May 2026\./);
+  assert.match(html, /name="robots" content="noindex,follow"/);
 });
 
 test('unknown one-segment path still 404s', async () => {

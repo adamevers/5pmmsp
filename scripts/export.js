@@ -25,6 +25,7 @@ export function barsFromRows(barRows, hhRows) {
         slug: r.slug, name: r.name, city: r.city, neighborhood: r.neighborhood,
         lat: r.lat, lng: r.lng, website: r.website || '',
       };
+      if (r.closed) { bar.closed = 1; if (r.closed_note) bar.closed_note = r.closed_note; }
       if (r.phone) bar.phone = r.phone;
       if (r.instagram) bar.instagram = r.instagram;
       if (r.address) bar.address = r.address;

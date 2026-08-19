@@ -228,6 +228,11 @@ header .tag b{color:var(--enamel);font-weight:500}
 .hoodline em{font:500 12px "IBM Plex Mono";font-style:normal;color:var(--filament)}
 .hoodline time{font:500 12px "IBM Plex Mono";color:var(--dim);margin-left:auto}
 
+/* permanently-closed banner on a bar page kept alive for old inbound links */
+.closed-note{background:rgba(200,50,43,.14);border:1px solid var(--cap-red);border-radius:9px;
+     padding:12px 14px;margin:10px 0 14px;font:400 14px/1.5 Archivo;color:var(--enamel)}
+.closed-note b{color:var(--cap-red)}
+
 /* neighborhood/city/day intro copy — the crawlable prose above the listings */
 .intro{font:400 15px/1.6 Archivo;color:var(--dim);max-width:68ch;margin:0 0 16px}
 

@@ -85,6 +85,8 @@ export function barFromForm(form, slug) {
     last_verified: g('last_verified') || null,
     phone: g('phone') ? normalizePhone(g('phone')) : null,
     instagram: g('instagram') ? normalizeInstagram(g('instagram')) : null,
+    closed: form.get('closed') ? 1 : 0,
+    closed_note: g('closed_note') || null,
   };
   if (!SLUG_RE.test(slug || '')) errors.push('Slug must be kebab-case (a-z, 0-9, dashes).');
   if (!bar.name) errors.push('Name is required.');
