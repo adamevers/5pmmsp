@@ -383,13 +383,23 @@ export async function barPage({ env, params, url }) {
   const dealQuotes = bar.hh.filter(h => h.deals)
     .map(h => `<p class="deal-quote">“${esc(h.deals)}”</p>`).join('');
   const dealLine = (bar.hh.find(h => h.deals) || {}).deals;
+  // Share text only: swap unambiguous food/drink words for emojis — texts read
+  // tighter and iMessage previews cut off later. The page keeps the real words.
+  const EMOJIFY = [
+    [/\bbeers?\b/gi, '🍺'], [/\bwines?\b/gi, '🍷'], [/\bcocktails?\b/gi, '🍸'],
+    [/\bmargaritas?\b/gi, '🍹'], [/\bsliders?\b/gi, '🍔'], [/\bburgers?\b/gi, '🍔'],
+    [/\bpizzas?\b/gi, '🍕'], [/\bwings\b/gi, '🍗'], [/\btacos?\b/gi, '🌮'],
+    [/\bfries\b/gi, '🍟'], [/\boysters?\b/gi, '🦪'], [/\bchampagne\b/gi, '🍾'],
+    [/\bsushi\b/gi, '🍣'],
+  ];
+  const emojify = s => EMOJIFY.reduce((t, [re, em]) => t.replace(re, em), s);
   const fullAddr = bar.address
     ? `${bar.address}, ${cityName(bar.city)}, ${bar.state || 'MN'}${bar.zip ? ' ' + bar.zip : ''}`
     : '';
   const shareText = [
     `Happy hour at ${bar.name} (${hoodName(bar.neighborhood)})`,
     ...bar.hh.map(h => `${fmtDows(h.dow_mask)}: ${fmtWindow(h)}`),
-    dealLine && `“${dealLine}”`,
+    dealLine && `“${emojify(dealLine)}”`,
     fullAddr,
   ].filter(Boolean).join('\n') + '\n\nFind more happy hours at 5pmmsp.com';
   const dirQ = encodeURIComponent(fullAddr
