@@ -62,11 +62,16 @@
       }
     });
   }
+  var filtersReady = false;   // var: hoisted, so the first tick() can't hit a TDZ
   let lastMin = -1;
   const tick = () => {
     const now = chicagoNow();
     updateClock(now);
-    if (now.minutes !== lastMin) { updateStatuses(now); lastMin = now.minutes; }
+    if (now.minutes !== lastMin) {
+      updateStatuses(now);
+      lastMin = now.minutes;
+      if (filtersReady) applyFilters();   // keep "open now" counts honest as windows flip
+    }
   };
   tick(); setInterval(tick, 1000);
 
@@ -118,50 +123,95 @@
             if (el) { el.hidden = false; el.textContent = `${d < 10 ? d.toFixed(1) : Math.round(d)} mi`; }
             container.appendChild(c);
           });
-        btn.textContent = '◉ sorted by distance'; btn.disabled = true;
+        btn.innerHTML = '<span class="nm-ico">◉</span><span>sorted by distance</span>'; // static markup
+        btn.disabled = true;
       }, () => {
         btn.textContent = '◉ location unavailable'; btn.disabled = true;
       }, { maximumAge: 300000, timeout: 8000 });
     });
   }
 
-  // ---------- filters ----------
+  // ---------- filters: status rail (when?) + pill shelf (what kind?) ----------
   const filters = document.querySelector('[data-filters]');
-  let meta = {}; // slug -> bar
-  // Are any windows (from a card's data-hh / data-hours JSON) active right now?
-  const windowsActive = json => {
+  const rail = document.querySelector('[data-status-rail]');
+  const timerow = document.querySelector('[data-timerow]');
+  let meta = {};                 // slug -> bar (from /api/bars.json)
+  let status = 'all';            // all | open | hh | time
+  const hhSel = { day: chicagoNow().dow, time: 1020 };
+  // Any window (from a card's data-hh / data-hours JSON) active at `at` (default: now)?
+  const windowsActive = (json, at) => {
     let w; try { w = JSON.parse(json || '[]'); } catch { return false; }
-    const n = chicagoNow();
+    const n = at || chicagoNow();
     return w.some(h => isActive(h, n));
   };
+  const matchesStatus = c =>
+    status === 'open' ? windowsActive(c.dataset.hours)
+    : status === 'hh' ? windowsActive(c.dataset.hh)
+    : status === 'time' ? windowsActive(c.dataset.hh, { dow: hhSel.day, minutes: hhSel.time })
+    : true;
+  function updateCount(n) {
+    const el = document.querySelector('[data-count]');
+    if (!el) return;
+    el.textContent = `${n} bar${n === 1 ? '' : 's'}`;
+  }
   function applyFilters() {
-    if (!filters || !container) return;
-    const active = [...filters.querySelectorAll('[aria-pressed="true"]')];
+    if (!container) return;
+    const active = filters ? [...filters.querySelectorAll('[aria-pressed="true"]')] : [];
     const groups = {};
     for (const b of active) (groups[b.dataset.f] ||= []).push(b.dataset.v);
+    let shown = 0;
     cards().forEach(c => {
       const m = meta[c.dataset.slug];
-      let show = true;
-      for (const [f, vals] of Object.entries(groups)) {
+      let show = matchesStatus(c);
+      if (show) for (const [f, vals] of Object.entries(groups)) {
         if (f === 'saved') { if (!favs.has(c.dataset.slug)) show = false; }
-        else if (f === 'happyhournow') { if (!windowsActive(c.dataset.hh)) show = false; }
-        else if (f === 'opennow') { if (!windowsActive(c.dataset.hours)) show = false; }
         else if (vals[0] === undefined) { if (!m || !m[f]) show = false; }      // boolean flag
         else if (!m || !vals.includes(String(m[f]))) show = false;              // value match
       }
       c.hidden = !show;
+      if (show) shown++;
     });
+    updateCount(shown);
   }
-  // "Filters ▾" reveals/hides the panel; the pills themselves toggle + apply.
+  function setStatus(st) {
+    status = st;
+    if (rail) rail.querySelectorAll('button[data-st]').forEach(x =>
+      x.setAttribute('aria-pressed', String(x.dataset.st === st)));
+    applyFilters();
+  }
+  if (rail && container) {
+    rail.addEventListener('click', e => {
+      const b = e.target.closest('button[data-st]');
+      if (!b) return;
+      if (b.dataset.st === 'time') {
+        // Toggle the picker; activating sets status=time, closing reverts to all
+        const opening = timerow.hidden;
+        timerow.hidden = !opening;
+        b.setAttribute('aria-expanded', String(opening));
+        setStatus(opening ? 'time' : 'all');
+        return;
+      }
+      if (timerow && !timerow.hidden) {
+        timerow.hidden = true;
+        rail.querySelector('[data-st="time"]')?.setAttribute('aria-expanded', 'false');
+      }
+      setStatus(b.dataset.st);
+    });
+    const daySel = document.querySelector('[data-hh-day]');
+    const timeSel = document.querySelector('[data-hh-time]');
+    if (daySel && timeSel) {
+      daySel.value = String(hhSel.day);
+      // Dropdowns auto-apply — no Search button needed
+      daySel.addEventListener('change', () => { hhSel.day = +daySel.value; applyFilters(); });
+      timeSel.addEventListener('change', () => { hhSel.time = +timeSel.value; applyFilters(); });
+    }
+  }
   const filtersBtn = document.querySelector('[data-filters-toggle]');
-  if (filtersBtn && filters) {
-    filtersBtn.hidden = false;
-    filtersBtn.addEventListener('click', () => {
-      const open = filtersBtn.getAttribute('aria-expanded') === 'true';
-      filtersBtn.setAttribute('aria-expanded', String(!open));
-      filters.hidden = open;
-    });
-  }
+  if (filtersBtn && filters) filtersBtn.addEventListener('click', () => {
+    const open = filtersBtn.getAttribute('aria-expanded') === 'true';
+    filtersBtn.setAttribute('aria-expanded', String(!open));
+    filters.hidden = open;
+  });
   if (filters && container) {
     filters.addEventListener('click', e => {
       const b = e.target.closest('button[data-f]');
@@ -169,12 +219,12 @@
       const turningOn = b.getAttribute('aria-pressed') !== 'true';
       b.setAttribute('aria-pressed', String(turningOn));
       applyFilters();
-      if (turningOn) container.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     fetch('/api/bars.json').then(r => r.json())
       .then(({ bars }) => { meta = Object.fromEntries(bars.map(b => [b.slug, b])); })
       .catch(() => {});
   }
+  filtersReady = true;
 
   // ---------- info tooltip (last-verified ⓘ) — floats above everything ----------
   document.addEventListener('click', e => {
@@ -191,49 +241,93 @@
     pop.classList.toggle('show');
   });
 
-  // ---------- bar roulette: spin, land on a winner, confetti, go ----------
+  // ---------- bar roulette: slow tumble, land, confetti, View or Roll again ----------
   function confetti() {
     const wrap = document.createElement('div');
     wrap.className = 'confetti';
     const colors = ['#FFB84D', '#C8322B', '#2E6B4F', '#F4E9D8'];
-    for (let i = 0; i < 60; i++) {
+    // Two cannons: left corner fires right+up, right corner fires left+up
+    for (let i = 0; i < 120; i++) {
       const p = document.createElement('i');
-      p.style.left = Math.random() * 100 + 'vw';
+      const isLeft = i < 60;
+      // Start position: tight cluster near each bottom corner
+      p.style.left = isLeft
+        ? (Math.random() * 8 + 1) + '%'
+        : (91 + Math.random() * 8) + '%';
+      p.style.bottom = (Math.random() * 6 + 2) + '%';
+      // Horizontal travel: fan outward from corner, left cannon goes right, right goes left
+      const spreadX = (Math.random() * 55 + 20);  // 20–75vw horizontal
+      const spreadY = -(Math.random() * 55 + 35); // 35–90vh upward (negative = up)
+      p.style.setProperty('--cx', (isLeft ? spreadX : -spreadX) + 'vw');
+      p.style.setProperty('--cy', spreadY + 'vh');
+      p.style.setProperty('--cr', ((Math.random() > 0.5 ? 1 : -1) * (270 + Math.random() * 450)) + 'deg');
       p.style.background = colors[i % colors.length];
-      p.style.animationDelay = Math.random() * 0.3 + 's';
-      p.style.animationDuration = 0.9 + Math.random() * 0.8 + 's';
-      p.style.transform = `rotate(${Math.random() * 360}deg)`;
+      p.style.animationDelay = Math.random() * 0.25 + 's';
+      p.style.animationDuration = 0.8 + Math.random() * 0.7 + 's';
       wrap.appendChild(p);
     }
     document.body.appendChild(wrap);
   }
+  // Clean up overlay if user returns via back button (bfcache restore)
+  window.addEventListener('pageshow', e => {
+    if (e.persisted) {
+      document.querySelector('.roll-overlay')?.remove();
+      document.querySelector('.confetti')?.remove();
+    }
+  });
   const roulette = document.querySelector('[data-roulette]');
   if (roulette) roulette.addEventListener('click', () => {
-    // on phones the button starts as just the dice — first tap expands it
-    if (roulette.classList.contains('mini')) { roulette.classList.remove('mini'); return; }
-    if (roulette.disabled) return;
+    if (document.querySelector('.roll-overlay')) return;
     const pool = cards().filter(c => !c.hidden && windowsActive(c.dataset.hh));
     const any = cards().filter(c => !c.hidden);
-    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
     const from = pool.length ? pool : any;
     if (!from.length) return;
+    const pick = a => a[Math.floor(Math.random() * a.length)];
     const chosen = pick(from);
-    const name = chosen.querySelector('h3').textContent.trim();
-    roulette.disabled = true;
+    // Full-screen takeover — bar name always set via .textContent (never innerHTML)
+    const ov = document.createElement('div');
+    ov.className = 'roll-overlay';
+    ov.innerHTML = '<div class="roll-dice">🎲</div><div class="roll-name"></div><div class="roll-sub">rolling…</div><div class="roll-actions" hidden></div>';
+    document.body.appendChild(ov);
+    const nameEl = ov.querySelector('.roll-name');
+    const subEl = ov.querySelector('.roll-sub');
+    const actEl = ov.querySelector('.roll-actions');
     let spins = 0;
     const iv = setInterval(() => {
-      roulette.textContent = `🎲 ${pick(from).querySelector('h3').textContent.trim()}`;
-      if (++spins >= 12) {
+      nameEl.textContent = pick(from).querySelector('h3').textContent.trim();
+      if (++spins >= 10) {
         clearInterval(iv);
-        roulette.textContent = `🍻 ${name}!`;           // land on the winner…
-        roulette.classList.add('winner');
-        confetti();                                       // …celebrate…
-        setTimeout(() => { window.location.href = `/bar/${chosen.dataset.slug}`; }, 1600);
+        ov.classList.add('landed');
+        ov.querySelector('.roll-dice').textContent = '🍻';
+        nameEl.textContent = chosen.querySelector('h3').textContent.trim();
+        subEl.textContent = "tonight's pick";
+        // Build buttons via DOM — bar slug is safe but keep innerHTML clean
+        const viewA = document.createElement('a');
+        viewA.className = 'btn-roll primary';
+        viewA.textContent = 'View bar →';
+        viewA.href = `/bar/${chosen.dataset.slug}`;
+        const againBtn = document.createElement('button');
+        againBtn.className = 'btn-roll ghost';
+        againBtn.textContent = 'Roll again';
+        againBtn.addEventListener('click', () => {
+          ov.remove();
+          document.querySelector('.confetti')?.remove();
+          roulette.click();
+        });
+        actEl.appendChild(viewA);
+        actEl.appendChild(againBtn);
+        actEl.hidden = false;
+        confetti();
       }
-    }, 90);
+    }, 260);
+    // Tap overlay background to dismiss
+    ov.addEventListener('click', e => {
+      if (e.target === ov) {
+        ov.remove();
+        document.querySelector('.confetti')?.remove();
+      }
+    });
   });
-  // start collapsed (dice only) on phones
-  if (roulette && window.matchMedia('(max-width: 559px)').matches) roulette.classList.add('mini');
 
   // ---------- modals (share + report) ----------
   function wireModal(openSel, id, closeSel) {
@@ -249,7 +343,6 @@
   const copyBtn = document.querySelector('[data-copy-share]');
   if (copyBtn) copyBtn.addEventListener('click', async () => {
     const text = document.getElementById('share-text')?.value || '';
-    if (navigator.share) { try { await navigator.share({ text }); return; } catch {} }
     try { await navigator.clipboard.writeText(text); }
     catch { const t = document.getElementById('share-text'); t.select(); document.execCommand('copy'); }
     copyBtn.textContent = 'Copied ✓';

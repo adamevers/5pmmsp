@@ -1,5 +1,5 @@
 // Minimal offline shell: cache the static skin; pages stay network-first.
-const CACHE = '5pmmsp-v1';
+const CACHE = '5pmmsp-v2';
 const SHELL = ['/style.css', '/app.js', '/manifest.webmanifest', '/icon.svg'];
 
 self.addEventListener('install', e => {
