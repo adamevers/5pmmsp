@@ -997,6 +997,30 @@
       "notes": "HH Mon–Fri 3–6 confirmed on official site (briansstillwater.com). 219 Main St S, Stillwater."
     },
     {
+      "slug": "brick-and-bourbon-stillwater",
+      "name": "Brick & Bourbon (Stillwater)",
+      "city": "stillwater",
+      "neighborhood": "stillwater",
+      "lat": 45.0557,
+      "lng": -92.8057,
+      "website": "https://www.brickandbourbon.com",
+      "phone": "+16513420777",
+      "address": "215 Main St S",
+      "state": "MN",
+      "zip": "55082",
+      "category": "cocktail-bar",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$2 off draft beer, $2 off wine by the glass, 25% off shareable appetizers"
+        }
+      ]
+    },
+    {
       "slug": "bricksworth-beer-north-loop",
       "name": "Bricksworth Beer Co.",
       "city": "minneapolis",
@@ -2159,6 +2183,31 @@
       ]
     },
     {
+      "slug": "el-burrito-mercado",
+      "name": "El Burrito Mercado",
+      "city": "st-paul",
+      "neighborhood": "west-side",
+      "lat": 44.9295,
+      "lng": -93.0771,
+      "website": "https://elburritomercado.com",
+      "phone": "+16512272192",
+      "address": "175 Cesar Chavez St",
+      "state": "MN",
+      "zip": "55107",
+      "patio": 1,
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 14,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$1 off draft beer, $5 classic margarita, $6 michelada, half-price bottles of wine, 2 for $5 tacos (dine-in)"
+        }
+      ]
+    },
+    {
       "slug": "el-tejaban-richfield",
       "name": "El Tejaban Mexican Grill",
       "city": "richfield",
@@ -2323,6 +2372,30 @@
         }
       ],
       "notes": "HH daily 3–6 & 9 PM–close confirmed on official site (firesidefoundry.com). 6736 Penn Ave S, Richfield."
+    },
+    {
+      "slug": "french-meadow-grand",
+      "name": "French Meadow (Grand Ave)",
+      "city": "st-paul",
+      "neighborhood": "grand-avenue",
+      "lat": 44.94,
+      "lng": -93.1707,
+      "website": "https://www.frenchmeadowcafe.com",
+      "phone": "+16517898870",
+      "address": "1662 Grand Ave",
+      "state": "MN",
+      "zip": "55105",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 1020,
+          "deals": "$2 off cocktails and draft beer, discounted appetizers"
+        }
+      ]
     },
     {
       "slug": "fulton-brewing",
@@ -2540,6 +2613,35 @@
         }
       ],
       "notes": "HH Mon–Fri 2–5 confirmed on official site (garysupperclub.com). 20790 Keokuk Ave, Lakeville."
+    },
+    {
+      "slug": "gasthaus-bavarian-hunter",
+      "name": "Gasthaus Bavarian Hunter",
+      "city": "stillwater",
+      "neighborhood": "stillwater",
+      "lat": 45.066,
+      "lng": -92.8682,
+      "website": "https://gasthausbavarianhunter.com",
+      "address": "8390 Lofton Ave N",
+      "state": "MN",
+      "zip": "55082",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 28,
+          "start_min": 840,
+          "end_min": 1020,
+          "deals": "$2 off imported half-litre beers, specialty drinks, wine and mixed drinks; free pretzels with mustard (bar only)"
+        },
+        {
+          "dow_mask": 124,
+          "start_min": 1110,
+          "end_min": 1320,
+          "deals": "Same happy hour pricing in the Landshuterstube room"
+        }
+      ]
     },
     {
       "slug": "gluek-s",
@@ -2852,6 +2954,30 @@
         }
       ],
       "notes": "HH Mon–Fri 2–5 PM bar-only confirmed on official site (hazelwoodfoodanddrink.com). South Loop district near MOA; street address not published on site."
+    },
+    {
+      "slug": "hazelwood-st-louis-park",
+      "name": "Hazelwood Food + Drink (St Louis Park)",
+      "city": "st-louis-park",
+      "neighborhood": "st-louis-park",
+      "lat": 44.935,
+      "lng": -93.3363,
+      "website": "https://hazelwoodfoodanddrink.com",
+      "phone": "+19529778000",
+      "address": "4450 Excelsior Blvd",
+      "state": "MN",
+      "zip": "55416",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "Bar-only happy hour; pricing not published on their site"
+        }
+      ]
     },
     {
       "slug": "hazelwood-woodbury",
@@ -3255,6 +3381,30 @@
         }
       ],
       "notes": "HH daily 2–6 & 9–11 confirmed on official site (jerseysbar.com). 6449 Concord Blvd S, Inver Grove Heights."
+    },
+    {
+      "slug": "jg-social",
+      "name": "JG Social",
+      "city": "st-paul",
+      "neighborhood": "west-side",
+      "lat": 44.9385,
+      "lng": -93.0886,
+      "website": "https://www.josephsgrill.com",
+      "phone": "+16512222435",
+      "address": "140 Wabasha St S",
+      "state": "MN",
+      "zip": "55107",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 30,
+          "start_min": 840,
+          "end_min": 1080,
+          "deals": "$5 Tito's, $6 sauvignon blanc, $4 Coors Light, $8 select appetizers, $9-11 specialty cocktails"
+        }
+      ]
     },
     {
       "slug": "jjs-clubhouse-golden-valley",
@@ -4232,6 +4382,30 @@
       "notes": "HH Mon–Fri 3–6 confirmed on official site (mapletavern.com). 9375 Deerwood Ln N, Maple Grove."
     },
     {
+      "slug": "matchstick-stillwater",
+      "name": "Matchstick Restaurant & Spirits",
+      "city": "stillwater",
+      "neighborhood": "stillwater",
+      "lat": 45.0577,
+      "lng": -92.8067,
+      "website": "https://matchstickgrill.com",
+      "phone": "+16515710111",
+      "address": "232 Main St N",
+      "state": "MN",
+      "zip": "55082",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 1020,
+          "deals": "Happy hour pricing; daily specials vary, ask the bar"
+        }
+      ]
+    },
+    {
       "slug": "mayslacks",
       "name": "Mayslack's",
       "city": "minneapolis",
@@ -4285,6 +4459,30 @@
       "notes": "Roast beef legend since 1955."
     },
     {
+      "slug": "meisters-stillwater",
+      "name": "Meister's Bar & Grill",
+      "city": "stillwater",
+      "neighborhood": "stillwater",
+      "lat": 45.0481,
+      "lng": -92.8075,
+      "website": "https://www.meistersstillwater.com",
+      "phone": "+16514399860",
+      "address": "901 4th St S",
+      "state": "MN",
+      "zip": "55082",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "Happy hour pricing; discounts not itemized on their site"
+        }
+      ]
+    },
+    {
       "slug": "merlins-rest-pub",
       "name": "Merlin's Rest Pub",
       "city": "minneapolis",
@@ -4334,6 +4532,30 @@
         }
       ],
       "notes": "HH Mon-Fri 4-6pm confirmed on official specials page (merlinsrest.com); deal specifics not published. Minnesota's most comprehensive single malt scotch & Irish whiskey list. Est. 2007. 3601 E Lake St."
+    },
+    {
+      "slug": "midway-saloon",
+      "name": "Midway Saloon",
+      "city": "st-paul",
+      "neighborhood": "hamline-midway",
+      "lat": 44.9557,
+      "lng": -93.1664,
+      "website": "https://www.themidwaysaloon.com",
+      "phone": "+16516458472",
+      "address": "1567 University Ave W",
+      "state": "MN",
+      "zip": "55104",
+      "category": "dive-bar",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 840,
+          "end_min": 1080,
+          "deals": "Daily happy hour; not valid on Allianz Field event days"
+        }
+      ]
     },
     {
       "slug": "mill-valley-kitchen-st-louis-park",
@@ -5371,6 +5593,35 @@
       "notes": "HH Mon–Fri 3–6 PM confirmed on official site (pub819.com). 819 Mainstreet, Hopkins."
     },
     {
+      "slug": "puttshack-mpls",
+      "name": "Puttshack Minneapolis",
+      "city": "minneapolis",
+      "neighborhood": "north-loop",
+      "lat": 44.9867,
+      "lng": -93.2778,
+      "website": "https://www.puttshack.com/locations/minneapolis",
+      "address": "700 3rd St N",
+      "state": "MN",
+      "zip": "55401",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 15,
+          "start_min": 960,
+          "end_min": 1080,
+          "deals": "$1 wings, $3 draft beer"
+        },
+        {
+          "dow_mask": 16,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$1 wings, $3 draft beer"
+        }
+      ]
+    },
+    {
       "slug": "racks-sports-bar-burnsville",
       "name": "Racks Sports Bar & Grill",
       "city": "burnsville",
@@ -5613,6 +5864,32 @@
       ]
     },
     {
+      "slug": "reveal-rooftop",
+      "name": "REVEAL Rooftop Bar & Lounge",
+      "city": "st-louis-park",
+      "neighborhood": "st-louis-park",
+      "lat": 44.9696,
+      "lng": -93.3436,
+      "website": "https://www.revealmpls.com",
+      "phone": "+17635450000",
+      "address": "5075 Wayzata Blvd",
+      "state": "MN",
+      "zip": "55416",
+      "patio": 1,
+      "rooftop": 1,
+      "category": "lounge",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$5 beer, $10 house wine, half-off pizza"
+        }
+      ]
+    },
+    {
       "slug": "rincon-38",
       "name": "Rincón 38",
       "city": "minneapolis",
@@ -5735,6 +6012,30 @@
         }
       ],
       "notes": "HH Tue–Sat 3–5:30 PM confirmed on official site (russellsstpaul.com); deal specifics not published. Summit Hill, 656 Grand Ave."
+    },
+    {
+      "slug": "sakura-st-paul",
+      "name": "Sakura Restaurant & Bar",
+      "city": "st-paul",
+      "neighborhood": "downtown-st-paul",
+      "lat": 44.945,
+      "lng": -93.0953,
+      "website": "https://www.sakurastpaul.com",
+      "phone": "+16512240185",
+      "address": "350 St Peter St",
+      "state": "MN",
+      "zip": "55102",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 960,
+          "end_min": 1080,
+          "deals": "Discounted drinks and appetizers; excludes event days"
+        }
+      ]
     },
     {
       "slug": "sallys-saloon",
@@ -6672,6 +6973,36 @@
       "notes": "HH daily 2–5 & 9–close confirmed on official site (thetaverngrill.com). 10950 Club W Pkwy NE #280, Blaine."
     },
     {
+      "slug": "tavern-grill-woodbury",
+      "name": "The Tavern Grill (Woodbury)",
+      "city": "woodbury",
+      "neighborhood": "woodbury",
+      "lat": 44.9361,
+      "lng": -92.9544,
+      "website": "https://www.thetaverngrill.com/woodbury",
+      "phone": "+16515783000",
+      "address": "772 Bielenberg Dr",
+      "state": "MN",
+      "zip": "55125",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 840,
+          "end_min": 1020,
+          "deals": "$4 off appetizers, $2 off wine by the glass, $3 off specialty cocktails, $2 off tap beer"
+        },
+        {
+          "dow_mask": 127,
+          "start_min": 1260,
+          "end_min": 1440,
+          "deals": "Late-night happy hour, same pricing"
+        }
+      ]
+    },
+    {
       "slug": "tc-400-tavern",
       "name": "Twin Cities 400 Tavern",
       "city": "minneapolis",
@@ -6711,6 +7042,31 @@
         }
       ],
       "notes": "Industrial Blvd NE sports bar with strong neighborhood following."
+    },
+    {
+      "slug": "the-block-slp",
+      "name": "The Block Food + Drink",
+      "city": "st-louis-park",
+      "neighborhood": "st-louis-park",
+      "lat": 44.9389,
+      "lng": -93.3666,
+      "website": "https://theblockmn.com",
+      "phone": "+19527671117",
+      "address": "7007 Walker St",
+      "state": "MN",
+      "zip": "55426",
+      "patio": 1,
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 127,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$1 off tap beer, $5 rails, $7 house margaritas, $3 off wine and signature cocktails, $8 apps, $14 wings"
+        }
+      ]
     },
     {
       "slug": "the-cabana-club",
@@ -6834,6 +7190,30 @@
         }
       ],
       "notes": "HH daily 3–5 PM confirmed on official site (thecopperfieldmn.com). 735 Maple St, Mendota Heights."
+    },
+    {
+      "slug": "the-corner-bar",
+      "name": "The Corner Bar",
+      "city": "minneapolis",
+      "neighborhood": "west-bank",
+      "lat": 44.9733,
+      "lng": -93.2483,
+      "website": "https://thecorner.bar",
+      "phone": "+16123394333",
+      "address": "1501 Washington Ave S",
+      "state": "MN",
+      "zip": "55454",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 900,
+          "end_min": 1080,
+          "deals": "$1.50 off all tap beer, wine, rail drinks and appetizers (dine-in)"
+        }
+      ]
     },
     {
       "slug": "the-freehouse",
@@ -7025,6 +7405,30 @@
         }
       ],
       "notes": "Daily 4–7 PM happy hour in the North Loop."
+    },
+    {
+      "slug": "the-loop-west-end",
+      "name": "The Loop West End",
+      "city": "st-louis-park",
+      "neighborhood": "st-louis-park",
+      "lat": 44.968,
+      "lng": -93.3474,
+      "website": "https://theloopwestend.com",
+      "phone": "+19526812684",
+      "address": "5331 W 16th St",
+      "state": "MN",
+      "zip": "55416",
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 31,
+          "start_min": 840,
+          "end_min": 1080,
+          "deals": "$2 off rails, draft beer, wine by the glass and signature cocktails; $3 off appetizers, pizzas and flatbreads"
+        }
+      ]
     },
     {
       "slug": "the-lowbrow",
@@ -7661,6 +8065,31 @@
         }
       ],
       "notes": "Official site (vegasloungene.com) mentions '2-for-1 Happy Hours'; times per secondary sources. Best karaoke in Minneapolis per City Pages. 965 Central Ave NE."
+    },
+    {
+      "slug": "vics-riverfront",
+      "name": "VIC's on the Riverfront",
+      "city": "minneapolis",
+      "neighborhood": "marcy-holmes",
+      "lat": 44.9843,
+      "lng": -93.2548,
+      "website": "https://www.vicsdining.com",
+      "phone": "+16123122000",
+      "address": "201 Main St SE",
+      "state": "MN",
+      "zip": "55414",
+      "patio": 1,
+      "category": "bar-restaurant",
+      "verified": 1,
+      "last_verified": "2026-08-18",
+      "hh": [
+        {
+          "dow_mask": 62,
+          "start_min": 960,
+          "end_min": 1080,
+          "deals": "$3 bartender's choice beer, $4 premium rail pours, $5 featured wine, $5 featured appetizer, $7 select martinis"
+        }
+      ]
     },
     {
       "slug": "wa-frost",
