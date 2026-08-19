@@ -288,7 +288,7 @@ header .tag b{color:var(--enamel);font-weight:500}
 .crumb a:first-child{padding-left:0}
 /* three equal segments on one line: Website · Directions · Report */
 .bar-links{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
-.bar-links a,.bar-links button{flex:1 1 0;min-width:82px;display:inline-flex;align-items:center;justify-content:center;
+.bar-links a,.bar-links button{flex:1 1 auto;min-width:82px;display:inline-flex;align-items:center;justify-content:center;
   gap:7px;font:600 12px "IBM Plex Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--enamel);
   text-decoration:none;padding:12px 6px;border-radius:8px;
   background:transparent;box-shadow:inset 0 0 0 1px #2A3A5E;cursor:pointer;border:0;white-space:nowrap}
