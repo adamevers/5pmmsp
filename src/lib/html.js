@@ -31,7 +31,7 @@ function jsonldTags(jsonld) {
   ).join('\n');
 }
 
-export function layout({ title, desc, path = '/', body, jsonld = null, includeAppJs = true, wide = false, ogImage = '/og.png' }) {
+export function layout({ title, desc, path = '/', body, jsonld = null, includeAppJs = true, wide = false, ogImage = '/og.png', noindex = false }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -40,6 +40,7 @@ export function layout({ title, desc, path = '/', body, jsonld = null, includeAp
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="https://5pmmsp.com${esc(path)}">
+${noindex ? '<meta name="robots" content="noindex,follow">' : ''}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="https://5pmmsp.com${esc(path)}">
@@ -56,7 +57,7 @@ export function layout({ title, desc, path = '/', body, jsonld = null, includeAp
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=9">
+<link rel="stylesheet" href="/style.css?v=10">
 ${jsonldTags(jsonld)}
 </head>
 <body>
