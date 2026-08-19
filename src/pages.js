@@ -110,6 +110,7 @@ export async function hoodPage({ env, params }) {
     title: `${name} happy hours — ${city} — 5PM MSP`,
     desc: `Every happy hour we track in ${name}, ${city} — ${bars.length} bars with times, deals, and what's running right now.`,
     path: `/${params.hood}`,
+    ogImage: `/og/hood/${params.hood}.png`,
     wide: true,
     body: `
 <p class="crumb"><a href="/">home</a> / ${CITIES[bars[0].city] ? `<a href="/${esc(bars[0].city)}">${esc(city)}</a>` : esc(city)}</p>
@@ -151,6 +152,7 @@ export async function cityPage({ env, params }) {
     title: `${label} happy hours — 5PM MSP`,
     desc: `Happy hours across ${label} — ${bars.length} bars by neighborhood, time, and deal, with live status on every listing.`,
     path: `/${city}`,
+    ogImage: `/og/city/${city}.png`,
     wide: true,
     body: `
 <p class="crumb"><a href="/">home</a></p>
@@ -190,7 +192,7 @@ const dayLinks = () => `<nav class="daylinks" aria-label="Happy hours by day">
 /** Shared renderer for the day + late-night pages. */
 function listingPage({ title, desc, path, heading, intro, bars, now }) {
   return html(layout({
-    title, desc, path, wide: true,
+    title, desc, path, ogImage: `/og/day${path}.png`, wide: true,
     body: `
 <p class="crumb"><a href="/">home</a></p>
 <div class="hoodline"><h2>${esc(heading)}</h2><em data-count>${bars.length} bars</em><time data-clock>${clock(now)}</time></div>
@@ -408,6 +410,7 @@ export async function barPage({ env, params, url }) {
     title: `${bar.name} happy hour — ${hoodName(bar.neighborhood)}, ${cityName(bar.city)} — 5PM MSP`,
     desc: metaDesc,
     path: `/bar/${bar.slug}`,
+    ogImage: `/og/bar/${bar.slug}.png`,
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
 <div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}</div></div>

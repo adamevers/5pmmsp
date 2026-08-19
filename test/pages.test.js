@@ -195,6 +195,36 @@ test('every JSON-LD block on every page type is parseable', async () => {
   }
 });
 
+test('each page type points at its own OG image, not the shared default', async () => {
+  const cases = [
+    ['/bar/grain-belt-tap', '/og/bar/grain-belt-tap.png'],
+    ['/nordeast', '/og/hood/nordeast.png'],
+    ['/minneapolis', '/og/city/minneapolis.png'],
+    ['/friday', '/og/day/friday.png'],
+    ['/late-night', '/og/day/late-night.png'],
+  ];
+  for (const [path, img] of cases) {
+    const { html } = await body(path);
+    assert.match(html, new RegExp(`og:image" content="https://5pmmsp\\.com${img.replace(/[/.]/g, '\\$&')}"`), path);
+    assert.match(html, new RegExp(`twitter:image" content="https://5pmmsp\\.com${img.replace(/[/.]/g, '\\$&')}"`), path);
+  }
+});
+
+test('every OG image a real page references exists on disk', async () => {
+  const { existsSync } = await import('node:fs');
+  const { bars } = JSON.parse(
+    (await import('node:fs')).readFileSync(new URL('../seed/bars.json', import.meta.url), 'utf8'));
+  const pub = p => new URL(`../public${p}`, import.meta.url);
+  const missing = [];
+  for (const b of bars) {
+    if (!existsSync(pub(`/og/bar/${b.slug}.png`))) missing.push(b.slug);
+  }
+  for (const d of ['monday', 'friday', 'sunday', 'late-night']) {
+    if (!existsSync(pub(`/og/day/${d}.png`))) missing.push(`day/${d}`);
+  }
+  assert.deepEqual(missing, [], `missing OG images — re-run node scripts/og-pages.js`);
+});
+
 test('unknown one-segment path still 404s', async () => {
   const res = await get('/not-a-real-place');
   assert.equal(res.status, 404);

@@ -122,12 +122,18 @@ DELETE step).
 # 0) refresh bars.json from prod D1 FIRST, then re-apply your edits on top:
 ~/cos/scripts/vault run /cos -- sh -c 'export CLOUDFLARE_API_TOKEN=$COS_CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$COS_CLOUDFLARE_ACCOUNT_ID; cd ~/5pmmsp && node scripts/export.js'
 node scripts/seed.js                       # regenerate seed/seed.sql (prints bar/window counts)
+node scripts/og-pages.js                   # per-page share images (name/deal/window are baked in)
 npm test                                   # must stay green
 # apply to prod D1 (token remap via vault):
 ~/cos/scripts/vault run /cos -- sh -c 'export CLOUDFLARE_API_TOKEN=$COS_CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$COS_CLOUDFLARE_ACCOUNT_ID; cd ~/5pmmsp && npx wrangler d1 execute 5pmmsp --remote --file ~/5pmmsp/seed/seed.sql'
 # only if you added a city/neighborhood slug, redeploy:
 ~/cos/scripts/vault run /cos -- sh -c 'export CLOUDFLARE_API_TOKEN=$COS_CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$COS_CLOUDFLARE_ACCOUNT_ID; cd ~/5pmmsp && npx wrangler deploy'
 ```
+
+**OG images bake in the data.** Each bar's share card carries its name, window
+and deal, so a changed deal means a stale preview until `scripts/og-pages.js`
+re-runs. Rendering is deterministic, so unchanged bars come out byte-identical
+and git only stores what actually moved. `npm test` fails if a bar has no image.
 
 ### Adding a COLUMN: do not use the migrations runner on prod
 
