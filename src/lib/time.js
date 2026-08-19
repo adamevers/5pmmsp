@@ -17,7 +17,7 @@ export function nowInChicago(date = new Date()) {
 
 const crossesMidnight = hh => hh.end_min <= hh.start_min;
 const prevDow = dow => (dow + 6) % 7;
-const hasDow = (mask, dow) => (mask & (1 << dow)) !== 0;
+export const hasDow = (mask, dow) => (mask & (1 << dow)) !== 0;
 
 export function isActive(hh, now) {
   if (crossesMidnight(hh)) {
@@ -54,7 +54,8 @@ export function nextStart(hhs, now) {
   return best;
 }
 
-function fmtTime(min) {
+/** 900 → "3 PM", 930 → "3:30 PM". */
+export function fmtTime(min) {
   const h24 = Math.floor(min / 60) % 24, m = min % 60;
   const ampm = h24 < 12 ? 'AM' : 'PM';
   const h = h24 % 12 || 12;

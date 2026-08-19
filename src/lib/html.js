@@ -21,6 +21,16 @@ export function withUtm(url, campaign = 'bar_listing') {
 const WORDMARK = '5PM MSP'.split('').map(c =>
   `<span class="l">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
 
+/**
+ * One or more JSON-LD blocks. `</` is escaped so a stray "</script>" inside a
+ * name or deal string can never break out of the tag.
+ */
+function jsonldTags(jsonld) {
+  return [jsonld].flat().filter(Boolean).map(node =>
+    `<script type="application/ld+json">${JSON.stringify(node).replaceAll('</', '<\\/')}</script>`
+  ).join('\n');
+}
+
 export function layout({ title, desc, path = '/', body, jsonld = null, includeAppJs = true, wide = false }) {
   return `<!doctype html>
 <html lang="en">
@@ -45,8 +55,8 @@ export function layout({ title, desc, path = '/', body, jsonld = null, includeAp
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
+<link rel="stylesheet" href="/style.css?v=9">
+${jsonldTags(jsonld)}
 </head>
 <body>
 <div class="wrap${wide ? ' wrap--wide' : ''}">
@@ -69,16 +79,13 @@ ${body}
       <button type="submit">Sign up</button>
     </div>
   </form>
-  <nav class="foot-nav">
-    <a href="/minneapolis">Minneapolis</a> · <a href="/st-paul">St Paul</a> ·
-    <a href="/neighborhoods">Neighborhoods</a> ·
-    <a href="/submit">Add a bar</a> · <a href="/privacy">Privacy</a>
-  </nav>
-  <p class="fine">Free + independent. Deals change — tap “report” on a bar page
-  when one's off. Your location never leaves your phone.</p>
+  <p class="fine"><span class="fine-nav"><a href="/minneapolis">MPLS</a> · <a href="/st-paul">STP</a> ·
+  <a href="/neighborhoods">HOODS</a> · <a href="/submit">ADD A BAR</a> · <a href="/privacy">PRIVACY</a></span><br>
+  Free + independent. Deals change — tap the flag on a bar page when one's off.
+  Your location never leaves your phone.</p>
 </footer>
 </div>
-${includeAppJs ? '<script src="/app.js" defer></script>' : ''}
+${includeAppJs ? '<script src="/app.js?v=9" defer></script>' : ''}
 <!-- 100% privacy-first analytics -->
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
@@ -193,6 +200,7 @@ const ICONS = {
   heart: '<path d="M12 20s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 5c-2.5 4.5-9.5 9-9.5 9z"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>',
   share: '<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8 15.8 6.4M8.2 13.2l7.6 4.4"/>',
+  phone: '<path d="M7 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L16 12l5 2v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3z"/>',
 };
 export const icon = name =>
   `<svg class="ico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ''}</svg>`;
