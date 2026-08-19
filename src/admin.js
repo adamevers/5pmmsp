@@ -145,6 +145,12 @@ async function dash({ env, url }) {
      LEFT JOIN bars b ON b.id = s.bar_id WHERE s.status = 'pending' ORDER BY s.id DESC`).all()).results;
   const recent = (await db.prepare(
     'SELECT ts, action, subject FROM admin_log ORDER BY id DESC LIMIT 6').all()).results;
+  // Shared links opened in the last 30 days, by bar. COUNT(*) is opens;
+  // COUNT(DISTINCT share_id) is how many separate shares drove them.
+  const shared = (await db.prepare(
+    `SELECT slug, COUNT(*) opens, COUNT(DISTINCT share_id) links
+     FROM share_hits WHERE ts > datetime('now', '-30 day')
+     GROUP BY slug ORDER BY opens DESC LIMIT 8`).all()).results;
   const found = q ? (await db.prepare(
     'SELECT slug, name, neighborhood FROM bars WHERE name LIKE ? ORDER BY name LIMIT 25')
     .bind(`%${q}%`).all()).results : [];
@@ -168,6 +174,12 @@ ${found.map(b => `<div class="card"><a href="/admin/bar/${esc(b.slug)}"><b>${esc
  <span class="meta">· ${esc(hoodName(b.neighborhood))}</span></div>`).join('')}
 ${q && !found.length ? '<p class="meta">No matches.</p>' : ''}
 <p><a class="btn" href="/admin/new">+ Add a bar</a></p>
+
+<h2>Most shared (30d)</h2>
+${shared.length ? `<ul class="log">${shared.map(s =>
+  `<li><a href="/bar/${esc(s.slug)}">${esc(s.slug)}</a> · <b>${s.opens}</b> open${s.opens === 1 ? '' : 's'}
+   from ${s.links} link${s.links === 1 ? '' : 's'}</li>`).join('')}</ul>`
+  : '<p class="meta">No shared links opened yet.</p>'}
 
 <h2>Recent admin activity</h2>
 <ul class="log">${recent.map(l => `<li>${esc(l.ts)} · ${esc(l.action)} · ${esc(l.subject)}</li>`).join('') || '<li>none yet</li>'}</ul>`);

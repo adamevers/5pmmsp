@@ -340,11 +340,20 @@ us</a>. We'd genuinely want to know.</p>
   }));
 }
 
-export async function barPage({ env, params, url }) {
+export async function barPage({ env, params, url, ctx }) {
   const bar = await barBySlug(env.DB, params.slug);
   if (!bar) return null;
   const now = nowInChicago();
   const ok = url.searchParams.get('ok');
+
+  // Arrived from a shared link? Count it, off the response path. Bad/oversized
+  // tokens are ignored rather than stored — this is untrusted query input.
+  const inbound = (url.searchParams.get('s') || '').slice(0, 12);
+  if (/^[a-z0-9]{4,12}$/.test(inbound)) {
+    const log = env.DB.prepare('INSERT INTO share_hits (share_id, slug) VALUES (?, ?)')
+      .bind(inbound, bar.slug).run().catch(() => {});
+    if (ctx?.waitUntil) ctx.waitUntil(log);
+  }
 
   // ── Happy Hr row: a pill per window (+ ⓘ last-verified), deals shown below ──
   const lv = esc(fmtDate(bar.last_verified));
@@ -396,12 +405,17 @@ export async function barPage({ env, params, url }) {
   const fullAddr = bar.address
     ? `${bar.address}, ${cityName(bar.city)}, ${bar.state || 'MN'}${bar.zip ? ' ' + bar.zip : ''}`
     : '';
+  // A fresh token per render, so one copied link ≈ one share to count opens on.
+  // Math.random is fine here: this is an analytics tag, not a secret.
+  const shareId = Math.random().toString(36).slice(2, 8);
+  const shareUrl = `https://5pmmsp.com/bar/${bar.slug}`
+    + `?utm_source=share&utm_medium=text&utm_campaign=bar_share&s=${shareId}`;
   const shareText = [
     `Happy hour at ${bar.name} (${hoodName(bar.neighborhood)})`,
     ...bar.hh.map(h => `${fmtDows(h.dow_mask)}: ${fmtWindow(h)}`),
     dealLine && `“${emojify(dealLine)}”`,
     fullAddr,
-  ].filter(Boolean).join('\n') + '\n\nFind more happy hours at 5pmmsp.com';
+  ].filter(Boolean).join('\n') + `\n\n${shareUrl}`;
   const dirQ = encodeURIComponent(fullAddr
     ? `${bar.name}, ${fullAddr}`
     : `${bar.name}, ${cityName(bar.city)} ${bar.state || 'MN'}`);
