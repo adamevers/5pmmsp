@@ -5,7 +5,7 @@
 import { esc } from './lib/html.js';
 import { CITIES, HOODS, CATEGORIES, hoodName, barBySlug } from './lib/data.js';
 import { isAdmin, tokenOk, sessionCookie, clearCookie, sameOrigin } from './lib/auth.js';
-import { DAYS, timeFromMinutes, parseWindows, barFromForm } from './lib/adminform.js';
+import { DAYS, timeFromMinutes, parseWindows, barFromForm, fmtPhone } from './lib/adminform.js';
 
 const todayChicago = () =>
   new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(new Date());
@@ -248,6 +248,10 @@ ${isNew ? '<label>Slug (kebab-case, permanent)</label><input name="slug" value="
 <div><label>Lng</label><input name="lng" inputmode="decimal" value="${bar.lng ?? ''}"></div>
 </div>
 <label>Website</label><input name="website" value="${esc(bar.website || '')}">
+<div class="grid2">
+<div><label>Phone</label><input name="phone" type="tel" inputmode="tel" placeholder="612-555-1234" value="${esc(fmtPhone(bar.phone) || '')}"></div>
+<div><label>Instagram (handle)</label><input name="instagram" placeholder="brits_pub" value="${esc(bar.instagram || '')}"></div>
+</div>
 <label>Address</label><input name="address" value="${esc(bar.address || '')}">
 <div class="grid2">
 <div><label>State</label><input name="state" value="${esc(bar.state || 'MN')}"></div>
@@ -275,7 +279,7 @@ ${windowRows('ho', hours, false)}
 
 const BAR_UPDATE_COLS = ['name', 'city', 'neighborhood', 'lat', 'lng', 'website', 'patio',
   'rooftop', 'skyway', 'verified', 'last_verified', 'notes', 'price', 'category',
-  'seating', 'food', 'hours', 'address', 'state', 'zip'];
+  'seating', 'food', 'hours', 'address', 'state', 'zip', 'phone', 'instagram'];
 
 function barBinds(bar, hoursArr) {
   const vals = { ...bar, hours: hoursArr.length ? JSON.stringify(hoursArr) : null };

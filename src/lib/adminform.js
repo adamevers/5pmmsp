@@ -42,6 +42,32 @@ export function parseWindows(form, prefix, { deals = false } = {}) {
 
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
+/**
+ * Any US phone spelling → E.164 ("+16125551234"), or null if it isn't one.
+ * Stored normalized so schema.org `telephone` and the tel: link are both
+ * unambiguous no matter how the number was typed or scraped.
+ */
+export function normalizePhone(raw) {
+  const digits = String(raw ?? '').replace(/\D/g, '');
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits[0] === '1') return `+${digits}`;
+  return null;
+}
+
+/** E.164 → "(612) 555-1234" for display. Unrecognized input passes through. */
+export function fmtPhone(e164) {
+  const m = /^\+1(\d{3})(\d{3})(\d{4})$/.exec(String(e164 ?? ''));
+  return m ? `(${m[1]}) ${m[2]}-${m[3]}` : String(e164 ?? '');
+}
+
+/** "@handle", "instagram.com/handle/", "handle" → "handle", or null. */
+export function normalizeInstagram(raw) {
+  const s = String(raw ?? '').trim();
+  if (!s) return null;
+  const m = /^(?:https?:\/\/)?(?:www\.)?(?:instagram\.com\/)?@?([A-Za-z0-9._]{1,30})\/?$/.exec(s);
+  return m ? m[1] : null;
+}
+
 /** Bar fields + validation from an editor form. Slug passed separately
  * (immutable on edit, form-supplied on create). */
 export function barFromForm(form, slug) {
@@ -57,6 +83,8 @@ export function barFromForm(form, slug) {
     category: g('category'), seating: g('seating'), food: g('food'),
     notes: g('notes'), verified: form.get('verified') ? 1 : 0,
     last_verified: g('last_verified') || null,
+    phone: g('phone') ? normalizePhone(g('phone')) : null,
+    instagram: g('instagram') ? normalizeInstagram(g('instagram')) : null,
   };
   if (!SLUG_RE.test(slug || '')) errors.push('Slug must be kebab-case (a-z, 0-9, dashes).');
   if (!bar.name) errors.push('Name is required.');
@@ -66,6 +94,8 @@ export function barFromForm(form, slug) {
     errors.push('lat/lng are required numbers.');
   if (bar.price != null && !(bar.price >= 1 && bar.price <= 4)) errors.push('Price is 1-4.');
   if (bar.category && !CATEGORIES[bar.category]) errors.push(`Unknown category "${bar.category}".`);
+  if (g('phone') && !bar.phone) errors.push('Phone must be a 10-digit US number.');
+  if (g('instagram') && !bar.instagram) errors.push('Instagram must be a handle (letters, numbers, dots, underscores).');
   if (bar.verified && bar.last_verified && !/^\d{4}-\d{2}-\d{2}$/.test(bar.last_verified))
     errors.push('last_verified must be YYYY-MM-DD.');
   if (!bar.verified) bar.last_verified = null;

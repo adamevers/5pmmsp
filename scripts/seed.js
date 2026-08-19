@@ -17,6 +17,7 @@ const BAR_COLS = [
   'slug', 'name', 'city', 'neighborhood', 'lat', 'lng', 'website', 'patio',
   'rooftop', 'skyway', 'verified', 'last_verified', 'notes', 'price',
   'category', 'seating', 'food', 'hours', 'address', 'state', 'zip',
+  'phone', 'instagram',
 ];
 
 function barValues(b) {
@@ -27,6 +28,7 @@ function barValues(b) {
     b.price ? b.price : 'NULL', q(b.category), q(b.seating), q(b.food),
     b.hours && b.hours.length ? q(JSON.stringify(b.hours)) : 'NULL',
     b.address ? q(b.address) : 'NULL', q(b.state || 'MN'), b.zip ? q(b.zip) : 'NULL',
+    b.phone ? q(b.phone) : 'NULL', b.instagram ? q(b.instagram) : 'NULL',
   ];
 }
 

@@ -78,6 +78,8 @@ field notes):
   "neighborhood": "nordeast",
   "lat": 44.9845, "lng": -93.2712,
   "website": "https://official-site",
+  "phone": "+16125551234",
+  "instagram": "handle_no_at_sign",
   "patio": 0, "rooftop": 0, "skyway": 0,
   "price": 2,
   "category": "bar-restaurant",
@@ -96,6 +98,14 @@ field notes):
 - `category`: `cocktail-bar` | `bar-restaurant` | `dive-bar` | `lounge`. Breweries/taprooms → `bar-restaurant`.
 - `hours` (regular open hours) is **optional** — a backfill pass fills it; omit it
   rather than guessing.
+- `phone`: E.164 (`+1` + 10 digits). Same sourcing rule as the deal itself — take
+  it off the bar's **own site only**, never a directory. Omit rather than guess.
+  On a multi-location chain page, match the number to the street address; if you
+  can't tell which is which, omit it. `scripts/phones.js` backfills in bulk:
+  `list` prints what's missing, `merge` normalizes results in (rejecting anything
+  that isn't a valid US number), `sql` emits phone/instagram-only UPDATEs.
+- `instagram`: handle only, no `@`, no URL. Feeds `sameAs` in the bar's JSON-LD
+  and the tagging list for social posts.
 - `last_verified` required when `verified: 1`, omit when `0`.
 - New `city` or `neighborhood`? Register the slug in `src/lib/data.js` (`CITIES` /
   `HOODS`) or the page 404s, and redeploy the worker.
@@ -118,6 +128,26 @@ npm test                                   # must stay green
 # only if you added a city/neighborhood slug, redeploy:
 ~/cos/scripts/vault run /cos -- sh -c 'export CLOUDFLARE_API_TOKEN=$COS_CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$COS_CLOUDFLARE_ACCOUNT_ID; cd ~/5pmmsp && npx wrangler deploy'
 ```
+
+### Adding a COLUMN: do not use the migrations runner on prod
+
+`wrangler d1 migrations apply 5pmmsp --remote` **fails** against prod. The
+remote DB was never registered with the runner, so it tries to replay every
+migration from `0001` and dies on `duplicate column name: price` (which is also
+why `0002_catchup.sql` says not to run it there). It fails before applying
+anything, so it is safe but useless.
+
+Add the column with a direct statement instead, then commit a migration file so
+a fresh local DB still builds:
+
+```
+~/cos/scripts/vault run /cos -- sh -c 'export CLOUDFLARE_API_TOKEN=$COS_CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID=$COS_CLOUDFLARE_ACCOUNT_ID; cd ~/5pmmsp && npx wrangler d1 execute 5pmmsp --remote --command "ALTER TABLE bars ADD COLUMN foo TEXT;"'
+```
+
+To backfill one column across many bars, emit **targeted UPDATEs** rather than
+running the full seed (which upserts every column and would overwrite admin
+edits made since the last export). `scripts/phones.js sql` is the worked
+example.
 
 Commit `seed/bars.json`, `seed/skiplist.json`, and `src/lib/data.js` together
 (never commit `seed/seed.sql` — it's gitignored/generated). Push via the
