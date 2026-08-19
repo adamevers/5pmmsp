@@ -1,58 +1,588 @@
 {
   "_readme": "Venues already evaluated and INTENTIONALLY not added to bars.json — so future ingests don't re-fetch and re-reject them. Dedupe step should match incoming names (case-insensitive, ignore leading 'the ' + punctuation) against BOTH bars.json and this file. reason: closed | no-happy-hour | out-of-scope | duplicate. 'checked' = date last confirmed. Re-verify a 'closed'/'no-happy-hour' entry only if you have a specific reason to think it changed (reopened, new HH launched).",
   "skipped": [
-    { "name": "Republic", "reason": "closed", "checked": "2026-07-14", "note": "Seven Corners; closed Apr 2026", "source": "thrillist-bars" },
-    { "name": "GYST Fermentation Bar", "reason": "closed", "checked": "2026-07-14", "source": "thrillist-bars" },
-    { "name": "Bev's Wine Bar", "reason": "closed", "checked": "2026-07-14", "note": "North Loop; closed 2023", "source": "thrillist-bars" },
-    { "name": "The Muddy Pig", "reason": "closed", "checked": "2026-07-14", "source": "thrillist-bars" },
-    { "name": "Heyday", "reason": "closed", "checked": "2026-07-14", "note": "Lyn-Lake; closed 2018", "source": "thrillist-cocktail" },
-    { "name": "Constantine", "reason": "closed", "checked": "2026-07-14", "note": "Hotel Ivy basement", "source": "thrillist-cocktail" },
-    { "name": "Saint Dinette", "reason": "closed", "checked": "2026-07-14", "note": "Lowertown", "source": "thrillist-cocktail" },
-    { "name": "Eat Street Social", "reason": "closed", "checked": "2026-07-14", "source": "thrillist-bars" },
-    { "name": "Rival House Sporting Parlour", "reason": "closed", "checked": "2026-07-14", "note": "Downtown St Paul; closed Oct 2025", "source": "thrillist-bars" },
-    { "name": "Marvel Bar", "reason": "closed", "checked": "2026-07-14", "note": "North Loop; closed 2020 w/ Bachelor Farmer", "source": "thrillist-cocktail" },
-    { "name": "Bradstreet Crafthouse", "reason": "closed", "checked": "2026-07-14", "note": "Lowry Hill closed; relocated to MSP airport hotel (out of scope)", "source": "thrillist-cocktail" },
-    { "name": "Amore Uptown", "reason": "closed", "checked": "2026-07-14", "source": "thrillist-rooftop" },
-    { "name": "Seven Steakhouse Sushi & Skybar", "reason": "closed", "checked": "2026-07-14", "note": "Downtown Hennepin rooftop", "source": "thrillist-rooftop" },
-    { "name": "Stella's Fish Cafe", "reason": "closed", "checked": "2026-07-14", "note": "Uptown; closed 2022", "source": "thrillist-rooftop" },
-    { "name": "The Strip Club Meat & Fish", "reason": "closed", "checked": "2026-07-14", "note": "Dayton's Bluff", "source": "thrillist-cocktail" },
-    { "name": "Psycho Suzi's Motor Lounge", "reason": "closed", "checked": "2026-07-14", "source": "thrillist-rooftop" },
-    { "name": "Young Joni", "reason": "closed", "checked": "2026-07-14", "note": "Northeast", "source": "thrillist-bars" },
-    { "name": "Fair State Brewing Cooperative", "reason": "closed", "checked": "2026-07-14", "note": "NE Central Ave taproom", "source": "thrillist-brewery" },
-    { "name": "Tattersall Distilling", "reason": "closed", "checked": "2026-07-14", "note": "NE Mpls cocktail room closed Nov 2024 (River Falls WI location out of scope)", "source": "thrillist-bars" },
-    { "name": "LynLake Brewery", "reason": "closed", "checked": "2026-07-14", "note": "Lyn-Lake rooftop", "source": "thrillist-rooftop" },
-    { "name": "Betty Danger's Country Club", "reason": "closed", "checked": "2026-07-14", "note": "NE; domain dead", "source": "thrillist-rooftop" },
-    { "name": "Liquor Lyle's", "reason": "closed", "checked": "2026-07-14", "note": "Uptown; now LITT Pinball", "source": "thrillist-dive" },
-
-    { "name": "Volstead's Emporium", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "speakeasy; explicitly no HH", "source": "thrillist-bars" },
-    { "name": "Meteor", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "North Mpls; no HH", "source": "thrillist-cocktail" },
-    { "name": "CC Club", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Uptown; localfriend says no HH", "source": "thrillist-dive" },
-    { "name": "Public Domain", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "North Loop; $18 cocktails, no published HH", "source": "thrillist-cocktail" },
-    { "name": "Du Nord Craft Spirits", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Longfellow distillery cocktail room", "source": "thrillist-cocktail" },
-    { "name": "Spoon and Stable", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "North Loop fine dining", "source": "thrillist-cocktail" },
-    { "name": "Martina", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Linden Hills; official listing says no HH", "source": "thrillist-bars" },
-    { "name": "Surly Brewing", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Prospect Park beer hall; no HH", "source": "thrillist-brewery" },
-    { "name": "Summit Brewing", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "St Paul Ratskeller; no HH deals", "source": "thrillist-brewery" },
-    { "name": "Bauhaus Brew Labs", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "NE; no HH found", "source": "thrillist-brewery" },
-    { "name": "Graze Provisions + Libations", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "North Loop food hall; rooftop but no confirmed HH", "source": "thrillist-rooftop" },
-    { "name": "NOLO's Kitchen & Bar", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "North Loop rooftop; HH implied but no days/times/deals found — REVISIT if details surface", "source": "thrillist-rooftop" },
-    { "name": "The Lexington", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Grand Ave; 'social hours' M-F 3-5 but no discounted pricing", "source": "thrillist-rooftop" },
-    { "name": "Lawless Distilling", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Seward; seasonal cocktail room, no HH; Yelp shows closed status too", "source": "thrillist-cocktail" },
-    { "name": "Matt's Bar", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Powderhorn; Jucy Lucy landmark, no HH", "source": "thrillist-dive" },
-    { "name": "Terminal Bar", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "NE; no HH published", "source": "thrillist-dive" },
-    { "name": "Rooftop at Hewing Hotel", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "North Loop; no HH found", "source": "thrillist-rooftop" },
-    { "name": "Restoration Hardware Rooftop", "reason": "no-happy-hour", "checked": "2026-07-14", "note": "Edina (in scope) but no HH", "source": "thrillist-rooftop" },
-
-    { "name": "Bent Paddle Brewing", "reason": "out-of-scope", "checked": "2026-07-14", "note": "Duluth", "source": "thrillist-brewery" },
-    { "name": "Lift Bridge Brewery", "reason": "out-of-scope", "checked": "2026-07-14", "note": "Stillwater", "source": "thrillist-brewery" },
-    { "name": "Schell's Brewery", "reason": "out-of-scope", "checked": "2026-07-14", "note": "New Ulm", "source": "thrillist-brewery" },
-    { "name": "Steel Toe Brewing", "reason": "out-of-scope", "checked": "2026-07-14", "note": "St Louis Park", "source": "thrillist-brewery" },
-    { "name": "Castle Danger Brewery", "reason": "out-of-scope", "checked": "2026-07-14", "note": "Two Harbors", "source": "thrillist-brewery" },
-    { "name": "Forager Brewery", "reason": "out-of-scope", "checked": "2026-07-14", "note": "Rochester", "source": "thrillist-brewery" },
-    { "name": "Junkyard Brewing", "reason": "out-of-scope", "checked": "2026-07-14", "note": "Moorhead", "source": "thrillist-brewery" },
-    { "name": "6Smith", "reason": "out-of-scope", "checked": "2026-07-14", "note": "Wayzata", "source": "thrillist-rooftop" },
-    { "name": "Neumann's Bar", "reason": "out-of-scope", "checked": "2026-07-14", "note": "North St Paul (separate suburb, not currently a listed city)", "source": "thrillist-dive" },
-
-    { "name": "The Happy Gnome", "reason": "duplicate", "checked": "2026-07-14", "note": "reopened as The Gnome Craft Pub — already in bars.json as gnome-craft-pub", "source": "thrillist-bars" }
+    {
+      "name": "6Smith",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "Wayzata",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Amore Uptown",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Bauhaus Brew Labs",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "NE; no HH found",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Bent Paddle Brewing",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "Duluth",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Betty Danger's Country Club",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "NE; domain dead",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Bev's Wine Bar",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "North Loop; closed 2023",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "Billy's on Grand",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "857 Grand Ave; became Gather Eatery 2023, closed Jan 2024",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Birch's on the Lake Lowertown",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Lowertown",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Black Sheep Pizza Eat Street",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "2550 Nicollet; brand now North Loop only",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Borough",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "North Loop; closed June 2026",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Bradstreet Crafthouse",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Lowry Hill closed; relocated to MSP airport hotel (out of scope)",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Brickhouse Food and Drink",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "White Bear Lake; explicitly states no happy hour",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Cafe & Bar Lurcat",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Loring Park",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Castle Danger Brewery",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "Two Harbors",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "CC Club",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Uptown; localfriend says no HH",
+      "source": "thrillist-dive"
+    },
+    {
+      "name": "Colossal Cafe",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Standish-adjacent",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Constantine",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Hotel Ivy basement",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Crooked Pint Ale House",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Chaska location (3210 Chaska Blvd) only",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Daily Diner Frogtown",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "615 University Ave W",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Dock & Paddle",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Como Lakeside Pavilion; none on official site",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Du Nord Craft Spirits",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Longfellow distillery cocktail room",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "East Side Bar",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "858 Payne Ave; closed Dec 2022",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Eat Street Social",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "Fair State Brewing Cooperative",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "NE Central Ave taproom",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Forager Brewery",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "Rochester",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Graze Provisions + Libations",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "North Loop food hall; rooftop but no confirmed HH",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "GYST Fermentation Bar",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "HeadFlyer Brewing",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "E Hennepin; own site states taproom closed April 2026",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Heyday",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Lyn-Lake; closed 2018",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "In Vino Veritas",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Shoreview wine bar",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Joan’s in the Park",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Highland Park",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Junkyard Brewing",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "Moorhead",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Kitty Cat Klub",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Dinkytown; MN Daily retrospective Sept 2024",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "La Casita",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Columbia Heights location",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Lawless Distilling",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Seward; seasonal cocktail room, no HH; Yelp shows closed status too",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Lift Bridge Brewery",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "Stillwater",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Lion's Tavern",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Stillwater; closed 2019 per Stillwater Gazette",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Liquor Lyle's",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Uptown; now LITT Pinball",
+      "source": "thrillist-dive"
+    },
+    {
+      "name": "LynLake Brewery",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Lyn-Lake rooftop",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Martina",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Linden Hills; official listing says no HH",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "Marvel Bar",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "North Loop; closed 2020 w/ Bachelor Farmer",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Matt's Bar",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Powderhorn; Jucy Lucy landmark, no HH",
+      "source": "thrillist-dive"
+    },
+    {
+      "name": "Meteor",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "North Mpls; no HH",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Miller’s Corner Bar & Grill",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Columbia Heights; none on site or Facebook",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Neumann's Bar",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "North St Paul (separate suburb, not currently a listed city)",
+      "source": "thrillist-dive"
+    },
+    {
+      "name": "NOLO's Kitchen & Bar",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "North Loop rooftop; HH implied but no days/times/deals found — REVISIT if details surface",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Pivo Riverplace",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Marcy-Holmes; own site states closed Oct 15 2023",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Pourhouse Dinkytown",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "aka Library Bar and Grill",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Prima",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Tangletown",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Psycho Suzi's Motor Lounge",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Public Domain",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "North Loop; $18 cocktails, no published HH",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Republic",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Seven Corners; closed Apr 2026",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "Restoration Hardware Rooftop",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Edina (in scope) but no HH",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Revival",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Nicollet Ave location closed Aug 2026; folded into Revival Smoked Meats",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Rival House Sporting Parlour",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Downtown St Paul; closed Oct 2025",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "Rooftop at Hewing Hotel",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "North Loop; no HH found",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Saint Dinette",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Lowertown",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Salut Bar Americain",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "917 Grand Ave; closed Jan 8 2024",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Schell's Brewery",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "New Ulm",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Sea Salt Eatery",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Minnehaha Park",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Seven Steakhouse Sushi & Skybar",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Downtown Hennepin rooftop",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Spoon and Stable",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "North Loop fine dining",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "Sporty's Pub & Grill",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "2124 Como Ave SE",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Steel Toe Brewing",
+      "reason": "out-of-scope",
+      "checked": "2026-07-14",
+      "note": "St Louis Park",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Stella's Fish Cafe",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Uptown; closed 2022",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "Summit Brewing",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "St Paul Ratskeller; no HH deals",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Surly Brewing",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Prospect Park beer hall; no HH",
+      "source": "thrillist-brewery"
+    },
+    {
+      "name": "Tattersall Distilling",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "NE Mpls cocktail room closed Nov 2024 (River Falls WI location out of scope)",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "Terminal Bar",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "NE; no HH published",
+      "source": "thrillist-dive"
+    },
+    {
+      "name": "The American Legion Richfield",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "6501 Portland Ave",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "The Dinkytowner",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "412 14th Ave SE",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "The Happy Gnome",
+      "reason": "duplicate",
+      "checked": "2026-07-14",
+      "note": "reopened as The Gnome Craft Pub — already in bars.json as gnome-craft-pub",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "The Joint",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Cedar Ave S; aggregator states none",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "The Lexington",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "Grand Ave; 'social hours' M-F 3-5 but no discounted pricing",
+      "source": "thrillist-rooftop"
+    },
+    {
+      "name": "The Muddy Pig",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "The Strip Club Meat & Fish",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Dayton's Bluff",
+      "source": "thrillist-cocktail"
+    },
+    {
+      "name": "The Tilted Tiki",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Stillwater; own site confirms",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Toby Keith's I Love This Bar & Grill",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "Mall of America; chain exited MN",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Town House Bar",
+      "reason": "duplicate",
+      "checked": "2026-08-19",
+      "note": "Rebranded as Black Hart of Saint Paul, 1415 University Ave W",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Turf Club",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Hamline-Midway; no HH found",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Volstead's Emporium",
+      "reason": "no-happy-hour",
+      "checked": "2026-07-14",
+      "note": "speakeasy; explicitly no HH",
+      "source": "thrillist-bars"
+    },
+    {
+      "name": "Ward 6 Food & Drink",
+      "reason": "closed",
+      "checked": "2026-08-19",
+      "note": "858 Payne Ave; closed June 2018",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Wise Acre Eatery",
+      "reason": "no-happy-hour",
+      "checked": "2026-08-19",
+      "note": "Tangletown; none on drinks page",
+      "source": "discovery-2026-08"
+    },
+    {
+      "name": "Young Joni",
+      "reason": "closed",
+      "checked": "2026-07-14",
+      "note": "Northeast",
+      "source": "thrillist-bars"
+    }
   ]
 }
