@@ -93,8 +93,23 @@
     if (!b) return;
     e.preventDefault(); e.stopPropagation();       // don't trigger the card link
     const slug = b.dataset.fav;
-    if (favs.has(slug)) favs.delete(slug); else favs.add(slug);
+    const on = !favs.has(slug);
+    if (on) favs.add(slug); else favs.delete(slug);
     writeFavs(); paintFavs();
+    // Tell the server the tally moved — not who moved it. keepalive so the
+    // beat survives the card navigation that often follows a tap.
+    try {
+      fetch('/api/fav', {
+        method: 'POST', keepalive: true,
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ slug, on }),
+      }).catch(() => {});
+    } catch {}
+    const n = b.querySelector('[data-fav-n]');
+    if (n) {
+      const next = Math.max(0, (parseInt(n.textContent, 10) || 0) + (on ? 1 : -1));
+      n.textContent = next ? String(next) : '';
+    }
     if (document.querySelector('[data-f="saved"][aria-pressed="true"]')) applyFilters();
   });
 

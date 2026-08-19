@@ -57,7 +57,7 @@ ${noindex ? '<meta name="robots" content="noindex,follow">' : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css?v=11">
+<link rel="stylesheet" href="/style.css?v=12">
 ${jsonldTags(jsonld)}
 </head>
 <body>
@@ -87,7 +87,7 @@ ${body}
   Your location never leaves your phone.</p>
 </footer>
 </div>
-${includeAppJs ? '<script src="/app.js?v=9" defer></script>' : ''}
+${includeAppJs ? '<script src="/app.js?v=12" defer></script>' : ''}
 <!-- 100% privacy-first analytics -->
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
@@ -134,8 +134,8 @@ export function trustChip(bar) {
 }
 
 /** Heart/favorite toggle (client-persisted). */
-export const favBtn = bar =>
-  `<button class="fav" data-fav="${esc(bar.slug)}" aria-label="Save ${esc(bar.name)}" aria-pressed="false">${icon('heart')}</button>`;
+export const favBtn = (bar, n = 0) =>
+  `<button class="fav" data-fav="${esc(bar.slug)}" aria-label="Save ${esc(bar.name)}" aria-pressed="false">${icon('heart')}<span class="fav-n" data-fav-n>${n > 0 ? n : ''}</span></button>`;
 
 /** Category outline chip. */
 export function attrChips(bar) {

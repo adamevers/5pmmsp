@@ -317,6 +317,23 @@ say so in big letters.</p>
 browser's own storage, on your device, where we can't read them. Close the tab
 and they're still yours; clear your browser data and they're gone.</p>
 
+<h3>The two numbers we count</h3>
+<p>We show how popular a bar is, and that needs counting — so here is exactly
+what's counted, and what isn't.</p>
+<p><b>Hearts.</b> When you tap a heart we add <i>one</i> to that bar's tally
+(untapping subtracts one). We store a single number per bar, like "hearts: 34."
+We do not store who tapped, from what device, or which bars any one person
+saved. Your own list is still only on your device — we just know the total
+moved.</p>
+<p><b>Shared links.</b> The link in the share box carries a short random tag,
+so when someone opens it we can count that a share was opened and for which
+bar. We keep the tag, the bar, and the time. No IP address, no browser
+fingerprint, nothing that ties two visits together as the same person. The tag
+belongs to the copied link, not to you — and a link you never send is a tag
+we never see.</p>
+<p>Both are counters, not profiles. There is no way for us to work backwards
+from either one to a person, which is the point.</p>
+
 <h3>Analytics without surveillance</h3>
 <p>We use <a href="https://www.simpleanalytics.com" rel="noopener">Simple
 Analytics</a>, which counts visits without cookies, fingerprinting, or personal
@@ -327,7 +344,7 @@ data. We can see "some people looked at Nordeast bars on a Tuesday," never
 <p>If you submit a bar, report a wrong deal, or join the newsletter, we keep
 what you typed (and your email, for the newsletter; unsubscribing is one
 click). Forms are protected by Cloudflare Turnstile, which checks you're
-human. That's the whole list.</p>
+human. Plus the two counters above. That's the whole list.</p>
 
 <h3>Who we'd share data with</h3>
 <p>Nobody. There are no ads, no sponsors, no data sales. The site runs on
@@ -348,6 +365,9 @@ export async function barPage({ env, params, url, ctx }) {
 
   // Arrived from a shared link? Count it, off the response path. Bad/oversized
   // tokens are ignored rather than stored — this is untrusted query input.
+  const favN = (await env.DB.prepare('SELECT n FROM fav_counts WHERE slug = ?')
+    .bind(bar.slug).first())?.n || 0;
+
   const inbound = (url.searchParams.get('s') || '').slice(0, 12);
   if (/^[a-z0-9]{4,12}$/.test(inbound)) {
     const log = env.DB.prepare('INSERT INTO share_hits (share_id, slug) VALUES (?, ?)')
@@ -440,7 +460,7 @@ export async function barPage({ env, params, url, ctx }) {
     noindex: !!bar.closed,
     body: `
 <p class="crumb"><a href="/">home</a> / <a href="/${esc(bar.neighborhood)}">${esc(hoodName(bar.neighborhood))}</a></p>
-<div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar)}</div></div>
+<div class="bar-head"><h2>${esc(bar.name)}</h2><div class="bar-actions">${favBtn(bar, favN)}</div></div>
 ${bar.closed ? `<div class="closed-note"><b>Permanently closed.</b> ${esc(bar.closed_note || '')} This page stays up so old links still work, but the bar is off our lists.</div>` : ''}
 <div class="pills">${trustChip(bar)}${attrChips(bar)}${barFlags(bar)}</div>
 ${priceMarks(bar.price)}

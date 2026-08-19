@@ -151,6 +151,8 @@ async function dash({ env, url }) {
     `SELECT slug, COUNT(*) opens, COUNT(DISTINCT share_id) links
      FROM share_hits WHERE ts > datetime('now', '-30 day')
      GROUP BY slug ORDER BY opens DESC LIMIT 8`).all()).results;
+  const loved = (await db.prepare(
+    'SELECT slug, n FROM fav_counts WHERE n > 0 ORDER BY n DESC LIMIT 8').all()).results;
   const found = q ? (await db.prepare(
     'SELECT slug, name, neighborhood FROM bars WHERE name LIKE ? ORDER BY name LIMIT 25')
     .bind(`%${q}%`).all()).results : [];
@@ -180,6 +182,11 @@ ${shared.length ? `<ul class="log">${shared.map(s =>
   `<li><a href="/bar/${esc(s.slug)}">${esc(s.slug)}</a> · <b>${s.opens}</b> open${s.opens === 1 ? '' : 's'}
    from ${s.links} link${s.links === 1 ? '' : 's'}</li>`).join('')}</ul>`
   : '<p class="meta">No shared links opened yet.</p>'}
+
+<h2>Most hearted</h2>
+${loved.length ? `<ul class="log">${loved.map(l =>
+  `<li><a href="/bar/${esc(l.slug)}">${esc(l.slug)}</a> · <b>${l.n}</b> ♥</li>`).join('')}</ul>`
+  : '<p class="meta">No hearts yet.</p>'}
 
 <h2>Recent admin activity</h2>
 <ul class="log">${recent.map(l => `<li>${esc(l.ts)} · ${esc(l.action)} · ${esc(l.subject)}</li>`).join('') || '<li>none yet</li>'}</ul>`);

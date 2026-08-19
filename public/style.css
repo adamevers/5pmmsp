@@ -248,6 +248,10 @@ header .tag b{color:var(--enamel);font-weight:500}
 /* favorite heart + share/info controls (raised above the card stretched-link) */
 .top-right{display:flex;align-items:center;gap:8px;position:relative;z-index:2}
 .fav,.act{background:none;border:0;cursor:pointer;padding:4px;color:var(--dim);line-height:0;border-radius:8px}
+/* heart tally sits beside the icon; empty span collapses when the count is 0 */
+.fav{display:inline-flex;align-items:center;gap:5px}
+.fav-n{font:500 12px "IBM Plex Mono";line-height:1}
+.fav-n:empty{display:none}
 .fav .ico,.act .ico{color:inherit}
 .fav[aria-pressed="true"]{color:var(--cap-red)}
 .fav[aria-pressed="true"] .ico{fill:var(--cap-red);stroke:var(--cap-red)}

@@ -1,6 +1,6 @@
 import { createRouter } from './lib/router.js';
 import { home, hoodPage, cityPage, barPage, submitPage, neighborhoodsPage, privacyPage, dayPage, lateNightPage, notFound } from './pages.js';
-import { barsJson } from './api.js';
+import { barsJson, favCount } from './api.js';
 import { submitBar, reportBar, subscribe } from './forms.js';
 import { sitemap, robots } from './seo.js';
 import { registerAdmin } from './admin.js';
@@ -18,6 +18,7 @@ router.get('/api/bars.json', barsJson);
 router.post('/api/submit', submitBar);
 router.post('/api/report', reportBar);
 router.post('/api/subscribe', subscribe);
+router.post('/api/fav', favCount);
 router.get('/late-night', lateNightPage);
 router.get('/bar/:slug', barPage);
 router.get('/:day', dayPage);     // /friday, /saturday (returns null otherwise)
